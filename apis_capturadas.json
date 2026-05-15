@@ -1,0 +1,2783 @@
+[
+  {
+    "timestamp": "2026-05-07T12:20:35.136718",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+    "headers": {
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\""
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.214728",
+    "method": "GET",
+    "url": "https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.216768",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/jquery-3.1.0.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.218295",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/jquery.signalR-2.2.2.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.220377",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Api/SignalR/hubs",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.221607",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/msal.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.223538",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/bluebird.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.224682",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/fetch.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:35.226490",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/jquery/jszip.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.114973",
+    "method": "GET",
+    "url": "https://www.googletagmanager.com/gtm.js?id=GTM-K539J7CJ",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.116653",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Version.js?v=0.8888314304905838",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.133240",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/torre.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.135266",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Dialog.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.136828",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/ScrollBar.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.138155",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Tarjeta.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.140096",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Actualizador.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.142089",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Contactos.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.143128",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Empresa.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.144629",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Links.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.145465",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Index.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.146162",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Sesion.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.147374",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Convertir.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.149774",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/SCV.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.151039",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/toolkit.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.152943",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/dx.common.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.153963",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/dx.light.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.156485",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Master.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.158245",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/quill.snow.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.160180",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/quill.bubble.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.161683",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Versiones.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.163515",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Secuencias.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.165810",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/TorreCliente.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.166832",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Planes.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.168492",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Extracto.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.170361",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/ContactosCliente.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.171386",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Calificaciones.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.172307",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Styles/Usetiful.css?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.211486",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.327589",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/FuncionesHub.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.340962",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Torre.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.380501",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.icons.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.384299",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.autocomplete.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.386339",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.AES.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.388944",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.notifications.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.391065",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.switch.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.393956",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.components.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.395626",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/s5/s5.Ramda.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.443468",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/dx/all.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.446603",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Config.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.449856",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Index.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.452136",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Torre/Filtros.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.454474",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Torre/Mensaje.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.458097",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Hub/Soporte.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.459469",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Tipos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.460920",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Links/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.462422",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Office/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.463488",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Clientes/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.464944",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.467148",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.469511",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Editor/quill.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.472067",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Historial/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.473530",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calificaciones/confeti/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.474708",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Addons/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.476554",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Mermaid/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.486591",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Soporte.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.487930",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Sesion/Soporte.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.492924",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Links/nuevo.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.496715",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/NuevoSoporte.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.499504",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Requerimiento.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.501775",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Implementacion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.503849",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calendario/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.505407",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Addon.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.506518",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/SoporteFenix.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.507458",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/SoporteInterno.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.508600",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Cotizacion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.509803",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Sesion/Cliente.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.512355",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Empresa/Main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.513574",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Convertir.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.515248",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.518012",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Actualizacion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.520256",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Versiones.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.521563",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/Crear.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.523200",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Office/statics.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.528391",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Historial/repositorio.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.532479",
+    "method": "GET",
+    "url": "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.535013",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Dialog/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.539181",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Adjuntos/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.540748",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/BreadCrumb/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.542340",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Soporte/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.543998",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Contactos/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.545233",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Mails/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.546729",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/utils.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.552031",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Controles.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.554866",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Adjuntos/descarga.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.556507",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Calificacion/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.557656",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Adjuntos/seguimientos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.559198",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Tarjetas/Historial/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.564751",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calendario/Habiles.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.568449",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calendario/Festivos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.575254",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Modulos/datos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.598041",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Empresa/BarraOpciones.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.601581",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calendario/sprints.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.604874",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Autocompletar/Trabajador.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.606994",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Historial.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.609602",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Secuencias/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.611194",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/Formularios.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.614083",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/Zip.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.615710",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/Descripcion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.617397",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/TestIntegracion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.619608",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/Notas.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.621443",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/NuevaVersion/SQL.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.624488",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Zip/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.629723",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Repositorio.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.631902",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calendario/Fecha.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.634147",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Actualizador.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.642196",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calificaciones/notificar.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.645273",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calificaciones/UI/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.646761",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Componentes/Tabs.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.651633",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Actualizador/Menu/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.653358",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Actualizador/Resultados.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.654791",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.656323",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Trabajadores/loginC.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.659922",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Empresa/DatosGenerales.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.668701",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Secuencias/Paso.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.673295",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Proyectos/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.676906",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/SCV/Log.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.721444",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calificaciones/UI/formulario.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.723083",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Calificaciones/store.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.727495",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/desarrollo.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.729124",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/cotizacion.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.730469",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/helpdesk.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.733021",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.734516",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Actualizador/Menu/Ambientes.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.735628",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Actualizador/Menu/BarraMenu.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.752517",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/utils.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.753905",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/funciones.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.790309",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/addons.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.792172",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/basedatos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.793793",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/convertirSoporte.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.795656",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Formateadores/numeros.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:36.797005",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/TiposSoportes/Convertir/Addon/costos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:37.261605",
+    "method": "GET",
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-BY576JJSCK&cx=c&gtm=4e6562h2",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:37.749584",
+    "method": "POST",
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-BY576JJSCK&gtm=45je6562h2v9174968235z89174967660za20gzb9174967660zd9174967660&_p=1778174436108&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=368322141.1778174438&frm=0&pscdl=noapi&rcb=10&sr=1280x720&uaa=x86&uab=64&uafvl=Not.A%252FBrand%3B99.0.0.0%7CChromium%3B136.0.7103.25&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=es-419&_s=1&tag_exp=0~115938466~115938469~117215713~118289195~118463262~118719172&sid=1778174437&sct=1&seg=0&dl=https%3A%2F%2Fcore.sincoerp.com%2FSincoSoporte%2FTorre.html&dt=Soporte%20Sincosoft&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=2571",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:42.766683",
+    "method": "POST",
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-BY576JJSCK&gtm=45je6562h2v9174968235za20gzb9174967660zd9174967660&_p=1778174436108&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=368322141.1778174438&frm=0&pscdl=noapi&rcb=10&sr=1280x720&uaa=x86&uab=64&uafvl=Not.A%252FBrand%3B99.0.0.0%7CChromium%3B136.0.7103.25&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=es-419&_s=2&tag_exp=0~115938466~115938469~117215713~118289195~118463262~118719172&sid=1778174437&sct=1&seg=0&dl=https%3A%2F%2Fcore.sincoerp.com%2FSincoSoporte%2FTorre.html&dt=Soporte%20Sincosoft&en=scroll&epn.percent_scrolled=90&_et=54&tfd=7632",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.426936",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/Sincosoporte/API/Trabajadores/Validar",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "application/json, text/javascript",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "content-type": "application/json; charset=UTF-8",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": "{\"usuario\":\"carlos\",\"password\":\"Yr9+ImYIi9fUOB5duP0npzkjqKq8QgoyIOhRZU4uKsvFlYENExA9mq0HtwDXDh/52\"}",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"tokenAuth\":\"Bearer W0E6DB6LzyPMjTWnibVrFoCG2xNe45Tu+mjYJEP3gvrQJHarcEeoCThOQ2IrXdteSJR2MKmyzg9DoFG8EjmmZ+a1D6S4MR4Bm8bsEKyYvHxECkVxip1zkK7H8hbv0ZM8X6YdQJnwurt/owci+NmLTndjPze9muvUZkly2/svoCmCiKxNLgwc8MCVutlbTOknpCrznOaTjZZeyE3q/QQnrOIQnI2w9Gd9YBgWZ1sWijHVsk8amdAcFm1JY9SZsOUwiA0HL+k+C8IGFnoe8ls4VQ==\",\"token\":{\"value\":2516},\"trabajador\":{\"Id\":11,\"NombreCompleto\":\"ADPRO - Carlos Andrés Chaves\",\"Nombres\":\"ADPRO - Carlos Andrés\",\"Apellidos\":\"Chaves\",\"Correo\":\"carlos@sinco.com.co\",\"EquipoTrabajo\":\"ADPRO\",\"EquipoTrabajo_Id\":105,\"Iniciales\":\"CC\",\"UsuarioDominio\":\"sinco\\\\carlos\",\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},\"HoraServidor\":46149.514561006945}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.510718",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/negotiate?clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778174436154",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/json; charset=UTF-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"Url\":\"/SincoSoporte/API/signalr\",\"ConnectionToken\":\"oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty/7I2JmbbAvUFmyLd7gSwjB+JJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i+I0QiuT96ITdJ+5fV75+dq\",\"ConnectionId\":\"8b6de32a-eb9e-4050-9f3d-cb9bc5a9ed35\",\"KeepAliveTimeout\":20.0,\"DisconnectTimeout\":30.0,\"ConnectionTimeout\":110.0,\"TryWebSockets\":true,\"ProtocolVersion\":\"1.5\",\"TransportConnectTimeout\":5.0,\"LongPollDelay\":0.0}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.512332",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/EquiposTrabajo/105/Jerarquia",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "authorization": "Bearer W0E6DB6LzyPMjTWnibVrFoCG2xNe45Tu+mjYJEP3gvrQJHarcEeoCThOQ2IrXdteSJR2MKmyzg9DoFG8EjmmZ+a1D6S4MR4Bm8bsEKyYvHxECkVxip1zkK7H8hbv0ZM8X6YdQJnwurt/owci+NmLTndjPze9muvUZkly2/svoCmCiKxNLgwc8MCVutlbTOknpCrznOaTjZZeyE3q/QQnrOIQnI2w9Gd9YBgWZ1sWijHVsk8amdAcFm1JY9SZsOUwiA0HL+k+C8IGFnoe8ls4VQ==",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "application/json, text/javascript",
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": "[{\"Id\":0,\"Descripcion\":\"SINCOSOFT\",\"tieneSubMenus\":true},{\"Id\":105,\"Descripcion\":\"ADPRO\",\"tieneSubMenus\":true}]"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.561210",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/connect?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&tid=8",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "cache-control": "no-cache",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/event-stream",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.571750",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/start?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778174436155",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/json; charset=UTF-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{ \"Response\": \"started\" }"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.573539",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/Sincosoporte/Api/Mensajes/SinAsignar/105",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "authorization": "Bearer W0E6DB6LzyPMjTWnibVrFoCG2xNe45Tu+mjYJEP3gvrQJHarcEeoCThOQ2IrXdteSJR2MKmyzg9DoFG8EjmmZ+a1D6S4MR4Bm8bsEKyYvHxECkVxip1zkK7H8hbv0ZM8X6YdQJnwurt/owci+NmLTndjPze9muvUZkly2/svoCmCiKxNLgwc8MCVutlbTOknpCrznOaTjZZeyE3q/QQnrOIQnI2w9Gd9YBgWZ1sWijHVsk8amdAcFm1JY9SZsOUwiA0HL+k+C8IGFnoe8ls4VQ==",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "application/json, text/javascript",
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": "[{\"Id\":0,\"Descripcion\":\"Sin asignar\",\"Mensajes\":[{\"Id\":707356,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"800250926\\\",\\\"razonSocial\\\":\\\"INSTALACIONES HIDRAULICAS Y SANITARIAS W.C SOCIEDAD POR ACCIONES SIMPLIFICADA\\\",\\\"idUsuario\\\":\\\"48\\\",\\\"UsuDominio\\\":\\\"sinco\\\\\\\\erik.cuestas\\\",\\\"email\\\":\\\"xxx@sinco.com.co\\\",\\\"nombreUsuario\\\":\\\"Implementación\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":8782,\\\"idEmpresaCliente\\\":887,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":null,\\\"NomObra\\\":null,\\\"NomEmpresa\\\":\\\"INSTALACIONES HIDRAULICAS Y SANITARIAS W.C SOCIEDAD POR ACCIONES SIMPLIFICADA\\\",\\\"NombreEmpresa\\\":\\\"INSTALACIONES HIDRAULICAS Y SANITARIAS W.C SOCIEDAD POR ACCIONES SIMPLIFICADA\\\",\\\"NombreSucursal\\\":\\\"Principal\\\",\\\"NitEmpresa\\\":\\\"800250926\\\",\\\"SucursalProyecto\\\":null,\\\"PrimerIngreso\\\":false,\\\"CambiarClave\\\":false,\\\"EsReplica\\\":false,\\\"MostrarPanelControl\\\":true,\\\"idProyectoSGP\\\":null,\\\"nombreProyectoSGP\\\":null,\\\"USUhelpDeskSinco\\\":\\\"True\\\",\\\"LgoEmpresa\\\":\\\"https://www5.sincoerp.com/sincoihs/Logos/LgoIHS_doc.jpg\\\",\\\"urlFuentes\\\":\\\"http://GOLDEN/ERP4/\\\",\\\"idPerfil\\\":\\\"1\\\",\\\"IdSucursal\\\":\\\"0\\\",\\\"nombreApp\\\":\\\"SincoIHS\\\",\\\"ctaCorreoInactiva\\\":false,\\\"user_name\\\":\\\"\\\",\\\"user_ip\\\":\\\"191.108.43.253\\\",\\\"NomUsuario\\\":\\\"implementa\\\",\\\"token\\\":\\\"Bearer /IKiynSAjSVzwE6P6KFGJeolFdcIPZJ9oQY5CxF9xilB/zyT3uy88oGjWSi5/89NHN3hX90fJNji5CdG9RkJvKTny0Dhifm0+5ghdGP3wE/G1F+m51X99tPW1bxNk2MDycc/QlJSSIoeh4FvJQelz4twcuD+ewI5MueVomV38KcOPdTyYjUJAV4w8vaJEK/ajdzm7wxhl+20rH98eWdqbfmr2bdji6BqVjfP1nvnxSTjr3rX04m7x3g5XVcTUvFpmeqEWdnVy/s41YVBBzdzyZwbAIrPG9qDeqfIfkZs9XGfSvW6KZrUbVjrqJT4Tcgdk1gpMQj/rWKERuNa5sqBHA==\\\",\\\"token_auth\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpbXBsZW1lbnRhIiwiYXVkIjpbIkEmRiIsIkFEUFJPIiwiR0VTIiwiQ0ZHIl0sInNpZCI6IlVmbFVSWjlydTA0Rk5GRjhLVlJHYjBUNlVQMGJYSC1VV3UyZklhYVVVZ0EiLCJleHAiOjE3NzgyNTc4NjMsImlzcyI6IlNpbmNvRVJQLkFQSSJ9.TFkmmJ9Q5RbM8sj5A-1TVkrC0NCSuMWeH693gqM7fODAtPre1Rt6Hy8ZUluJWuJtbuEAsDkT4f3ppWXEp3_s_FsimVrX6JyhBvHvy_BmfCx-i2XdPV6Y6WMxLOxT-hZy2hrnsnk_4mSIzgrKrgkToLjwrW7vk_5S0MbpJH7vGzVZ8NXS0B20Ihzp69t2my_27cT06256PmQ2FgFoiIK2G6yMIvRlmVbFxei-dTxBoy3r6F_m_HudRp-uzwyoz6K4vouLwGB5fgxRFCDd8graw0nIZpWeO72274X3fiHjYq_nEAIa5kEPcrCyr_R-Hj2IPBXmKSculPVFnhcVFlEBGg\\\",\\\"uid\\\":\\\"gahz1hhwjyn2t20ln0hl4ehd\\\",\\\"URL_Entorno\\\":\\\"https://www5.sincoerp.com/sincoihs/\\\",\\\"tipoBaseDatos\\\":\\\"1\\\"}\",\"Asunto\":\"Copia de Maestros de Pruebas a Producción\",\"Empresa\":{\"Id\":887,\"Nombre\":\"INSTALACIONES HIDRAULICAS Y SANITARIAS W.C SOCIEDAD POR ACCIONES SIMPLIFICADA\"},\"FechaVencimiento\":\"2026-05-07T16:36:09.703\",\"Fecha\":\"2026-05-07T11:36:01.577\",\"Responsable\":\" \",\"Responsable_Id\":null,\"Tipo\":\"IMP\",\"Id_Torre_V1\":null,\"CantidadReplicas\":null},{\"Id\":707339,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"900093411\\\",\\\"razonSocial\\\":\\\"URBAMARES S.A.S.\\\",\\\"idUsuario\\\":\\\"51\\\",\\\"UsuDominio\\\":null,\\\"email\\\":\\\"msantos@urbamares.com\\\",\\\"nombreUsuario\\\":\\\"Miguel Santos\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":4362,\\\"idEmpresaCliente\\\":572,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"102\\\",\\\"NomObra\\\":\\\"FLORA CLUB HOUSE TORRE 2\\\",\\\"NomEmpresa\\\":\\\"URBAMARES S.A.S.\\\",\\\"NombreEmpresa\\\":\\\"URBAMARES S.A.S.\\\",\\\"NombreSucursal\\\":\\\"FLORA CLUB HOUSE TORRE 2\\\",\\\"NitEmpresa\\\":\\\"900093411\\\",\\\"SucursalProyecto\\\":\\\"FLORA CLUB HOUSE TORRE 2\\\",\\\"PrimerIngreso\\\":false,\\\"CambiarClave\\\":false,\\\"EsReplica\\\":false,\\\"MostrarPanelControl\\\":false,\\\"idProyectoSGP\\\":null,\\\"nombreProyectoSGP\\\":null,\\\"USUhelpDeskSinco\\\":\\\"True\\\",\\\"LgoEmpresa\\\":\\\"https://www3.sincoerp.com/sincourbamares/Logos/LgoUrbamares_Doc.JPG\\\",\\\"urlFuentes\\\":\\\"http://GOLDEN/ERP4/\\\",\\\"idPerfil\\\":\\\"2\\\",\\\"IdSucursal\\\":\\\"102\\\",\\\"nombreApp\\\":\\\"SincoUrbamares\\\",\\\"ctaCorreoInactiva\\\":true,\\\"user_name\\\":\\\"\\\",\\\"user_ip\\\":\\\"181.236.239.238\\\",\\\"NomUsuario\\\":\\\"Miguel.Santos\\\",\\\"token\\\":\\\"Bearer E6qZ7BWeZRzpL2a9cE9y5yuQvolfWIKqDvpiD08LZu41H9bhjS++gMZOaLm31x5L5mbC1j4xd3VvP68WOacrjrBhMqjIVV3e3+vZPgFKCUQlklDWWFio0hec42emmxzurDCsSGE8czYzYFASA5L7vYfkpEmHTtLP5YxfWIXQtA3OcXzBOELhCMutnLI5kyAS9h5rAjPR0c82pQCK7MpbdH3MZ6HaUtl1+O5Q0n5jhNo1Ubq36/t90bsCvhINMg6q927ilQIm3EMNh3GjQTg/newrg9O5MvpH0yEu6btXwA4BWqR10RrvwMNj1RvQ14DfSWEcMq87CYrMTYtZdERzzWbI/C/M9ctft+9sS6qVu9o=\\\",\\\"token_auth\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtaWd1ZWwuc2FudG9zIiwiYXVkIjpbIkEmRiIsIkFEUFJPIiwiQ0JSIiwiQ1JNIiwiR0VTIiwiQ0ZHIl0sInNpZCI6IjR4OHFXNzZzcDZuU3Bnby1EYUkzN0RET1FrazBzbEo3OF9HdGg5ckdIQXMiLCJleHAiOjE3NzgyNDg4NjgsImlzcyI6IlNpbmNvRVJQLkFQSSJ9.Y5vkNxUpnJMhMyS6QQsDSKzH3djWWSn-D9MNOxRWohYfXWV03JPd9VKzBdTlnIJyLEckHvufrYZYAsJDVkrN_yqjrYyzG4r3GwHzpBTslFFFYZ7fTQ0yW9IeYVt1SQ38V-EHc3m0qmjK4fu7IdVYLT9xHKL7wx6lFxrlVh5Drz5d-x7DzhwhdxaIGk24t_owZoybxW_91OaFgxWEVhGIRsvsI--QZrMy2vRBbeTbR2D9Ylhm0LVg-JQ1KyNjbTfNgXTRSZqVTfK_MvFIhFimKsoHUG2y9Mhk-WcNqY306a4bkLezHwRMSJfZ-47i2BnUkK8uIrEWWIOlws8wCXIgMg\\\",\\\"uid\\\":\\\"t2jlybifb4obox0k3uvgyl4r\\\",\\\"URL_Entorno\\\":\\\"https://www3.sincoerp.com/sincourbamares/\\\",\\\"tipoBaseDatos\\\":\\\"1\\\"}\",\"Asunto\":\"HABILITACION HELP DESK USUARIO\",\"Empresa\":{\"Id\":572,\"Nombre\":\"URBAMARES S.A.S.\"},\"FechaVencimiento\":\"2026-05-08T10:04:23.933\",\"Fecha\":\"2026-05-07T11:04:23.18\",\"Responsa"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.574745",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/Sincosoporte/Api/Mensajes/equipo/105",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "authorization": "Bearer W0E6DB6LzyPMjTWnibVrFoCG2xNe45Tu+mjYJEP3gvrQJHarcEeoCThOQ2IrXdteSJR2MKmyzg9DoFG8EjmmZ+a1D6S4MR4Bm8bsEKyYvHxECkVxip1zkK7H8hbv0ZM8X6YdQJnwurt/owci+NmLTndjPze9muvUZkly2/svoCmCiKxNLgwc8MCVutlbTOknpCrznOaTjZZeyE3q/QQnrOIQnI2w9Gd9YBgWZ1sWijHVsk8amdAcFm1JY9SZsOUwiA0HL+k+C8IGFnoe8ls4VQ==",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "application/json, text/javascript",
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": "[{\"Id\":5,\"Descripcion\":\"ADPRO Compras\",\"Mensajes\":[{\"Id\":705055,\"Equipotrabajo_Id\":5,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"811032292\\\",\\\"razonSocial\\\":\\\"CONSTRUCTORA CAPITAL MEDELLIN SAS\\\",\\\"idUsuario\\\":\\\"830\\\",\\\"UsuDominio\\\":null,\\\"email\\\":\\\"angie.olaya@constructoracapital.com\\\",\\\"nombreUsuario\\\":\\\"Angie Paola Olaya Martinez\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":5732,\\\"idEmpresaCliente\\\":82,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"177\\\",\\\"NomObra\\\":\\\".\\\",\\\"NomEmpresa\\\":\\\"CONSTRUCTORA CAPITAL MEDELLIN SAS\\\",\\\"NombreEmpresa\\\":\\\"CONSTRUCTORA CAPITAL MEDELLIN SAS\\\",\\\"NombreSucursal\\\":\\\".\\\",\\\"NitEmpresa\\\":\\\"811032292\\\",\\\"SucursalProyecto\\\":\\\".\\\",\\\"PrimerIngreso\\\":false,\\\"CambiarClave\\\":false,\\\"EsReplica\\\":false,\\\"MostrarPanelControl\\\":false,\\\"idProyectoSGP\\\":null,\\\"nombreProyectoSGP\\\":null,\\\"USUhelpDeskSinco\\\":\\\"True\\\",\\\"LgoEmpresa\\\":\\\"https://sincomedellin.constructoracapital.com/sincocapital_nueva/Logos/LgoCapital_Nueva_DOC.JPG\\\",\\\"urlFuentes\\\":\\\"http://GOLDEN/ERP4/\\\",\\\"idPerfil\\\":\\\"2\\\",\\\"IdSucursal\\\":\\\"177\\\",\\\"nombreApp\\\":\\\"SincoCapital_Nueva\\\",\\\"ctaCorreoInactiva\\\":true,\\\"user_name\\\":\\\"\\\",\\\"user_ip\\\":\\\"10.10.19.1\\\",\\\"NomUsuario\\\":\\\"angie.olaya\\\",\\\"token\\\":\\\"Bearer VzXrL1XMB++vD1nqAIJ95cDMD6BzdmVhpfl14ht3hEPz1WzLIvhFbmIqwFjB3Olw58pgvL3TXnBQcLFJWlTNqbPSs5RW3m51H4ySK4tAL7FCTseWnXcccVk4i8TjWZ2BgFvD5095OQWgzHbEz/B9ngv3CUpxfIo/TkgPfrRUTe7PvYZlSgp0/QeXoRRFNXqZw8BFGjBRkakCBVGVj4WclKIFj5o5TEgCmWQE/Vo83AB3yZnDBybXYv9DiUpI619d3IdbYJawylufoNodYh6XwNBIMRo8wvvyKkKWdn+Cwyf1wrB4G+XYIrO36VafS5DEMYB0g6dXM6YdSNoY3hnHhR9I/n2lZok/q/8pwZOt7fw+Rg2U3+LQv5t8TvAPBWyd+m+C4ex79uJ5LRNcMr/dYQ==\\\",\\\"token_auth\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmdpZS5vbGF5YSIsImF1ZCI6WyJHVEgiLCJBJkYiLCJBRFBSTyIsIlNHQyIsIkNCUiIsIkYmQyIsIkdFUyIsIlNHRCIsIkNGRyIsIlNSTSJdLCJzaWQiOiJfM2piNFE1QXladDJZNldXSkVZN1VJVjIzZ1ZUNnJpZkVJSGlqYWM3M3prIiwiZXhwIjoxNzc3NjYzNzQ3LCJpc3MiOiJTaW5jb0VSUC5BUEkifQ.Q4AOQ1LqElbGnL9uB7VQA6bCcfayF8XqSV03CTqDXImIvzHWjLRDQXg7IIDPEULtFpUVnmKEGAyVWFNJbqpDFKCh4FrRmH8Xli8d5zx-He28lKYmP5qfzxmXzPoBnr7O0JQmV2nykW0rFW6e1kLYKehUCatY7W9zoZnbcnr-_vUwlmVkNsraAxnNpW3ckVTtyJeMNCwlaaiw1lc4HwStBh4rQd226IKVNe0podt_uuBFypb7qT1SblbU_VBbQ9KIvdpctU1FAcqdf9IllVhahDgYeskBURvpipEWd2lzjVxkfEdKt6OvYeXCuwA05zXt_oktGc5_ahbjYCuMU9EuVQ\\\",\\\"uid\\\":\\\"se50430mboy1uo4kv2qsz3pa\\\",\\\"URL_Entorno\\\":\\\"https://sincomedellin.constructoracapital.com/sincocapital_nueva/\\\",\\\"tipoBaseDatos\\\":\\\"1\\\"}\",\"Asunto\":\"Réplica 1: Desarrollo aprobado - Validación integración SINCO – ARGOS (fechas por insumo en OC)\",\"Empresa\":{\"Id\":82,\"Nombre\":\"Const. Capital Medellín\"},\"FechaVencimiento\":\"2026-05-06T10:30:13.427\",\"Fecha\":\"2026-04-30T14:30:13.48\",\"Responsable\":\"ADPRO Compras - Victor Tovar\",\"CantidadReplicas\":1,\"Estado_Id\":1,\"FechaRespuesta\":null,\"Responsable_Id\":238,\"Tipo\":\"DES\",\"Id_Torre_V1\":null,\"SoportePrincipal_Id\":694674},{\"Id\":707340,\"Equipotrabajo_Id\":5,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"830139876\\\",\\\"razonSocial\\\":\\\"DISEÑOS Y CONSTRUCCIONES DYCO S.A.S\\\",\\\"idUsuario\\\":\\\"59\\\",\\\"UsuDominio\\\":null,\\\"email\\\":\\\"residentedecostos@dyco.co\\\",\\\"nombreUsuario\\\":\\\"Juan David Corral Guarnizo\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":8366,\\\"idEmpresaCliente\\\":835,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"100\\\",\\\"NomObra\\\":\\\"SATORI ETAPA 1\\\",\\\"NomEmpresa\\\":\\\"DISEÑOS Y CONSTRUCCIONES DYCO S.A.S\\\",\\\"NombreEmpresa\\\":\\\"DISEÑOS Y CONSTRUCCIONES DYCO S.A.S\\\",\\\"NombreSucursal\\\":\\\"SATORI ETAPA 1\\\",\\\"NitEmpresa\\\":\\\"830139876\\\",\\\"SucursalProyecto\\\":\\\"SATORI ETAPA 1\\\",\\\"PrimerIngreso\\\":false,\\\"CambiarClave\\\":false,\\\"EsReplica\\\":false,\\\"MostrarPanelControl\\\":true,\\\"idProyectoSGP\\\":null,\\\"nombreProyectoSGP\\\":null,\\\"USUhelpDeskSinco\\\":\\\"True\\\",\\\"LgoEmpresa\\\":\\\"https://www5.sincoerp.com/sincodyco/Logos/LgoDyco_DOC.jpg\\\",\\\"urlFuentes\\\":\\\"http://GOLDEN/ERP4/\\\",\\\"idPerfil\\\":\\\"5\\\",\\\"IdSucursal\\\":\\\"100\\\",\\\"nombreApp\\\":\\\"SincoDyco\\\",\\\"ctaCorreoInactiva\\\":false,\\\"user_name\\\":\\\"\\\",\\\"user_ip\\\":\\\"161.18.245.94\\\",\\\"NomUsuario\\\":\\\"juancorral\\\",\\\"token\\\":\\\"Bearer x6MLobzzw8pZ0GXkKVHyGHzSb5yQFL3ffDKYcsXxCGc+hExjMvrUni+VlXRH2mac7KJ2/ELgJ6mO0D2+yYUihfeGiEYVqrRN2M6F/o5c9La1C9guvozIXfRjJzF7ufsWRcBnKRLWwrLtylC3JCp8A3zj+wVr4PwQi3YHaf61rMVra+ofwqZSWgupMhM8oyMpcSUNjW0+Hywlcp0pkAZo1QsMCd6qP5UJpvgz9JpvYpnanAsHm8KnbcuUNfRcHxvLu/B+WEALyZHLLUZRa5y+q5EVxU9TZAHdN/v7AKkopwFMBsUsZU1wsCnyCgINJ84pK5s+EXqgqycQuXUNfAM4XHKDx2OqhNdPnVD1vVqdOGg=\\\",\\\"token_auth\\\":\\\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqdWFuY29ycmFsIiwiYXVkIjpbIkFEUFJPIiwiR0VTIl0sInNpZCI6IkpON2FvQkVHbjFmWDNDUzlQSEI5eWd1Q3lZNFZLZ1RNdEZYZWpRSUY3X28iLCJleHAiOjE3NzgyNTU4MTAsImlzcyI6IlNpbmNvRVJQLkFQSSJ9.J94KXqg4bLYXThfAbIiFfEJj4B6EY6-IRz43FyH0nlHdNAAgN8fLSxVipth2RWViwFI6-RkVM4TqZpJEPRpONttcbeqKFINzaWBieLFpyGSVdjE0jQDvmXRAPbxcenSdopciEUbQRwQqAdml0kFadachtsTBbQvcRO1TvBodHqcfRvi_x8w81iEhalJXBK79SK-k_72STbiCGHjkBrjCvQf4UI6TxaaTekmFj-ufFXTFEL8Dbrdv1ExPfKRO9QeDO5W1ikQWHXsLRAJwo7RiAilSlyhjO3JJWxtP10HAZ-uaCpa8xTPr9Glb_1Cd-CzxlIzOu6eVgh-nDJm3dDC-Ww\\\",\\\"uid\\\":\\\"zm12pmzyygl4zfpv1glhirbv\\\",\\\"URL_Entorno\\\":\\\"https://www5.sincoerp.com/sincodyco/\\\",\\\"tipoBaseDatos\\\":\\\"1\\\""
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.588685",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/usetiful.js",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.590934",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22obtenerKeyLoginCentralizado%22%2C%22A%22%3A%5B%22sinco%5C%5Ccarlos%22%5D%2C%22I%22%3A0%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":[{\"Id\":4506,\"Nombre\":\"ApirosERP_Nueva\",\"URL\":\"https://www.apiroserp.com.co/ApirosERP_Nueva/V3/Marco/Login.aspx\"},{\"Id\":2159,\"Nombre\":\"REPLICA_SincoPijao\",\"URL\":\"https://kilauea-v05.sincoerp.com/SincoPijao/V3/Marco/Login.aspx\"},{\"Id\":3604,\"Nombre\":\"SincoVelopers_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoVelopers_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":862,\"Nombre\":\"BICass\",\"URL\":\"https://www5.sincoerp.com/BICass/\"},{\"Id\":1832,\"Nombre\":\"SincoConAlMagdalena\",\"URL\":\"https://www1.sincoerp.com/SincoConAlMagdalena/V3/Marco/Login.aspx\"},{\"Id\":6444,\"Nombre\":\"SincoIngeurbeME_Nueva\",\"URL\":\"http://192.168.200.5/SincoIngeurbeME_Nueva/V3/Marco/Login.aspx\"},{\"Id\":1423,\"Nombre\":\"SincoConstAGSRL_PRBINT\",\"URL\":\"https://www2.sincoerp.com/SincoConstAGSRL_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":1755,\"Nombre\":\"SincoSumasCons_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoSumasCons_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":3461,\"Nombre\":\"SincoMarmisol_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoMarmisol_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":3438,\"Nombre\":\"SincoConstrualmanza_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoConstrualmanza_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":6401,\"Nombre\":\"SincoCumbrera_Nueva\",\"URL\":\"https://www4.sincoerp.com/SincoCumbrera_Nueva/V3/Marco/Login.aspx\"},{\"Id\":5599,\"Nombre\":\"SincoArquitecturaMinerosCol_Nueva\",\"URL\":\"https://sinco.aycaplicativos.com:4443/SincoArquitecturaMinerosCol_Nueva/V3/Marco/Login.aspx\"},{\"Id\":4440,\"Nombre\":\"REPLICA_SincoAmariloPanama_Nueva\",\"URL\":\"https://kilauea-v03.sincoerp.com/SincoAmariloPanama_Nueva/V3/Marco/Login.aspx\"},{\"Id\":3238,\"Nombre\":\"REPLICA_SincoVerticeIng\",\"URL\":\"https://kilauea-v01.sincoerp.com:444/SincoVerticeIng/V3/Marco/Login.aspx\"},{\"Id\":3736,\"Nombre\":\"SincoConsicalPtarUbate\",\"URL\":\"https://www1.sincoerp.com/SincoConsical/V3/Marco/Login.aspx\"},{\"Id\":4065,\"Nombre\":\"SincoSoletanche_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoSoletanche_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":2768,\"Nombre\":\"SincoVarelaF\",\"URL\":\"https://www1.sincoerp.com/SincoVarelaF/V3/Marco/Login.aspx\"},{\"Id\":896,\"Nombre\":\"BIaasProduccion\",\"URL\":\"http://CUMBAL.sinco.net/BIaasProduccion\"},{\"Id\":3636,\"Nombre\":\"SincoOdinsaColCGC\",\"URL\":\"https://www1.sincoerp.com/SincoOdinsaColCGC/V3/Marco/Login.aspx\"},{\"Id\":4767,\"Nombre\":\"SincoSoletancheColombia\",\"URL\":\"https://www3.sincoerp.com/SincoSoletancheColombia/V3/Marco/Login.aspx\"},{\"Id\":5099,\"Nombre\":\"SincoHausPanama_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoHausPanama_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":3602,\"Nombre\":\"SincoVelopers\",\"URL\":\"https://www1.sincoerp.com/SincoVelopers/V3/Marco/Login.aspx\"},{\"Id\":2961,\"Nombre\":\"SincoPromGArea_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoPromGArea_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":8686,\"Nombre\":\"SincoGElectrico\",\"URL\":\"https://www2.sincoerp.com/SincoGElectrico/V3/Marco/Login.aspx\"},{\"Id\":6410,\"Nombre\":\"SincoIngeurbeMBDPSenderosTintal_Nueva_PRBINT\",\"URL\":\"http://192.168.200.5/SincoIngeurbeMBD_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":5978,\"Nombre\":\"REPLICA_SincoASS_Nueva\",\"URL\":\"https://kilauea-v04.sincoerp.com/SincoASS_Nueva/V3/Marco/Login.aspx\"},{\"Id\":2500,\"Nombre\":\"REPLICA_SincoKubik\",\"URL\":\"https://kilauea-v01.sincoerp.com/SincoKubik/V3/Marco/Login.aspx\"},{\"Id\":3161,\"Nombre\":\"SincoCG\",\"URL\":\"https://www1.sincoerp.com/SincoCG/V3/Marco/Login.aspx\"},{\"Id\":3931,\"Nombre\":\"REPLICA_SincoCapacitacionesPOS\",\"URL\":\"https://kilauea-v01.sincoerp.com:444/SincoCapacitacionesPOS/V3/Marco/Login.aspx\"},{\"Id\":3304,\"Nombre\":\"SincoConsSolanillasGTH\",\"URL\":\"https://www1.sincoerp.com/SincoConsSolanillasGTH/V3/Marco/Login.aspx\"},{\"Id\":3731,\"Nombre\":\"REPLICA_SincoRYDConsorcioCA\",\"URL\":\"https://KILAUEA-V01.sincoerp.com:444/SincoRYD/V3/Marco/Login.aspx\"},{\"Id\":7973,\"Nombre\":\"SincoRepDominicana\",\"URL\":\"https://www2.sincoerp.com/SincoRepDominicana/V3/Marco/Login.aspx\"},{\"Id\":585,\"Nombre\":\"SincoBarcelona\",\"URL\":\"https://www.sincoerp.com/sincobarcelona/V3/Marco/Login.aspx\"},{\"Id\":2457,\"Nombre\":\"REPLICA_SincoSelCo\",\"URL\":\"https://kilauea-v01.sincoerp.com/SincoSelCo/V3/Marco/Login.aspx\"},{\"Id\":4933,\"Nombre\":\"SincoAyD_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoAyD_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":3436,\"Nombre\":\"SincoConstrualmanza\",\"URL\":\"https://www1.sincoerp.com/SincoConstrualmanza/V3/Marco/Login.aspx\"},{\"Id\":4438,\"Nombre\":\"ApirosERP_Nueva_PRBINT\",\"URL\":\"https://apiroserppruebas.com.co/ApirosERP_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":2225,\"Nombre\":\"REPLICA_SincoConsPargroup\",\"URL\":\"https://kilauea-v05.sincoerp.com/SincoConsPargroup/V3/Marco/Login.aspx\"},{\"Id\":2091,\"Nombre\":\"SincoConValle\",\"URL\":\"https://www1.sincoerp.com/SincoConValle/V3/Marco/Login.aspx\"},{\"Id\":419,\"Nombre\":\"SincoEquifor\",\"URL\":\"http://200.91.206.26/SincoEqui/marco_sinco.asp\"},{\"Id\":5869,\"Nombre\":\"SincoCapitalBogota_Nueva\",\"URL\":\"https://sincobogota.constructoracapital.com/SincoCapitalBogota_Nueva/V3/Marco/Login.aspx\"},{\"Id\":1764,\"Nombre\":\"SincoConigsa_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/Sin"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.591934",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22accesosEntornos%22%2C%22A%22%3A%5B%22carlos%22%5D%2C%22I%22%3A1%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":[{\"Id\":28,\"NombreCompleto\":\"ABR - Alejandro Prieto\",\"Iniciales\":\"AP\",\"Correo\":\"jose.prieto@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\jose.prieto\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":true},{\"Id\":1546,\"NombreCompleto\":\"ABR - Carol Yiset Pinilla Suarez\",\"Iniciales\":\"CYP\",\"Correo\":\"carol.pinilla@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\carol.pinilla\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":true},{\"Id\":421,\"NombreCompleto\":\"ABR - Daniel Urueña Diaz\",\"Iniciales\":\"DUD\",\"Correo\":\"daniel.uruena@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\daniel.urueña\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":true},{\"Id\":1578,\"NombreCompleto\":\"ABR - Daniel Alejandro  Melo Narváez\",\"Iniciales\":\"DMN\",\"Correo\":\"daniel.melo@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\daniel.melo\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":1641,\"NombreCompleto\":\"ABR - Diego Alejandro Gonzalez Cantor\",\"Iniciales\":\"dac\",\"Correo\":\"Diego.gonzalez@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\Diego.gonzalez\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":1718,\"NombreCompleto\":\"ABR - Harold  Mercado Vitola\",\"Iniciales\":\"hmv\",\"Correo\":\"harold.mercado@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\harold.mercado\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":1732,\"NombreCompleto\":\"ABR - Jason Alexander Castillo Rojas\",\"Iniciales\":\"JAS\",\"Correo\":\"jason.castillo@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\jason.castillo\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":1744,\"NombreCompleto\":\"ABR - Leidy Lorena Cobos Moreno\",\"Iniciales\":\"LLC\",\"Correo\":\"leidy.cobos@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\leidy.cobos\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":422,\"NombreCompleto\":\"ABR - Michael Andres Lozano Sanchez\",\"Iniciales\":\"MAL\",\"Correo\":\"michael.lozano@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\michael.lozano\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":1722,\"NombreCompleto\":\"ABR - Stefania Ferreira Villanueva\",\"Iniciales\":\"SFV\",\"Correo\":\"stefania.villanueva@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\stefania.ferreira\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":true},{\"Id\":169,\"NombreCompleto\":\"ABR - Zenayda Castellanos\",\"Iniciales\":\"ZC\",\"Correo\":\"zenayda.castellanos@sinco.com.co\",\"UsuarioDominio\":\"SINCO\\\\zenayda.castellanos\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2322,\"NombreCompleto\":\"Brayan Yesid Lopez Villalobos\",\"Iniciales\":\"ys\",\"Correo\":\"brayan.lopez@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\brayan.lopez\",\"Modulo\":\"ABR\",\"IdModulo\":7001,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2359,\"NombreCompleto\":\"Cristian Camilo Hoyos Reyes\",\"Iniciales\":\"CCH\",\"Correo\":\"cristian.hoyos@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\cristian.hoyos\",\"Modulo\":\"ABR\",\"IdModulo\":7001,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2357,\"NombreCompleto\":\"Jonathan Ferney Clavijo Morales\",\"Iniciales\":\"jfc\",\"Correo\":\"jonathan.clavijo@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\jonathan.clavijo\",\"Modulo\":\"ABR\",\"IdModulo\":7001,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2454,\"NombreCompleto\":\"Kevin Santiago Baquero Chavarro\",\"Iniciales\":\"KSB\",\"Correo\":\"kevin.baquero@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\kevin.baquero\",\"Modulo\":\"ABR\",\"IdModulo\":7001,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2358,\"NombreCompleto\":\"Neider Jesus Bolivar Mendoza\",\"Iniciales\":\"NJB\",\"Correo\":\"neider.bolivar@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\neider.bolivar\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2314,\"NombreCompleto\":\"Ronal Santiago Castaño Chaparro\",\"Iniciales\":\"RSC\",\"Correo\":\"ronal.castano@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\ronal.castaño\",\"Modulo\":\"ABR\",\"IdModulo\":7001,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2414,\"NombreCompleto\":\"Yensy Johanna Currea Laiton\",\"Iniciales\":\"yjc\",\"Correo\":\"yensy.currea@sinco.co\",\"UsuarioDominio\":\"sinco\\\\yensy.currea\",\"Modulo\":\"ABR\",\"IdModulo\":1,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":2,\"NombreCompleto\":\"Adm - Augusto Romero Arango\",\"Iniciales\":\"ARA\",\"Correo\":\"augusto@sinco.com.co\",\"UsuarioDominio\":\"sinco\\\\augromero\",\"Modulo\":\"Administración SINCOSOFT\",\"IdModulo\":47,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":true},{\"Id\":389,\"NombreCompleto\":\"Adm - Erika Vanesa Caceres Gomez\",\"Iniciales\":\"EVC\",\"Correo\":\"erika.caceres@sinco.com.co\",\"UsuarioDominio\":\"Sinco\\\\erika.caceres\",\"Modulo\":\"Administración SINCOSOFT\",\"IdModulo\":47,\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false},{\"Id\":158,\"NombreCompleto\":\"Adm - Juan Paulo Arango Manrique\",\"Iniciales\":\"JPA\",\"Correo\":\"jparango@sinco.com.co\",\"Usuar"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.592639",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22misLinks%22%2C%22A%22%3A%5B11%5D%2C%22I%22%3A2%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":\"801A0AF766711021D022E7846EEBD03D199981D5X0\",\"I\":\"0\"}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.593449",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Stores/Data.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:52.632373",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22trabajadoresActivos%22%2C%22A%22%3A%5B%5D%2C%22I%22%3A3%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":[{\"id\":11,\"nombre\":\"Calidad\",\"descripcion\":\"Sistema de gestión de calidad\",\"url\":\"https://www.sincoerp.com/SincoCalidad/\",\"icono\":\"Ok\",\"color\":\"#4CAF50\",\"editable\":false,\"multie\":true,\"pestana\":true,\"estandar\":true},{\"id\":6,\"nombre\":\"TFS\",\"descripcion\":\"Team Foundation Server\",\"url\":\"https://fuji-v01/SincoERP/_projects\",\"icono\":\"Empresa\",\"color\":\"#6A1B9A\",\"editable\":false,\"multie\":true,\"pestana\":true,\"estandar\":false},{\"id\":22,\"nombre\":\"Informe control de casos\",\"descripcion\":\"Descripción\",\"url\":\"http://everest/CRMSinco/procesos/helpdesk/InformeCasosSoporteSinco.aspx\",\"icono\":\"Lista\",\"color\":\"#6A1B9A\",\"editable\":true,\"multie\":false,\"pestana\":true,\"estandar\":false}],\"I\":\"2\"}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.056947",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-content-loader.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.057384",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-smart-tips.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.058256",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-banners.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.058542",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-tours.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.058836",
+    "method": "GET",
+    "url": "https://www.usetiful.com/api-space/geoip",
+    "headers": {
+      "x-auth-token": "88d780d5151190809752fb2c7f22b45e",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json",
+      "body": "{\"country\":\"Colombia\",\"country_code\":\"CO\",\"continent\":\"South America\",\"continent_code\":\"SA\"}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.059129",
+    "method": "GET",
+    "url": "https://www.usetiful.com/api-space/data.json?lang=es",
+    "headers": {
+      "x-auth-token": "88d780d5151190809752fb2c7f22b45e",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "content-type": "application/json; charset=utf-8"
+    },
+    "body": null,
+    "response": {
+      "status": 200,
+      "content_type": "application/json",
+      "body": "{\"tours\":[{\"name\":\"Extracto\",\"objectPriority\":1,\"targets\":[{\"url\":\"[Tt][Oo][Rr][Rr][Ee][Cc][Ll][Ii][Ee][Nn][Tt][Ee]\\\\.html\",\"type\":\"address\"},{\"element\":\"#cont-adm-cliente\",\"type\":\"element\"}],\"targetOperator\":0,\"id\":54728,\"trigger\":{\"type\":\"once-then-manual\"},\"autoplay\":true,\"showEverytime\":false,\"rememberLastStep\":true,\"progress\":false,\"progressType\":1,\"steps\":[{\"id\":673204,\"name\":\"51935464-77bf-4dfe-b035-85f6a2b45bca\",\"title\":\"\\u00a1 Bienvenido a tu nuevo extracto de actividades !\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"modal\",\"content\":\"\\u003Cp\\u003EHemos implementado una nueva opci\\u0026oacute;n que mejorar\\u0026aacute; y simplificar\\u0026aacute; el proceso de aprobaci\\u0026oacute;n de actividades. Ahora podr\\u0026aacute;s revisar y aprobar las actividades en l\\u0026iacute;nea de manera r\\u0026aacute;pida y eficiente durante el mes.\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003EEsta nueva herramienta te permitir\\u0026aacute; hacer un seguimiento continuo de las actividades realizadas por Sincosoft, categorizadas en Desarrollo, Consultor\\u0026iacute;a y Soporte, sin tener que esperar al cierre del mes.\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp style=\\u0022text-align: center;\\u0022\\u003E\\u0026iexcl;Facilita tu proceso de facturaci\\u0026oacute;n con solo unos clics!\\u003C\\/p\\u003E\",\"autoskip\":false,\"alignment\":\"left\",\"webhookId\":null,\"surveyData\":{\"feedback\":false},\"actions\":[{\"id\":\"vrM73\",\"value\":\"Siguiente\",\"type\":\"next\",\"styleType\":\"Primary\"}],\"customStyle\":null,\"positioning\":{\"position\":\"top\",\"coordinates\":{\"top\":100,\"right\":0,\"bottom\":0,\"left\":0},\"fixed\":false}},{\"id\":689207,\"name\":\"01J6N9T20Y1G0Z4FHWDYXENA9B\",\"title\":\"Revisa y Valida tus Actividades\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"modal\",\"content\":\"\\u003Cp\\u003EAqu\\u0026iacute; podr\\u0026aacute;s validar las solicitudes que hiciste a Sincosoft durante el mes, revisando el costo e historial de cada una de las actividades y aprob\\u0026aacute;ndolas para su facturaci\\u0026oacute;n.\\u003C\\/p\\u003E\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\n\\u003Cp\\u003EDurante este tour te mostraremos como esta compuesto nuestro extracto y luego te guiaremos en la aprobaci\\u0026oacute;n de actividades.\\u003C\\/p\\u003E\",\"autoskip\":false,\"alignment\":\"left\",\"webhookId\":null,\"surveyData\":{\"feedback\":false},\"actions\":[{\"id\":\"GAIwj\",\"value\":\"Empezar\",\"type\":\"next\",\"styleType\":\"Primary\"}],\"customStyle\":null,\"positioning\":{\"position\":\"center\",\"coordinates\":{\"top\":0,\"right\":0,\"bottom\":0,\"left\":0},\"fixed\":true}},{\"id\":673889,\"name\":\"01J2YMXKTENVNQZ9TEA0X3XP45\",\"title\":\"Informaci\\u00f3n General\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"pointer\",\"content\":\"\\u003Cp\\u003EAqu\\u0026iacute; encontrar\\u0026aacute;s la informaci\\u0026oacute;n de tu empresa principal, algunas propiedades contractuales de nuestro servicio y tambi\\u0026eacute;n podr\\u0026aacute;s navegar en los meses donde requieres realizar seguimiento a las actividades.\\u003C\\/p\\u003E\",\"autoskip\":false,\"alignment\":\"left\",\"webhookId\":null,\"surveyData\":{\"feedback\":false},\"actions\":[{\"id\":\"DaJnd\",\"value\":\"Anterior\",\"type\":\"previous\",\"styleType\":\"Secondary\"},{\"id\":\"4d3lb\",\"value\":\"Siguiente\",\"type\":\"next\",\"styleType\":\"Primary\"}],\"customStyle\":null,\"highlight\":true,\"positionType\":\"element\",\"position\":\"auto\",\"progressOnClick\":\"button\",\"element\":\".cont-adm-encabezado-datosempresa\"},{\"id\":673376,\"name\":\"01J2XXCH2PKNHD2V4SS1EJJ0H7\",\"title\":\"Secci\\u00f3n de filtros\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"pointer\",\"content\":\"\\u003Cp\\u003EAqu\\u0026iacute; podr\\u0026aacute;s filtrar las actividades por su categor\\u0026iacute;a y\\/o estado, tambi\\u0026eacute;n podr\\u0026aacute;s revisar el progreso o resultado de tu seguimiento.\\u003C\\/p\\u003E\",\"autoskip\":false,\"alignment\":\"left\",\"webhookId\":null,\"surveyData\":{\"feedback\":false},\"actions\":[{\"id\":\"1i3OP\",\"value\":\"Anterior\",\"type\":\"previous\",\"styleType\":\"Secondary\"},{\"id\":\"OkPTx\",\"value\":\"Siguiente\",\"type\":\"next\",\"styleType\":\"Primary\"}],\"customStyle\":null,\"highlight\":true,\"positionType\":\"element\",\"position\":\"auto\",\"progressOnClick\":\"button\",\"element\":\"#contfiltrosext\"},{\"id\":673927,\"name\":\"01J2YR65NRBWKTYHGD68GF39JA\",\"title\":\"Actividades\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"pointer\",\"content\":\"\\u003Cp\\u003EAqu\\u0026iacute; encontrar\\u0026aacute;s el listado de actividades desarrolladas durante el mes seleccionado.\\u003C\\/p\\u003E\",\"autoskip\":false,\"alignment\":\"left\",\"webhookId\":null,\"surveyData\":{\"feedback\":false},\"actions\":[{\"id\":\"DaJnd\",\"value\":\"Anterior\",\"type\":\"previous\",\"styleType\":\"Secondary\"},{\"id\":\"4d3lb\",\"value\":\"Siguiente\",\"type\":\"next\",\"styleType\":\"Primary\"}],\"customStyle\":null,\"highlight\":true,\"positionType\":\"element\",\"position\":\"auto\",\"progressOnClick\":\"button\",\"element\":\".cont-adm-validador-lista\"},{\"id\":673928,\"name\":\"01J2YYZSK0G752FN7FS3T8YYVY\",\"title\":\"Resumen\",\"publicTitle\":true,\"closeButton\":true,\"type\":\"pointer\",\"content\":\"\\u003Cp\\u003EEn esta secci\\u0026oacute;n encontrar\\u0026aacute"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.848831",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-devkit.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.849466",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-forms.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.851097",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-checklists.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.852422",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-assistants.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:20:54.853522",
+    "method": "GET",
+    "url": "https://www.usetiful.com/dist/u-surveys.js?v=2026.05.06.201424-g9f41ce4350a-131",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.285161",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.325610",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Servidores/servidores.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.326267",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Entornos/entornos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.326727",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/BasesDatos/basesdatos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.327221",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Admin/Admin.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.327661",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Clientes/clientes.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.338112",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Servidores/opcionesServidor.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.338753",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/controles.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.349002",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Entornos/entorno.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.349638",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/RM/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.368432",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Clientes/cliente.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.370495",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/Master/Entornos/productos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.383995",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.385726",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Widgets/tabs.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.396028",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Secciones/datosEmpresa.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.396771",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Validador/validador.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.397217",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Factura/resumen.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.397944",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Secciones/almacenamiento.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.398436",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/contadores.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.398967",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Utilidades/main.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.399439",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/dx/excel.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.408956",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Factura/aprobar.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.409665",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Factura/detalle.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.410463",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Factura/rechazar.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.411075",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Utilidades/dialog.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.412248",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/tipos.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.429690",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Factura/config_5rm.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.445469",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Validador/historial.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.446159",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Validador/revisarActividad.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.446466",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Validador/contadores.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.459691",
+    "method": "GET",
+    "url": "https://core.sincoerp.com/SincoSoporte/Scripts/Sinco/modules/Administrativo/Extracto/Validador/dividirActividad.js?v=-Gero-19.07.13.11",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.617597",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22clientes%22%2C%22M%22%3A%22GetClientes%22%2C%22A%22%3A%5B%5D%2C%22I%22%3A4%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":[{\"Id\":2,\"Nombre\":\"ConstrumaxERP\",\"NombreCliente\":\"ORGANIZACION CONSTRUCTORA CONSTRUMAX S.A.\",\"EmpresaId\":7,\"TipoId\":1,\"Tipo\":\"Producción\",\"EsPlus\":0,\"bdTrasvase\":0,\"EstadoServicio\":2,\"URL\":\"http://201.184.40.200/construmaxERP/marco_sinco.asp\",\"HostingSinco\":0,\"ServidorAPP\":\"201.184.40.200\",\"RutaAPP\":\"ftp://201.184.40.200/construmaxERP\",\"ServidorBD\":\"http://200.25.0.211/construmaxERP/marco_sinco.asp\",\"NombreEmpresa\":\"Construmax\",\"Codigo5RM\":143,\"BasesDatos\":[{\"Id\":2,\"Nombre\":\"ORGANIZACION CONSTRUCTORA CONSTRUMAX S.A.\",\"Catalogo\":\"ConstrumaxERP\",\"Principal\":true,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[{\"Id\":5,\"Iniciales\":\"GES\",\"Nombre\":\"Gestión\",\"Descripcion\":\"Gestión\",\"Grupo\":null,\"Orden\":10,\"Color\":\"#555555\",\"ColorSecundario\":null},{\"Id\":6,\"Iniciales\":\"Config\",\"Nombre\":\"Configuración\",\"Descripcion\":\"Configuración\",\"Grupo\":null,\"Orden\":13,\"Color\":\"#1354A4\",\"ColorSecundario\":null},{\"Id\":8,\"Iniciales\":\"ADPRO\",\"Nombre\":\"ADPRO\",\"Descripcion\":\"Administración de proyectos\",\"Grupo\":null,\"Orden\":6,\"Color\":\"#1D7478\",\"ColorSecundario\":\"#058C97\"},{\"Id\":4,\"Iniciales\":\"A&F\",\"Nombre\":\"Financiero\",\"Descripcion\":\"Administrativo y financiero\",\"Grupo\":null,\"Orden\":3,\"Color\":\"#7593A7\",\"ColorSecundario\":\"#8CAEC2\"},{\"Id\":1,\"Iniciales\":\"GTH\",\"Nombre\":\"RRHH\",\"Descripcion\":\"Gestión del talento humano\",\"Grupo\":null,\"Orden\":1,\"Color\":\"#5C2F83\",\"ColorSecundario\":\"#72489B\"},{\"Id\":9,\"Iniciales\":\"CBR\",\"Nombre\":\"Inmobiliaria\",\"Descripcion\":\"Comercialización de bienes raíces\",\"Grupo\":null,\"Orden\":8,\"Color\":\"#9C3D4A\",\"ColorSecundario\":\"#AF4B61\"}]},{\"Id\":3,\"Nombre\":\"CONJUNTO RESIDENCIAL DIANA VERONICA S.A.\",\"Catalogo\":\"ConstrumaxDV\",\"Principal\":false,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[{\"Id\":9,\"Iniciales\":\"CBR\",\"Nombre\":\"Inmobiliaria\",\"Descripcion\":\"Comercialización de bienes raíces\",\"Grupo\":null,\"Orden\":8,\"Color\":\"#9C3D4A\",\"ColorSecundario\":\"#AF4B61\"},{\"Id\":1,\"Iniciales\":\"GTH\",\"Nombre\":\"RRHH\",\"Descripcion\":\"Gestión del talento humano\",\"Grupo\":null,\"Orden\":1,\"Color\":\"#5C2F83\",\"ColorSecundario\":\"#72489B\"},{\"Id\":4,\"Iniciales\":\"A&F\",\"Nombre\":\"Financiero\",\"Descripcion\":\"Administrativo y financiero\",\"Grupo\":null,\"Orden\":3,\"Color\":\"#7593A7\",\"ColorSecundario\":\"#8CAEC2\"},{\"Id\":6,\"Iniciales\":\"Config\",\"Nombre\":\"Configuración\",\"Descripcion\":\"Configuración\",\"Grupo\":null,\"Orden\":13,\"Color\":\"#1354A4\",\"ColorSecundario\":null},{\"Id\":8,\"Iniciales\":\"ADPRO\",\"Nombre\":\"ADPRO\",\"Descripcion\":\"Administración de proyectos\",\"Grupo\":null,\"Orden\":6,\"Color\":\"#1D7478\",\"ColorSecundario\":\"#058C97\"}]},{\"Id\":4,\"Nombre\":\"CONSTRUCTORA PERFIL URBANO S.A.\",\"Catalogo\":\"ConstrumaxPU\",\"Principal\":false,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[{\"Id\":8,\"Iniciales\":\"ADPRO\",\"Nombre\":\"ADPRO\",\"Descripcion\":\"Administración de proyectos\",\"Grupo\":null,\"Orden\":6,\"Color\":\"#1D7478\",\"ColorSecundario\":\"#058C97\"},{\"Id\":6,\"Iniciales\":\"Config\",\"Nombre\":\"Configuración\",\"Descripcion\":\"Configuración\",\"Grupo\":null,\"Orden\":13,\"Color\":\"#1354A4\",\"ColorSecundario\":null},{\"Id\":4,\"Iniciales\":\"A&F\",\"Nombre\":\"Financiero\",\"Descripcion\":\"Administrativo y financiero\",\"Grupo\":null,\"Orden\":3,\"Color\":\"#7593A7\",\"ColorSecundario\":\"#8CAEC2\"},{\"Id\":1,\"Iniciales\":\"GTH\",\"Nombre\":\"RRHH\",\"Descripcion\":\"Gestión del talento humano\",\"Grupo\":null,\"Orden\":1,\"Color\":\"#5C2F83\",\"ColorSecundario\":\"#72489B\"},{\"Id\":9,\"Iniciales\":\"CBR\",\"Nombre\":\"Inmobiliaria\",\"Descripcion\":\"Comercialización de bienes raíces\",\"Grupo\":null,\"Orden\":8,\"Color\":\"#9C3D4A\",\"ColorSecundario\":\"#AF4B61\"}]},{\"Id\":5,\"Nombre\":\"SOCIEDAD RINCON DEL CHICO S.A.\",\"Catalogo\":\"ConstrumaxRC\",\"Principal\":false,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[]},{\"Id\":67,\"Nombre\":\"Consorcio Ingesa Lituania-SED\",\"Catalogo\":\"ConstrumaxIng\",\"Principal\":false,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[]}]},{\"Id\":69,\"Nombre\":\"SincoCASS\",\"NombreCliente\":\"CASS CONSTRUCTORES & CIA SCA\",\"EmpresaId\":16,\"TipoId\":1,\"Tipo\":\"Producción\",\"EsPlus\":0,\"bdTrasvase\":2,\"EstadoServicio\":2,\"URL\":\"https://www5.sincoerp.com/sincocass/V3/Marco/Login.aspx\",\"HostingSinco\":1,\"ServidorAPP\":\"JANNU-V05\",\"RutaAPP\":\"\\\\\\\\JANNU-V05\\\\SincoCASS\",\"ServidorBD\":\"MAKALU-V05,4263\",\"NombreEmpresa\":\"CASS\",\"Codigo5RM\":53,\"BasesDatos\":[{\"Id\":69,\"Nombre\":\"CASS CONSTRUCTORES & CIA SCA\",\"Catalogo\":\"SincoCASS\",\"Principal\":true,\"TipoId\":1,\"Tipo\":\"Producción\",\"Modulos\":[{\"Id\":6,\"Iniciales\":\"Config\",\"Nombre\":\"Configuración\",\"Descripcion\":\"Configuración\",\"Grupo\":null,\"Orden\":13,\"Color\":\"#1354A4\",\"ColorSecundario\":null},{\"Id\":4,\"Iniciales\":\"A&F\",\"Nombre\":\"Financiero\",\"Descripcion\":\"Administrativo y financiero\",\"Grupo\":null,\"Orden\":3,\"Color\":\"#7593A7\",\"ColorSecundario\":\"#8CAEC2\"},{\"Id\":5,\"Iniciales\":\"GES\",\"Nombre\":\"Gestión\",\"Descripcion\":\"Gestión\",\"Grupo\":null,\"Orden\":10,\"Color\":\"#555555\",\"ColorSecundario\":null},{\"Id\":2,\"Iniciales\":\"ADM\",\"Nombre\":\"Administrativo\",\"Descripcion\":\"Administrativo\",\"Grupo\":null,\"Orden\":2,\"Color\":\"#7593A7\",\"ColorSecundario\":\"#8CAEC2\"},{\"Id\":1,\"Iniciales\":\"GTH\",\"Nombre\":\"RRHH\",\"Descripcion\":\"Gestión del talento humano\",\"Grupo\":null,\"Orden\":1,\"Color\":\"#5C2F83\",\"ColorSecundario\":\"#72489B\"},{\"Id\":8,\"In"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:21:13.618372",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22entornos%22%2C%22M%22%3A%22GetEntornos%22%2C%22A%22%3A%5B%5D%2C%22I%22%3A5%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":[{\"IdCliente\":2,\"Cliente\":\"GRUPO GALEANO GEORGE CONSTRUCTORES S.A. – 3G CONSTRUCTORES S.A.\",\"Nit\":\"806016554\",\"DV\":2,\"Ciudad\":\"Cartagena\",\"Estado\":\"Activo\",\"PMA\":true,\"SincoPlus\":true,\"VigenciaPMA\":\"2017-01-01T00:00:00\",\"ResponsableImp\":\"Anuar Polanía\",\"ResponsablePos\":null,\"HostingSinco\":true,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Arriendo\",\"Riesgo\":\"Medio\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2016,\"Complejidad\":\"Baja\",\"SConexos\":true,\"FacTerceros\":true,\"DataCredito\":true,\"TipoSoporte\":\"Demanda\",\"SSMA_TimeStamp\":\"AAAAAAMMmQw=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"GRUPO GALEANO GEORGE CONSTRUCTORES S.A - 3G CONSTRUCTORES S.A\",\"valorTarifa\":null},{\"IdCliente\":3,\"Cliente\":\"ACCESOS NORTE DE BOGOTÁ S.A.S.\",\"Nit\":\"901039225\",\"DV\":8,\"Ciudad\":\"Bogotá\",\"Estado\":\"Activo\",\"PMA\":true,\"SincoPlus\":true,\"VigenciaPMA\":\"2017-08-01T00:00:00\",\"ResponsableImp\":\"POS\",\"ResponsablePos\":null,\"HostingSinco\":true,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Arriendo\",\"Riesgo\":\"Sin Riesgo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2017,\"Complejidad\":null,\"SConexos\":true,\"FacTerceros\":true,\"DataCredito\":true,\"TipoSoporte\":\"PSF\",\"SSMA_TimeStamp\":\"AAAAAAFwik0=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"ACCESOS NORTE DE BOGOTA S.A.S.\",\"valorTarifa\":null},{\"IdCliente\":4,\"Cliente\":\"PROYECTOS ACERO CURE S.A.S.\",\"Nit\":\"901441236\",\"DV\":1,\"Ciudad\":\"Bogotá\",\"Estado\":\"Activo\",\"PMA\":false,\"SincoPlus\":true,\"VigenciaPMA\":null,\"ResponsableImp\":\"POS\",\"ResponsablePos\":null,\"HostingSinco\":true,\"Capacidad\":30,\"BDIncluidas\":\"PROYECTOS ACERO CURE S.A.S. + 4 BDA incluidas por contrato\",\"Negocio\":\"Venta-Sin PMA\",\"Riesgo\":\"Sin Riesgo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2016,\"Complejidad\":\"Baja\",\"SConexos\":false,\"FacTerceros\":true,\"DataCredito\":true,\"TipoSoporte\":\"Demanda\",\"SSMA_TimeStamp\":\"AAAAAAMKXM0=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"ACERO CURE MARTINEZ S.A.S.\",\"valorTarifa\":null},{\"IdCliente\":5,\"Cliente\":\"ACR CONSTRUCTORA S.A.S\",\"Nit\":null,\"DV\":0,\"Ciudad\":null,\"Estado\":\"Inactivo\",\"PMA\":true,\"SincoPlus\":false,\"VigenciaPMA\":null,\"ResponsableImp\":null,\"ResponsablePos\":null,\"HostingSinco\":false,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Venta\",\"Riesgo\":\"Sin Riesgo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2014,\"Complejidad\":\"Baja\",\"SConexos\":false,\"FacTerceros\":false,\"DataCredito\":false,\"TipoSoporte\":\"Demanda\",\"SSMA_TimeStamp\":\"AAAAAAEiX2g=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":null,\"valorTarifa\":null},{\"IdCliente\":6,\"Cliente\":\"AECOM TECHNICAL SERVICES INC\",\"Nit\":\"900637861\",\"DV\":4,\"Ciudad\":\"Bogotá\",\"Estado\":\"Inactivo\",\"PMA\":true,\"SincoPlus\":true,\"VigenciaPMA\":\"2018-06-01T00:00:00\",\"ResponsableImp\":\"Anuar Polanía\",\"ResponsablePos\":null,\"HostingSinco\":true,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Arriendo\",\"Riesgo\":\"Bajo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2015,\"Complejidad\":\"Baja\",\"SConexos\":false,\"FacTerceros\":false,\"DataCredito\":true,\"TipoSoporte\":\"Demanda\",\"SSMA_TimeStamp\":\"AAAAAADK7zg=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"AECOM\",\"valorTarifa\":null},{\"IdCliente\":7,\"Cliente\":\"AG CONSTRUCCION Y DISEÑO S.A.S.\",\"Nit\":\"800192570\",\"DV\":1,\"Ciudad\":\"Bogotá\",\"Estado\":\"Inactivo\",\"PMA\":true,\"SincoPlus\":false,\"VigenciaPMA\":\"2018-02-01T00:00:00\",\"ResponsableImp\":\"Sandra Hincapie\",\"ResponsablePos\":null,\"HostingSinco\":true,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Arriendo\",\"Riesgo\":\"Sin Riesgo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2018,\"Complejidad\":\"Baja\",\"SConexos\":false,\"FacTerceros\":false,\"DataCredito\":true,\"TipoSoporte\":\"Demanda\",\"SSMA_TimeStamp\":\"AAAAAADK7zc=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"AG CONSTRUCCIONES\",\"valorTarifa\":null},{\"IdCliente\":8,\"Cliente\":\"AGM DESARROLLOS  S.A.S.\",\"Nit\":\"800186313\",\"DV\":0,\"Ciudad\":\"Cartagena\",\"Estado\":\"Activo\",\"PMA\":true,\"SincoPlus\":true,\"VigenciaPMA\":\"2023-07-01T00:00:00\",\"ResponsableImp\":\"Anuar Polanía\",\"ResponsablePos\":null,\"HostingSinco\":false,\"Capacidad\":null,\"BDIncluidas\":null,\"Negocio\":\"Venta\",\"Riesgo\":\"Sin Riesgo\",\"EtapaCliente\":\"POS\",\"ClienteAno\":2022,\"Complejidad\":\"Baja\",\"SConexos\":true,\"FacTerceros\":true,\"DataCredito\":true,\"TipoSoporte\":\"PSF-PMA\",\"SSMA_TimeStamp\":\"AAAAAAFxvBw=\",\"TVClasificacion\":null,\"TVEstado\":null,\"TVObservacion\":null,\"TVFechaProgramada\":null,\"TVFechaCierre\":null,\"TVResponsable\":null,\"NombreInfra\":\"AGM DESARROLLOS S.A.S\",\"valorTarifa\":null},{\"IdCliente\":9,\"Cliente\":\"AKILA S.A.S.\",\"Nit\":\"900481195\",\"DV\":5,\"Ciudad\":\"Bogotá\",\"Estado\":\"Activo\",\"PMA\":true,\"SincoPlus\":true,\"Vige"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:21:18.889674",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22administrativo%22%2C%22M%22%3A%22GetEmpId%22%2C%22A%22%3A%5B78%5D%2C%22I%22%3A6%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":{\"IdCliente\":78,\"Cliente\":\"CONINSA RAMON H S.A.S.\",\"Nit\":\"890911431\",\"DV\":1,\"Ciudad\":\"Medellín\",\"Estado\":\"Activo\",\"PMA\":true,\"SincoPlus\":true,\"VigenciaPMA\":\"2012-06-01T00:00:00\",\"HostingSinco\":false,\"AlmacenamientoContratado\":null,\"AlmacenamientoActual\":[],\"Negocio\":\"Arriendo-Venta\",\"TipoSoporte\":\"Demanda\",\"DesarrollosEnProceso\":0,\"Desarrollos\":[],\"Consultorias\":[],\"Soportes\":[],\"Addons\":[],\"Cotizaciones\":[],\"FacturarSoporte\":\"Facturable\",\"EmpresasAsociadas\":[{\"Nombre\":\"ABR ENTRENAMIENTO\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CENIT INVESTMENTS S.A.S\",\"Nit\":\"901.981.833\"},{\"Nombre\":\"CONINSA RAMON H - Administrativa\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONINSA S.A.S\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONSOLIDACION CONINSA RAMON H S.A.\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONSORCIO CAMPAMENTOS HIDROSOGAMOSO\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONSORCIO CR\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONSORCIO EDIFICIO TUNEL DE ORIENTE\",\"Nit\":\"901.180.159\"},{\"Nombre\":\"CONSORCIO LA GIRALDA\",\"Nit\":\"900.757.265\"},{\"Nombre\":\"CONSORCIO PLANTA TERMICA MONTELIBANO\",\"Nit\":\"900.636.984\"},{\"Nombre\":\"CONSORCIO PROSPERIDAD 024\",\"Nit\":\"900.563.876\"},{\"Nombre\":\"CONSORCIO SALAMANCA\",\"Nit\":\"900.572.707\"},{\"Nombre\":\"CONSORCIO SMITCO 005-2008\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"CONSORCIO VIAL CAP\",\"Nit\":\"900.522.450\"},{\"Nombre\":\"Constructora Tunel de Oriente SAS \\\"En Liquidación\\\"\",\"Nit\":\"900.470.939\"},{\"Nombre\":\"INGENIERIA INVERSIONES Y PROYECTOS SAS\",\"Nit\":\"901.533.905\"},{\"Nombre\":\"Inteligencia de negocios\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"INVERSIONES GRAN AMERICA S.A.S.\",\"Nit\":\"901.456.422\"},{\"Nombre\":\"PROMOTORA BUEN VIVIR S.A.\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"PROMOTORA REGION CARIBE S.A.S.\",\"Nit\":\"890.911.431\"},{\"Nombre\":\"PRUEBAS DIAGNOSTICO CONINSA RAMON H S.A. \",\"Nit\":\"890.911.431\"},{\"Nombre\":\"PRUEBAS INTEGRALES ABR NIFF CONINSA RAMON H S.A. \",\"Nit\":\"890.911.431\"},{\"Nombre\":\"VIVIT S.A.S\",\"Nit\":\"901.876.523\"}]},\"I\":\"7\"}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:21:18.902483",
+    "method": "POST",
+    "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\carlos&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=oSyIz78Mzzac3HAMrcjHWWJ0d2iVpty%2F7I2JmbbAvUFmyLd7gSwjB%2BJJg8irInuzbBE6lrwhNju30hTGhkCVTjaHFQSjmtqItD5waGVt8i%2BI0QiuT96ITdJ%2B5fV75%2Bdq&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "accept": "text/plain, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "data=%7B%22H%22%3A%22administrativo%22%2C%22M%22%3A%22GetExtracto%22%2C%22A%22%3A%5B51%2C78%2C5%2C2026%5D%2C%22I%22%3A7%7D",
+    "response": {
+      "status": 200,
+      "content_type": "application/json; charset=UTF-8",
+      "body": "{\"R\":51,\"I\":\"6\"}"
+    }
+  },
+  {
+    "timestamp": "2026-05-07T12:22:12.897453",
+    "method": "POST",
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-BY576JJSCK&gtm=45je6562h2v9174968235za20gzb9174967660zd9174967660&_p=1778174436108&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=368322141.1778174438&frm=0&pscdl=noapi&rcb=10&sr=1280x720&uaa=x86&uab=64&uafvl=Not.A%252FBrand%3B99.0.0.0%7CChromium%3B136.0.7103.25&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=es-419&_s=3&tag_exp=0~115938466~115938469~117215713~118289195~118463262~118719172&sid=1778174437&sct=1&seg=1&dl=https%3A%2F%2Fcore.sincoerp.com%2FSincoSoporte%2FTorre.html&dt=Soporte%20Sincosoft&en=user_engagement&_et=95129&tfd=97764",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://core.sincoerp.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Not.A/Brand\";v=\"99\", \"Chromium\";v=\"136\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "body": null
+  }
+]

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCO ERP - Panel de Pruebas</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2c5282;
+            --primary-hover: #1e4a73;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --success-border: #bbf7d0;
+            --danger: #dc2626;
+            --danger-bg: #fef2f2;
+            --danger-border: #fecaca;
+            --warning: #f59e0b;
+            --warning-bg: #fffbeb;
+            --warning-border: #fde68a;
+            --blue: #2563eb;
+            --blue-bg: #eff6ff;
+            --blue-border: #bfdbfe;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --radius: 12px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 24px 0;
+            box-shadow: 0 4px 12px rgba(26,58,92,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .header-left h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .header-left p { font-size: 13px; opacity: 0.7; margin-top: 1px; }
+
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+        .btn-ghost {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-ghost:hover:not(:disabled) { background: rgba(255,255,255,0.2); }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 28px 32px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Left column */
+        .left-col { display: flex; flex-direction: column; gap: 20px; }
+
+        /* Config Panel */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .card-header-left { display: flex; align-items: center; gap: 10px; }
+        .card-header h2 { font-size: 14px; font-weight: 600; }
+        .card-header svg { width: 17px; height: 17px; color: var(--gray-400); }
+
+        .card-header-chevron {
+            color: var(--gray-400);
+            transition: transform 0.2s;
+        }
+        .card-header-chevron.collapsed { transform: rotate(-90deg); }
+
+        .card-body { padding: 20px; }
+        .card-body.collapsed { display: none; }
+
+        .config-grid { display: flex; flex-direction: column; gap: 14px; }
+
+        .config-field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            margin-bottom: 5px;
+        }
+
+        .config-field input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 7px;
+            font-size: 13px;
+            font-family: inherit;
+            color: var(--gray-900);
+            background: var(--gray-50);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .config-field input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(44,82,130,0.1);
+            background: white;
+        }
+
+        .password-wrapper { position: relative; }
+        .password-wrapper input { padding-right: 38px; }
+        .password-toggle {
+            position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; cursor: pointer; color: var(--gray-400);
+            padding: 4px; display: flex; align-items: center; justify-content: center;
+            transition: color 0.2s;
+        }
+        .password-toggle:hover { color: var(--gray-700); }
+        .password-toggle svg { width: 16px; height: 16px; }
+
+        /* Flows Panel */
+        .flows-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flows-header-left { display: flex; align-items: center; gap: 10px; }
+        .flows-header h2 { font-size: 14px; font-weight: 600; }
+        .flows-header svg { width: 17px; height: 17px; color: var(--gray-400); }
+
+        .flows-count {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .flows-list { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+
+        .flow-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            transition: all 0.15s;
+            cursor: default;
+        }
+
+        .flow-item:hover { border-color: var(--gray-300); background: white; box-shadow: var(--shadow); }
+
+        .flow-item.running {
+            border-color: var(--blue-border);
+            background: var(--blue-bg);
+        }
+
+        .flow-item.ok {
+            border-color: var(--success-border);
+            background: var(--success-bg);
+        }
+
+        .flow-item.fail {
+            border-color: var(--danger-border);
+            background: var(--danger-bg);
+        }
+
+        .flow-icon {
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            background: var(--gray-200);
+            color: var(--gray-500);
+        }
+
+        .flow-item.running .flow-icon { background: var(--blue); color: white; }
+        .flow-item.ok .flow-icon { background: var(--success); color: white; }
+        .flow-item.fail .flow-icon { background: var(--danger); color: white; }
+
+        .flow-icon svg { width: 16px; height: 16px; }
+
+        .flow-info { flex: 1; min-width: 0; }
+        .flow-name { font-size: 13px; font-weight: 600; color: var(--gray-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .flow-id { font-size: 11px; color: var(--gray-400); font-family: monospace; }
+
+        .flow-status {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .flow-status.pending { background: var(--gray-100); color: var(--gray-500); }
+        .flow-status.running { background: var(--blue); color: white; }
+        .flow-status.ok { background: var(--success); color: white; }
+        .flow-status.fail { background: var(--danger); color: white; }
+
+        .flow-run-btn {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-300);
+            background: white;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            color: var(--primary);
+            transition: all 0.15s;
+        }
+
+        .flow-run-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .flow-run-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .flow-run-btn svg { width: 12px; height: 12px; }
+
+        .flows-empty {
+            padding: 32px 20px;
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 13px;
+        }
+
+        /* Right column */
+        .right-col { display: flex; flex-direction: column; gap: 20px; }
+
+        /* Status Banner */
+        .status-banner {
+            display: none;
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            border: 1px solid;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .status-banner.running { display: flex; background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); }
+        .status-banner.success { display: flex; background: var(--success-bg); border-color: var(--success-border); color: var(--success); }
+        .status-banner.error { display: flex; background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
+
+        .status-banner-content { display: flex; align-items: center; gap: 12px; flex: 1; }
+        .status-banner-content svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .status-banner-text h3 { font-size: 14px; font-weight: 600; }
+        .status-banner-text p { font-size: 13px; opacity: 0.85; margin-top: 1px; }
+
+        /* Progress */
+        .progress-section { display: none; animation: fadeIn 0.3s ease; }
+        .progress-section.visible { display: block; }
+
+        .progress-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--gray-100); }
+        .progress-header h2 { font-size: 14px; font-weight: 600; }
+        .progress-header-right { display: flex; align-items: center; gap: 10px; }
+
+        .btn-sm {
+            font-size: 12px; font-weight: 600;
+            color: var(--gray-500); background: var(--gray-100);
+            border: 1px solid var(--gray-200); padding: 4px 10px;
+            border-radius: 6px; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-sm:hover { background: var(--gray-200); color: var(--gray-700); }
+
+        .progress-percentage { font-size: 22px; font-weight: 700; color: var(--primary); }
+
+        .progress-bar-wrap { padding: 0 20px 16px; }
+        .progress-bar-container { height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 4px; transition: width 0.5s ease; width: 0%; }
+        .progress-bar-fill.complete { background: linear-gradient(90deg, var(--success), #22c55e); }
+        .progress-bar-fill.failed { background: linear-gradient(90deg, var(--danger), #ef4444); }
+
+        .steps-timeline { padding: 4px 20px 12px; display: flex; flex-direction: column; gap: 0; }
+
+        .step-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; position: relative; animation: slideIn 0.3s ease; }
+        .step-item:not(:last-child)::after { content: ''; position: absolute; left: 13px; top: 36px; bottom: 0; width: 2px; background: var(--gray-200); }
+        .step-item.active:not(:last-child)::after { background: var(--primary); opacity: 0.3; }
+
+        .step-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 700; z-index: 1; }
+        .step-icon.pending { background: var(--gray-200); color: var(--gray-500); }
+        .step-icon.active { background: var(--blue); color: white; animation: pulse 1.5s infinite; }
+        .step-icon.done { background: var(--success); color: white; }
+        .step-icon.error { background: var(--danger); color: white; }
+
+        .step-content { flex: 1; padding-top: 2px; }
+        .step-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+        .step-name { font-size: 13px; font-weight: 600; }
+        .step-desc { font-size: 12px; color: var(--gray-500); margin-top: 1px; }
+
+        .step-toggle { width: 24px; height: 24px; border-radius: 5px; border: 1px solid var(--gray-200); background: var(--gray-50); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; flex-shrink: 0; margin-left: 10px; }
+        .step-toggle:hover { background: var(--gray-200); }
+        .step-toggle svg { width: 12px; height: 12px; color: var(--gray-500); transition: transform 0.2s; }
+        .step-toggle.collapsed svg { transform: rotate(-90deg); }
+
+        .step-body { overflow: hidden; transition: max-height 0.3s ease, opacity 0.2s ease; max-height: 500px; opacity: 1; }
+        .step-body.collapsed { max-height: 0; opacity: 0; }
+
+        .step-screenshot { margin-top: 8px; border-radius: 7px; overflow: hidden; border: 1px solid var(--gray-200); box-shadow: var(--shadow); cursor: pointer; transition: box-shadow 0.2s; }
+        .step-screenshot:hover { box-shadow: var(--shadow-md); }
+        .step-screenshot img { width: 100%; display: block; max-height: 160px; object-fit: cover; object-position: top; transition: max-height 0.3s ease; }
+        .step-screenshot.expanded img { max-height: none; object-fit: contain; }
+        .step-screenshot-hint { font-size: 11px; color: var(--gray-400); text-align: center; padding: 3px; background: var(--gray-50); border-top: 1px solid var(--gray-100); }
+
+        /* Summary */
+        .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .summary-card { background: white; border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); border: 1px solid var(--gray-200); }
+        .summary-card .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 6px; }
+        .summary-card .value { font-size: 28px; font-weight: 700; }
+        .summary-card .value.success { color: var(--success); }
+        .summary-card .value.danger { color: var(--danger); }
+        .summary-card .sub { font-size: 12px; color: var(--gray-500); margin-top: 3px; }
+        .mini-progress { height: 5px; background: var(--gray-200); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+        .mini-progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+        .mini-progress-fill.success { background: var(--success); }
+        .mini-progress-fill.danger { background: var(--danger); }
+
+        /* Results Table */
+        .results-section { display: none; animation: fadeIn 0.3s ease; }
+        .results-section.visible { display: block; }
+
+        .section-header { padding: 16px 20px; border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; gap: 10px; }
+        .section-header h2 { font-size: 14px; font-weight: 600; }
+        .section-header svg { width: 18px; height: 18px; color: var(--gray-400); }
+
+        table { width: 100%; border-collapse: collapse; }
+        thead th { background: var(--gray-50); padding: 10px 20px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); border-bottom: 1px solid var(--gray-200); }
+        tbody td { padding: 14px 20px; font-size: 13px; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+        tbody tr:hover { background: var(--gray-50); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge.ok { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+        .badge.fail { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+        .badge svg { width: 13px; height: 13px; }
+
+        .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; background: var(--gray-100); padding: 2px 7px; border-radius: 5px; color: var(--primary); }
+
+        /* Log */
+        .log-section { display: none; animation: fadeIn 0.3s ease; }
+        .log-section.visible { display: block; }
+        .log-body { padding: 14px 20px; max-height: 180px; overflow-y: auto; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; background: var(--gray-900); color: #a5f3fc; }
+        .log-entry { padding: 2px 0; }
+        .log-entry .time { color: var(--gray-500); }
+        .log-entry .msg-info { color: #93c5fd; }
+        .log-entry .msg-ok { color: #86efac; }
+        .log-entry .msg-err { color: #fca5a5; }
+
+        /* Env */
+        .env-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; padding: 14px 20px; }
+        .env-item { display: flex; gap: 10px; font-size: 13px; padding: 5px 0; }
+        .env-label { color: var(--gray-500); font-size: 12px; min-width: 70px; }
+        .env-value { font-weight: 500; }
+
+        /* Empty */
+        .empty-state { text-align: center; padding: 60px 32px; background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--gray-200); }
+        .empty-state svg { width: 52px; height: 52px; color: var(--gray-300); margin-bottom: 16px; }
+        .empty-state h3 { font-size: 16px; font-weight: 600; color: var(--gray-700); margin-bottom: 6px; }
+        .empty-state p { font-size: 13px; color: var(--gray-500); max-width: 360px; margin: 0 auto; }
+
+        /* Lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; padding: 24px; cursor: pointer; animation: fadeIn 0.2s ease; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 95%; max-height: 95vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 20px; right: 24px; color: white; font-size: 28px; cursor: pointer; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.1); transition: background 0.2s; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+        /* Spinner */
+        .spinner { width: 16px; height: 16px; border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+        .spinner-blue { border-color: rgba(37,99,235,0.3); border-top-color: var(--blue); }
+
+        .footer { text-align: center; padding: 24px; color: var(--gray-400); font-size: 12px; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.65; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .summary { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div class="header-left">
+            <svg preserveAspectRatio="xMinYMax meet" focusable="false" width="48" height="48" style="border-radius:9px"><defs><linearGradient id="gradADPRO" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#1D7478;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#058C97;stop-opacity:1"></stop></linearGradient></defs><rect width="101%" height="35%" style="fill:rgb(29,116,120)"></rect><text x="50%" y="25%" text-anchor="middle" letter-spacing="1px" style="fill:rgb(255,255,255);font-size:10px;font-family:sans-serif">SINCO</text><rect y="37%" width="101%" height="70%" style="fill:url(#gradADPRO)"></rect><text x="50%" y="80%" text-anchor="middle" letter-spacing="0.1px" style="fill:rgb(255,255,255);font-size:14px;font-family:sans-serif">ADPRO</text></svg>
+            <div>
+                <h1>Panel de Pruebas Automatizadas</h1>
+                <p>SINCO ERP - Pedidos Proyecto</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-ghost" onclick="toggleConfig()" id="btnConfig">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Configuracion
+            </button>
+            <button class="btn btn-primary" id="btnEjecutarTodas" onclick="ejecutarTodas()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Ejecutar todas
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+        <!-- Config Panel -->
+        <div class="card" id="configPanel" style="display:none">
+            <div class="card-body">
+                <div class="config-grid">
+                    <div class="config-field">
+                        <label>Usuario</label>
+                        <input type="text" id="cfgUsuario" placeholder="Usuario">
+                    </div>
+                    <div class="config-field">
+                        <label>Contrasena</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="cfgPassword" placeholder="Contrasena">
+                            <button type="button" class="password-toggle" onclick="togglePassword()">
+                                <svg id="iconEyeOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                                <svg id="iconEyeOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="config-field">
+                        <label>Empresa</label>
+                        <input type="text" id="cfgEmpresa" placeholder="Nombre de la empresa">
+                    </div>
+                    <div class="config-field">
+                        <label>URL</label>
+                        <input type="text" id="cfgUrl" placeholder="URL de SINCO ERP">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flows Panel -->
+        <div class="card">
+            <div class="flows-header">
+                <div class="flows-header-left">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <h2>Flujos de prueba</h2>
+                </div>
+                <span class="flows-count" id="flowsCount">0</span>
+            </div>
+            <div class="flows-list" id="flowsList">
+                <div class="flows-empty">Cargando flujos...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+        <!-- Status Banner -->
+        <div class="status-banner" id="statusBanner">
+            <div class="status-banner-content">
+                <div id="statusIcon"></div>
+                <div class="status-banner-text">
+                    <h3 id="statusTitle"></h3>
+                    <p id="statusDesc"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary" id="summaryCards" style="display:none">
+            <div class="summary-card">
+                <div class="label">Total</div>
+                <div class="value" id="sumTotal">0</div>
+                <div class="sub">Flujos ejecutados</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Exitosas</div>
+                <div class="value success" id="sumOk">0</div>
+                <div class="sub">Pruebas aprobadas</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Fallidas</div>
+                <div class="value danger" id="sumFail">0</div>
+                <div class="sub">Pruebas con error</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Tasa de exito</div>
+                <div class="value" id="sumPct">-</div>
+                <div class="mini-progress"><div class="mini-progress-fill success" id="sumBar" style="width:0%"></div></div>
+            </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="card progress-section" id="progressSection">
+            <div class="progress-header">
+                <h2 id="progressTitle">Progreso</h2>
+                <div class="progress-header-right">
+                    <button class="btn-sm" id="btnToggleAll" onclick="toggleAllSteps()" style="display:none">Ocultar capturas</button>
+                    <span class="progress-percentage" id="progressPercent">0%</span>
+                </div>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+            </div>
+            <div class="steps-timeline" id="stepsTimeline"></div>
+        </div>
+
+        <!-- Results Table -->
+        <div class="card results-section" id="resultsSection">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <h2>Resultados</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:40px">#</th>
+                        <th>Prueba</th>
+                        <th>Dato de entrada</th>
+                        <th>Esperado</th>
+                        <th>Obtenido</th>
+                        <th style="width:120px">Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Environment -->
+        <div class="card results-section" id="envSection">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <h2>Entorno de ejecucion</h2>
+            </div>
+            <div class="env-grid" id="envGrid"></div>
+        </div>
+
+        <!-- Log -->
+        <div class="card log-section" id="logSection">
+            <div class="section-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                <h2>Log de ejecucion</h2>
+            </div>
+            <div class="log-body" id="logBody"></div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <h3>Sin pruebas ejecutadas</h3>
+            <p>Selecciona un flujo del panel izquierdo o haz click en <strong>"Ejecutar todas"</strong> para iniciar.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+    <div class="lightbox-close">&times;</div>
+    <img id="lightboxImg" src="" alt="Screenshot">
+</div>
+
+<div class="footer">SINCO ERP - Panel de Pruebas Automatizadas</div>
+
+<script>
+    let ejecutando = false;
+    let pruebas = [];
+    let estadoFlujos = {};   // { prueba_id: 'pending' | 'running' | 'ok' | 'fail' }
+    let contadores = { total: 0, ok: 0, fail: 0 };
+    let pasosRegistrados = {};
+    let allCollapsed = false;
+    let configVisible = false;
+
+    // --- Init ---
+    fetch('/config')
+        .then(r => r.json())
+        .then(cfg => {
+            document.getElementById('cfgUsuario').value = cfg.usuario || '';
+            document.getElementById('cfgPassword').value = cfg.password || '';
+            document.getElementById('cfgEmpresa').value = cfg.empresa || '';
+            document.getElementById('cfgUrl').value = cfg.url || '';
+        });
+
+    fetch('/pruebas')
+        .then(r => r.json())
+        .then(data => {
+            pruebas = data;
+            document.getElementById('flowsCount').textContent = pruebas.length;
+            renderFlows();
+        });
+
+    // --- Config toggle ---
+    function toggleConfig() {
+        configVisible = !configVisible;
+        document.getElementById('configPanel').style.display = configVisible ? 'block' : 'none';
+    }
+
+    function togglePassword() {
+        const input = document.getElementById('cfgPassword');
+        const eyeOff = document.getElementById('iconEyeOff');
+        const eyeOn  = document.getElementById('iconEyeOn');
+        if (input.type === 'password') {
+            input.type = 'text'; eyeOff.style.display = 'none'; eyeOn.style.display = 'block';
+        } else {
+            input.type = 'password'; eyeOff.style.display = 'block'; eyeOn.style.display = 'none';
+        }
+    }
+
+    // --- Render flows ---
+    function renderFlows() {
+        const list = document.getElementById('flowsList');
+        if (pruebas.length === 0) {
+            list.innerHTML = '<div class="flows-empty">No hay flujos disponibles.<br>Graba uno con <code>python3 grabar.py nombre</code></div>';
+            return;
+        }
+
+        list.innerHTML = '';
+        pruebas.forEach(p => {
+            const estado = estadoFlujos[p.id] || 'pending';
+            const iconHtml = getFlowIcon(estado);
+            const statusLabel = { pending: 'Pendiente', running: 'Ejecutando', ok: 'OK', fail: 'Fallida' }[estado];
+
+            const div = document.createElement('div');
+            div.className = `flow-item ${estado}`;
+            div.id = `flow-item-${p.id}`;
+            div.innerHTML = `
+                <div class="flow-icon" id="flow-icon-${p.id}">${iconHtml}</div>
+                <div class="flow-info">
+                    <div class="flow-name" title="${p.nombre}">${p.nombre}</div>
+                    <div class="flow-id">${p.id}</div>
+                </div>
+                <span class="flow-status ${estado}" id="flow-status-${p.id}">${statusLabel}</span>
+                <button class="flow-run-btn" id="flow-btn-${p.id}" title="Ejecutar este flujo"
+                    onclick="ejecutarUna('${p.id}')" ${ejecutando ? 'disabled' : ''}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </button>`;
+            list.appendChild(div);
+        });
+    }
+
+    function getFlowIcon(estado) {
+        if (estado === 'running') return `<div class="spinner spinner-blue" style="border-top-color:white"></div>`;
+        if (estado === 'ok') return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+        if (estado === 'fail') return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+        return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+    }
+
+    function setFlowEstado(id, estado) {
+        estadoFlujos[id] = estado;
+        const item   = document.getElementById(`flow-item-${id}`);
+        const icon   = document.getElementById(`flow-icon-${id}`);
+        const status = document.getElementById(`flow-status-${id}`);
+        if (!item) return;
+        item.className = `flow-item ${estado}`;
+        icon.innerHTML = getFlowIcon(estado);
+        icon.className = 'flow-icon';
+        const labels = { pending: 'Pendiente', running: 'Ejecutando', ok: 'OK', fail: 'Fallida' };
+        status.textContent = labels[estado];
+        status.className = `flow-status ${estado}`;
+    }
+
+    // --- Execution ---
+    function getConfig() {
+        return {
+            usuario: document.getElementById('cfgUsuario').value.trim(),
+            password: document.getElementById('cfgPassword').value.trim(),
+            empresa: document.getElementById('cfgEmpresa').value.trim(),
+            url: document.getElementById('cfgUrl').value.trim(),
+        };
+    }
+
+    function hora() {
+        return new Date().toLocaleTimeString('es-CO', { hour12: false });
+    }
+
+    function log(msg, tipo = 'info') {
+        const el = document.getElementById('logBody');
+        const cls = tipo === 'ok' ? 'msg-ok' : tipo === 'err' ? 'msg-err' : 'msg-info';
+        el.innerHTML += `<div class="log-entry"><span class="time">[${hora()}]</span> <span class="${cls}">${msg}</span></div>`;
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function setStatus(tipo, titulo, desc) {
+        const banner = document.getElementById('statusBanner');
+        banner.className = `status-banner ${tipo}`;
+        const icons = {
+            running: `<div class="spinner spinner-blue"></div>`,
+            success: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
+            error:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`,
+        };
+        document.getElementById('statusIcon').innerHTML = icons[tipo] || '';
+        document.getElementById('statusTitle').textContent = titulo;
+        document.getElementById('statusDesc').textContent = desc;
+    }
+
+    function setRunningUI(running) {
+        ejecutando = running;
+        const btnTodas = document.getElementById('btnEjecutarTodas');
+        btnTodas.disabled = running;
+        btnTodas.innerHTML = running
+            ? `<div class="spinner"></div> Ejecutando...`
+            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Ejecutar todas`;
+
+        document.querySelectorAll('.flow-run-btn').forEach(b => b.disabled = running);
+    }
+
+    function resetProgress() {
+        document.getElementById('progressBar').className = 'progress-bar-fill';
+        document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('progressPercent').textContent = '0%';
+        document.getElementById('stepsTimeline').innerHTML = '';
+        document.getElementById('btnToggleAll').style.display = 'none';
+        allCollapsed = false;
+        pasosRegistrados = {};
+    }
+
+    function ejecutarUna(prueba_id) {
+        if (ejecutando) return;
+
+        // Reset para un solo flujo
+        setRunningUI(true);
+        contadores = { total: 0, ok: 0, fail: 0 };
+        document.getElementById('emptyState').style.display = 'none';
+        document.getElementById('progressSection').classList.add('visible');
+        document.getElementById('logSection').classList.add('visible');
+        document.getElementById('resultsSection').classList.remove('visible');
+        document.getElementById('envSection').classList.remove('visible');
+        document.getElementById('summaryCards').style.display = 'none';
+        document.getElementById('resultsBody').innerHTML = '';
+        document.getElementById('logBody').innerHTML = '';
+        document.getElementById('progressTitle').textContent = `Ejecutando: ${prueba_id}`;
+        resetProgress();
+
+        setStatus('running', `Ejecutando: ${prueba_id}`, 'Iniciando...');
+        log(`Iniciando flujo: ${prueba_id}`);
+
+        correrFlujo(prueba_id).then(() => {
+            setRunningUI(false);
+            actualizarResumen();
+        });
+    }
+
+    async function ejecutarTodas() {
+        if (ejecutando || pruebas.length === 0) return;
+
+        setRunningUI(true);
+        contadores = { total: 0, ok: 0, fail: 0 };
+
+        // Reset estados
+        pruebas.forEach(p => setFlowEstado(p.id, 'pending'));
+
+        document.getElementById('emptyState').style.display = 'none';
+        document.getElementById('progressSection').classList.add('visible');
+        document.getElementById('logSection').classList.add('visible');
+        document.getElementById('resultsSection').classList.remove('visible');
+        document.getElementById('envSection').classList.remove('visible');
+        document.getElementById('summaryCards').style.display = 'none';
+        document.getElementById('resultsBody').innerHTML = '';
+        document.getElementById('logBody').innerHTML = '';
+        document.getElementById('progressTitle').textContent = 'Ejecutando todos los flujos';
+        resetProgress();
+
+        setStatus('running', 'Ejecutando todos los flujos...', `0 de ${pruebas.length} completados`);
+        log(`Iniciando ${pruebas.length} flujo(s)...`);
+
+        for (let i = 0; i < pruebas.length; i++) {
+            const p = pruebas[i];
+            document.getElementById('progressTitle').textContent = `Flujo ${i + 1}/${pruebas.length}: ${p.nombre}`;
+            setStatus('running', `Ejecutando flujo ${i + 1} de ${pruebas.length}`, p.nombre);
+            await correrFlujo(p.id);
+            resetProgress();
+        }
+
+        setRunningUI(false);
+        actualizarResumen();
+
+        const hayFallas = contadores.fail > 0;
+        setStatus(
+            hayFallas ? 'error' : 'success',
+            hayFallas ? 'Pruebas finalizadas con errores' : 'Todas las pruebas pasaron',
+            `${contadores.ok} exitosas, ${contadores.fail} fallidas de ${contadores.total} ejecutadas`
+        );
+        log(`Finalizadas: ${contadores.ok} OK, ${contadores.fail} fallidas.`, hayFallas ? 'err' : 'ok');
+    }
+
+    function correrFlujo(prueba_id) {
+        return new Promise(resolve => {
+            setFlowEstado(prueba_id, 'running');
+
+            const config = { ...getConfig(), prueba: prueba_id };
+
+            fetch('/ejecutar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(config),
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    log(`ERROR: ${data.error}`, 'err');
+                    setFlowEstado(prueba_id, 'fail');
+                    contadores.total++;
+                    contadores.fail++;
+                    resolve();
+                    return;
+                }
+
+                const source = new EventSource(`/stream/${data.session_id}`);
+
+                source.onmessage = function(event) {
+                    const d = JSON.parse(event.data);
+
+                    if (d.tipo === 'progreso') {
+                        document.getElementById('progressBar').style.width = d.porcentaje + '%';
+                        document.getElementById('progressPercent').textContent = d.porcentaje + '%';
+                        log(`[${d.paso}/${d.total}] ${d.nombre}: ${d.descripcion}`);
+                        actualizarPasos(d.paso, d.total, d.nombre, d.descripcion, d.screenshot);
+                    }
+
+                    if (d.tipo === 'error') {
+                        log(`ERROR: ${d.mensaje}`, 'err');
+                    }
+
+                    if (d.tipo === 'resultado') {
+                        agregarResultado(d);
+                        contadores.total++;
+                        if (d.estado === 'ok') contadores.ok++; else contadores.fail++;
+                    }
+
+                    if (d.tipo === 'fin') {
+                        source.close();
+                        const exito = d.exito;
+                        document.getElementById('progressBar').classList.add(exito ? 'complete' : 'failed');
+                        document.querySelectorAll('.step-icon.active').forEach(el => {
+                            el.classList.remove('active');
+                            el.classList.add(exito ? 'done' : 'error');
+                        });
+                        setFlowEstado(prueba_id, exito ? 'ok' : 'fail');
+                        log(`Flujo ${prueba_id}: ${exito ? 'OK' : 'FALLIDO'}`, exito ? 'ok' : 'err');
+                        resolve();
+                    }
+                };
+
+                source.onerror = function() {
+                    source.close();
+                    log(`Error de conexion en: ${prueba_id}`, 'err');
+                    setFlowEstado(prueba_id, 'fail');
+                    contadores.total++;
+                    contadores.fail++;
+                    resolve();
+                };
+            })
+            .catch(err => {
+                log(`Error: ${err}`, 'err');
+                setFlowEstado(prueba_id, 'fail');
+                contadores.total++;
+                contadores.fail++;
+                resolve();
+            });
+        });
+    }
+
+    function actualizarResumen() {
+        if (contadores.total === 0) return;
+        const pct = Math.round((contadores.ok / contadores.total) * 100);
+        document.getElementById('summaryCards').style.display = 'grid';
+        document.getElementById('sumTotal').textContent = contadores.total;
+        document.getElementById('sumOk').textContent = contadores.ok;
+        document.getElementById('sumFail').textContent = contadores.fail;
+        document.getElementById('sumPct').textContent = pct + '%';
+        document.getElementById('sumBar').style.width = pct + '%';
+        document.getElementById('sumBar').className = `mini-progress-fill ${contadores.fail > 0 ? 'danger' : 'success'}`;
+        document.getElementById('resultsSection').classList.add('visible');
+        document.getElementById('envSection').classList.add('visible');
+    }
+
+    let resultadoRow = 0;
+    function agregarResultado(d) {
+        resultadoRow++;
+        const esOk = d.estado === 'ok';
+        const iconSvg = esOk
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight:600;color:var(--gray-400)">${resultadoRow}</td>
+            <td><strong>${d.prueba}</strong></td>
+            <td><span class="mono">${d.dato_entrada}</span></td>
+            <td style="color:var(--gray-600)">${d.esperado}</td>
+            <td style="color:var(--gray-600)">${d.obtenido}</td>
+            <td><span class="badge ${d.estado}">${iconSvg} ${esOk ? 'Aprobada' : 'Fallida'}</span></td>`;
+        document.getElementById('resultsBody').appendChild(tr);
+
+        document.getElementById('envGrid').innerHTML = `
+            <div class="env-item"><span class="env-label">Empresa</span><span class="env-value">${d.empresa}</span></div>
+            <div class="env-item"><span class="env-label">Usuario</span><span class="env-value">${d.usuario}</span></div>
+            <div class="env-item"><span class="env-label">Fecha</span><span class="env-value">${d.fecha}</span></div>
+            <div class="env-item"><span class="env-label">Ruta</span><span class="env-value">ADPRO / Almacen / Pedidos proyecto</span></div>`;
+    }
+
+    // --- Steps timeline ---
+    function actualizarPasos(pasoActual, total, nombre, descripcion, screenshot) {
+        const timeline = document.getElementById('stepsTimeline');
+
+        Object.keys(pasosRegistrados).forEach(k => {
+            const num = parseInt(k);
+            if (num < pasoActual) {
+                const icon = document.getElementById(`step-icon-${num}`);
+                if (icon) { icon.className = 'step-icon done'; icon.innerHTML = '&#10003;'; }
+            }
+        });
+
+        if (!pasosRegistrados[pasoActual]) {
+            pasosRegistrados[pasoActual] = true;
+            const imgSrc  = screenshot ? `data:image/png;base64,${screenshot}` : '';
+            const imgHtml = screenshot
+                ? `<div class="step-screenshot" onclick="event.stopPropagation(); abrirLightbox(this.querySelector('img').src)">
+                       <img src="${imgSrc}" alt="Paso ${pasoActual}">
+                       <div class="step-screenshot-hint">Click para ampliar</div>
+                   </div>`
+                : '';
+
+            const toggleHtml = screenshot
+                ? `<div class="step-toggle ${allCollapsed ? 'collapsed' : ''}" id="step-toggle-${pasoActual}" onclick="event.stopPropagation(); toggleStep(${pasoActual})">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                   </div>`
+                : '';
+
+            const div = document.createElement('div');
+            div.className = 'step-item active';
+            div.innerHTML = `
+                <div class="step-icon active" id="step-icon-${pasoActual}">${pasoActual}</div>
+                <div class="step-content">
+                    <div class="step-header" onclick="${screenshot ? `toggleStep(${pasoActual})` : ''}">
+                        <div class="step-header-left">
+                            <div class="step-name">${nombre}</div>
+                            <div class="step-desc">${descripcion}</div>
+                        </div>
+                        ${toggleHtml}
+                    </div>
+                    <div class="step-body ${allCollapsed ? 'collapsed' : ''}" id="step-body-${pasoActual}">
+                        ${imgHtml}
+                    </div>
+                </div>`;
+            timeline.appendChild(div);
+
+            if (screenshot) {
+                document.getElementById('btnToggleAll').style.display = 'inline-block';
+            }
+        }
+    }
+
+    function toggleStep(num) {
+        const body   = document.getElementById(`step-body-${num}`);
+        const toggle = document.getElementById(`step-toggle-${num}`);
+        if (body) body.classList.toggle('collapsed');
+        if (toggle) toggle.classList.toggle('collapsed');
+    }
+
+    function toggleAllSteps() {
+        allCollapsed = !allCollapsed;
+        document.getElementById('btnToggleAll').textContent = allCollapsed ? 'Mostrar capturas' : 'Ocultar capturas';
+        Object.keys(pasosRegistrados).forEach(k => {
+            const body   = document.getElementById(`step-body-${k}`);
+            const toggle = document.getElementById(`step-toggle-${k}`);
+            if (body) body.classList.toggle('collapsed', allCollapsed);
+            if (toggle) toggle.classList.toggle('collapsed', allCollapsed);
+        });
+    }
+
+    // --- Lightbox ---
+    function abrirLightbox(src) {
+        document.getElementById('lightboxImg').src = src;
+        document.getElementById('lightbox').classList.add('active');
+    }
+
+    function cerrarLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightbox(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "actua",
+    "nombre": "Actuavista S.A.",
+    "entornos": [
+      {
+        "id": "des",
+        "nombre": "Desarrollo",
+        "url": "https://desarrollo.sincoerp.com/SincoOk/V3/Marco/Login_iv.aspx",
+        "usuario": "Admin",
+        "password": "Admin123",
+        "empresa": "CD NARANJO"
+      },
+      {
+        "id": "pro",
+        "nombre": "Produccion",
+        "url": "https://produccion.sincoerp.com/SincoOk/V3/Marco/Login_iv.aspx",
+        "usuario": "Admin",
+        "password": "Admin123",
+        "empresa": "CD NARANJO"
+      }
+    ]
+  },
+  {
+    "id": "rizek",
+    "nombre": "Rizek Constructora",
+    "entornos": [
+      {
+        "id": "des",
+        "nombre": "Desarrollo",
+        "url": "https://desarrollo.sincoerp.com/Rizek/V3/Marco/Login_iv.aspx",
+        "usuario": "admin",
+        "password": "Admin123",
+        "empresa": "Rizek"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+RESUMEN DEL FLUJO DE TORRE
+============================================================
+
+
+────────────────────────────────────────
+FASE: 1_cargar_torre
+────────────────────────────────────────
+Duración: 3.46s
+URL: https://core.sincoerp.com/SincoSoporte/Torre.html
+
+
+────────────────────────────────────────
+FASE: 2_login
+────────────────────────────────────────
+Duración: 2.16s
+Requests de login:
+  POST https://core.sincoerp.com/Sincosoporte/API/Trabajadores/Validar
+    POST: {"usuario":"yessica.olaya","password":"NNYRrHxodOZL+rTuagySNsVa6fbtJnPl66kO1NCCw/sPmkhP1dnPYybg84yuXDS7h6D6Vlbuto5gTNaJqHRDdhhzOwTk/FK7T9tlCg0I9gJLOGZedMepwTFpCyFbnxifb+Gzn/Sc+1gyDCc8cWVtfw==4"}
+    RESP: {"tokenAuth":"Bearer nzrTaflz52op8UUecal7vvgbICjUI+Yxk/mJ8AFoNsTkllSGTJhh/hhCxEfSCttkHJI2zI1WLxhr6zxGlyHayv9+NxjIn2WUxL1EGOOMqHZTfUKApRefJNG9v38gmXC0suPVgeOMTIEr1n1zN0cuy5eM3e7Bhhj92uj2KwEzti/m507SoA7nR0UWAKiB5Aa55ZT/MO+JtO9snXyp44hI3SPe6b+apnPDP+Gf68uYjkPDc8/MZ8uKdhnUavt2OK2oHgsaJL96GSMiqZDdhVy0hg=
+  GET https://core.sincoerp.com/SincoSoporte/API/signalr/negotiate?clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778254970022
+    RESP: {"Url":"/SincoSoporte/API/signalr","ConnectionToken":"RZmH5jmqTGqFM5uCBPava2t1OiV/M+41EnLAB9d8LVEAmIa/ux8x4FqTdQkzqnw4iTsf5F/xiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp/iFgy8Gp+Xuo4lEqLHM4p","ConnectionId":"2477e7a8-fc34-4eb0-a003-d5912db0f65f","KeepAliveTimeout":20.0,"DisconnectTimeout":30.0,"ConnectionTi
+  GET https://core.sincoerp.com/SincoSoporte/API/EquiposTrabajo/105/Jerarquia
+    RESP: [{"Id":0,"Descripcion":"SINCOSOFT","tieneSubMenus":true},{"Id":105,"Descripcion":"ADPRO","tieneSubMenus":true}]
+  GET https://core.sincoerp.com/Sincosoporte/Api/Mensajes/SinAsignar/105
+    RESP: [{"Id":0,"Descripcion":"Sin asignar","Mensajes":[{"Id":707617,"valoresSesion":"{\"idOrigen\":\"1\",\"nit\":\"900850119\",\"razonSocial\":\"PROJECT CONSTRUCTIONS S.A.S\",\"idUsuario\":\"48\",\"UsuDominio\":\"SINCO\\\\diego.rodriguez\",\"email\":\"xxx@sinco.com.co\",\"nombreUsuario\":\"Implementación\
+  GET https://core.sincoerp.com/Sincosoporte/Api/Mensajes/equipo/105
+    RESP: [{"Id":5,"Descripcion":"ADPRO Compras","Mensajes":[{"Id":707340,"Equipotrabajo_Id":5,"valoresSesion":"{\"idOrigen\":\"1\",\"nit\":\"830139876\",\"razonSocial\":\"DISEÑOS Y CONSTRUCCIONES DYCO S.A.S\",\"idUsuario\":\"59\",\"UsuDominio\":null,\"email\":\"residentedecostos@dyco.co\",\"nombreUsuario\":\
+  GET https://core.sincoerp.com/SincoSoporte/API/signalr/start?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778254970023
+    RESP: { "Response": "started" }
+  POST https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D
+    POST: data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22obtenerKeyLoginCentralizado%22%2C%22A%22%3A%5B%22sinco%5C%5Cyessica.olaya%22%5D%2C%22I%22%3A0%7D
+    RESP: {"R":[{"Id":3865,"Nombre":"SincoAEConstIsarco_PRBINT","URL":"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx"},{"Id":8396,"Nombre":"SincoLiteralCons","URL":"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx"},{"Id":8513,"Nombre":"SincoConsAIA","URL":"http
+  POST https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D
+    POST: data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22accesosEntornos%22%2C%22A%22%3A%5B%22yessica.olaya%22%5D%2C%22I%22%3A1%7D
+    RESP: {"R":[{"Id":3865,"Nombre":"SincoAEConstIsarco_PRBINT","URL":"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx"},{"Id":8396,"Nombre":"SincoLiteralCons","URL":"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx"},{"Id":8513,"Nombre":"SincoConsAIA","URL":"http
+  POST https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D
+    POST: data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22misLinks%22%2C%22A%22%3A%5B270%5D%2C%22I%22%3A2%7D
+    RESP: {"R":[{"Id":3865,"Nombre":"SincoAEConstIsarco_PRBINT","URL":"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx"},{"Id":8396,"Nombre":"SincoLiteralCons","URL":"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx"},{"Id":8513,"Nombre":"SincoConsAIA","URL":"http
+  POST https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D
+    POST: data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22trabajadoresActivos%22%2C%22A%22%3A%5B%5D%2C%22I%22%3A3%7D
+    RESP: {"R":[{"Id":3865,"Nombre":"SincoAEConstIsarco_PRBINT","URL":"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx"},{"Id":8396,"Nombre":"SincoLiteralCons","URL":"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx"},{"Id":8513,"Nombre":"SincoConsAIA","URL":"http
+  GET https://www.usetiful.com/api-space/geoip
+  GET https://www.usetiful.com/api-space/data.json?lang=es
+
+
+────────────────────────────────────────
+FASE: 3_master
+────────────────────────────────────────
+Duración: 1.06s
+
+
+────────────────────────────────────────
+FASE: 4_seleccionar_cliente
+────────────────────────────────────────
+Duración: 5.26s
+
+
+────────────────────────────────────────
+FASE: 5_seleccionar_entorno
+────────────────────────────────────────
+Duración: 3.67s
+
+
+────────────────────────────────────────
+FASE: 6_ingresar_entorno
+────────────────────────────────────────
+Duración: 26.77s
+URL final: chrome-error://chromewebdata/
+Saltos:
+  popup_inicial: chrome-error://chromewebdata/
+  final: chrome-error://chromewebdata/
+Formularios:
+Cookies (4):
+  _ga=GA1.1.758645053.1778254971... domain=.sincoerp.com path=/
+  usetiful-visitor-ident=c1b8f4b5-bba8-4807-3519-3f16913dda96... domain=core.sincoerp.com path=/
+  uf_geoip=Colombia... domain=core.sincoerp.com path=/
+  _ga_BY576JJSCK=GS2.1.s1778254970$o1$g1$t1778254984$j46$l0$h0... domain=.sincoerp.com path=/
+

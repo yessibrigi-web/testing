@@ -1,0 +1,210 @@
+{
+  "intercepted_forms": [
+    {
+      "action": "https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx",
+      "method": "post",
+      "target": "_blank",
+      "enctype": "application/x-www-form-urlencoded",
+      "inputs": [
+        {
+          "name": "keyC",
+          "type": "text",
+          "value": "CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0"
+        },
+        {
+          "name": "ingreso",
+          "type": "text",
+          "value": "0"
+        },
+        {
+          "name": "usuDominio",
+          "type": "text",
+          "value": "sinco\\yessica.olaya"
+        },
+        {
+          "name": "usuario",
+          "type": "text",
+          "value": "admin"
+        }
+      ],
+      "timestamp": 1778255256839
+    },
+    {
+      "action": "https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx",
+      "method": "post",
+      "target": "_blank",
+      "enctype": "application/x-www-form-urlencoded",
+      "inputs": [
+        {
+          "name": "keyC",
+          "type": "text",
+          "value": "CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0"
+        },
+        {
+          "name": "ingreso",
+          "type": "text",
+          "value": "0"
+        },
+        {
+          "name": "usuDominio",
+          "type": "text",
+          "value": "sinco\\yessica.olaya"
+        },
+        {
+          "name": "usuario",
+          "type": "text",
+          "value": "admin"
+        }
+      ],
+      "timestamp": 1778255256840
+    }
+  ],
+  "intercepted_window_opens": [],
+  "intercepted_forms_created": [
+    {
+      "tag": "form",
+      "timestamp": 1778255256839
+    }
+  ],
+  "intercepted_fetches": [
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-BY576JJSCK&gtm=45je6562v9174968235za20gzb9174967660zd9174967660&_p=1778255241733&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEEAAAQ&ae=a&are=1&cid=1308267876.1778255243&frm=0&pscdl=noapi&rcb=19&sr=1280x720&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.138%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.138&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=es-419&tag_exp=0~115938465~115938468~118463261&sid=1778255243&sct=1&seg=1&dl=https%3A%2F%2Fcore.sincoerp.com%2FSincoSoporte%2FTorre.html&dt=Soporte%20Sincosoft&_s=3&tfd=22200",
+      "options": "{\"cache\":\"no-store\",\"credentials\":\"include\",\"keepalive\":true,\"method\":\"POST\",\"mode\":\"no-cors\",\"redirect\":\"follow\",\"body\":\"en=form_start&ep.form_id=&ep.form_name=&ep.form_destination=https%3A%2F%2Fkilauea-v01.sincoerp.com%3A444%2FSincoConsRizek%2FV3%2FMarco%2FLogin.aspx&epn.form_length=4&_et=13570\\r\\nen=form_submit&ep.form_id=&ep.form_name=&ep.form_destination=https%3A%2F%2Fkilauea-v01.sincoerp.com%3A444%2FSincoConsRizek%2FV3%2FMarco%2FLogin.aspx&epn.form_length=4&_et=2\"}",
+      "timestamp": 1778255261912
+    }
+  ],
+  "popup_navigation_requests": [],
+  "console_messages": [
+    {
+      "type": "log",
+      "text": "INTERCEPTED form.submit: {\"action\":\"https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx\",\"method\":\"post\",\"target\":\"_blank\",\"enctype\":\"application/x-www-form-urlencoded\",\"inputs\":[{\"name\":\"keyC\",\"type\":\"text\",\"value\":\"CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0\"},{\"name\":\"ingreso\",\"type\":\"text\",\"value\":\"0\"},{\"name\":\"usuDominio\",\"type\":\"text\",\"value\":\"sinco\\\\yessica.olaya\"},{\"name\":\"usuario\",\"type\":\"text\",\"value\":\"admin\"}],\"timestamp\":1778255256839}",
+      "timestamp": 1778255256.843762
+    },
+    {
+      "type": "log",
+      "text": "INTERCEPTED proto.submit: {\"action\":\"https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx\",\"method\":\"post\",\"target\":\"_blank\",\"enctype\":\"application/x-www-form-urlencoded\",\"inputs\":[{\"name\":\"keyC\",\"type\":\"text\",\"value\":\"CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0\"},{\"name\":\"ingreso\",\"type\":\"text\",\"value\":\"0\"},{\"name\":\"usuDominio\",\"type\":\"text\",\"value\":\"sinco\\\\yessica.olaya\"},{\"name\":\"usuario\",\"type\":\"text\",\"value\":\"admin\"}],\"timestamp\":1778255256840}",
+      "timestamp": 1778255256.844139
+    }
+  ],
+  "all_console_messages": [
+    {
+      "type": "log",
+      "text": "INTERCEPTED form.submit: {\"action\":\"https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx\",\"method\":\"post\",\"target\":\"_blank\",\"enctype\":\"application/x-www-form-urlencoded\",\"inputs\":[{\"name\":\"keyC\",\"type\":\"text\",\"value\":\"CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0\"},{\"name\":\"ingreso\",\"type\":\"text\",\"value\":\"0\"},{\"name\":\"usuDominio\",\"type\":\"text\",\"value\":\"sinco\\\\yessica.olaya\"},{\"name\":\"usuario\",\"type\":\"text\",\"value\":\"admin\"}],\"timestamp\":1778255256839}",
+      "timestamp": 1778255256.843762
+    },
+    {
+      "type": "log",
+      "text": "INTERCEPTED proto.submit: {\"action\":\"https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx\",\"method\":\"post\",\"target\":\"_blank\",\"enctype\":\"application/x-www-form-urlencoded\",\"inputs\":[{\"name\":\"keyC\",\"type\":\"text\",\"value\":\"CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0\"},{\"name\":\"ingreso\",\"type\":\"text\",\"value\":\"0\"},{\"name\":\"usuDominio\",\"type\":\"text\",\"value\":\"sinco\\\\yessica.olaya\"},{\"name\":\"usuario\",\"type\":\"text\",\"value\":\"admin\"}],\"timestamp\":1778255256840}",
+      "timestamp": 1778255256.844139
+    },
+    {
+      "type": "debug",
+      "text": "[10:47:43 GMT-0500 (hora estándar de Colombia)] SignalR: Triggering client hub event 'notificacionCliente' on hub 'MyHub'.",
+      "timestamp": 1778255263.447294
+    },
+    {
+      "type": "debug",
+      "text": "[10:47:43 GMT-0500 (hora estándar de Colombia)] SignalR: Triggering client hub event 'recargarPanel' on hub 'MyHub'.",
+      "timestamp": 1778255263.4481618
+    },
+    {
+      "type": "debug",
+      "text": "[10:47:43 GMT-0500 (hora estándar de Colombia)] SignalR: Triggering client hub event 'recargarPanel' on hub 'MyHub'.",
+      "timestamp": 1778255263.4571538
+    }
+  ],
+  "torre_js_variables": {
+    "clientInformation": "{}",
+    "styleMedia": "{}",
+    "crypto": "{}",
+    "indexedDB": "{}",
+    "localStorage": "{\"latestAuth\":\"1778255244733\",\"uf_reports_to_send\":\"[]\",\"uf_surveys\":\"[]\",\"usuario\":\"{\\\"usuario\\\":\\\"yessica.olaya\\\",\\\"password\\\":\\\"NNYRrHxodOZL+rTuagySNsVa6fbtJnPl66kO1NCCw/sPmkhP1dnPYybg84yuXDS7h6D6Vlbuto5gTNaJqHRDdhhzOwTk/FK7T9tlCg0I9gJLOGZedMepwTFpCyFbnxifb+Gzn/Sc+1gyDCc8cWVtfw==4\\\"}\",\"uf_banners\":\"[]\",\"tokenAuth\":\"Bearer nzrTaflz52op8UUecal7vvgbICjUI+Yxk/mJ8AFoNsTkllSGTJhh/hhCxEfSCttkHJI2zI1WLxhr6zxGlyHayv9+NxjIn2WUxL1EGOOMqHZTfUKApRefJNG9v38gmXC0suPVgeOMTIEr1n1zN0cuy5eM3e7Bhhj92uj2KwEzti/m5",
+    "sessionStorage": "{}",
+    "crashReport": "{}",
+    "documentPictureInPicture": "{}",
+    "sharedStorage": "{}",
+    "viewport": "{}",
+    "credentialless": "false",
+    "launchQueue": "{}",
+    "__pwInitScripts": "{\"e1c5174fced8bf400a0dc946525aea9b\":true}",
+    "msal": "{\"AuthenticationScheme\":{\"BEARER\":\"Bearer\",\"POP\":\"pop\",\"SSH\":\"ssh-cert\"},\"LogLevel\":{\"0\":\"Error\",\"1\":\"Warning\",\"2\":\"Info\",\"3\":\"Verbose\",\"4\":\"Trace\",\"Error\":0,\"Warning\":1,\"Info\":2,\"Verbose\":3,\"Trace\":4},\"AzureCloudInstance\":{\"0\":\"None\",\"None\":0,\"AzurePublic\":\"https://login.microsoftonline.com\",\"AzurePpe\":\"https://login.windows-ppe.net\",\"AzureChina\":\"https://login.chinacloudapi.cn\",\"AzureGermany\":\"https://login.microsoftonline.de\",\"AzureUsGovernment\":\"https://login.microsoftonline.us\"},\"Performanc",
+    "dataLayer": "[{\"gtm.start\":1778255241733,\"event\":\"gtm.js\",\"gtm.uniqueEventId\":3},{\"event\":\"gtm.dom\",\"gtm.uniqueEventId\":5},{\"event\":\"gtm.scrollDepth\",\"gtm.scrollThreshold\":90,\"gtm.scrollUnits\":\"percent\",\"gtm.scrollDirection\":\"vertical\",\"gtm.triggers\":\"9\",\"gtm.uniqueEventId\":11},{\"event\":\"gtm.load\",\"gtm.uniqueEventId\":12},{\"event\":\"gtm.click\",\"gtm.element\":{\"listeners\":{}},\"gtm.elementClasses\":\"btn windows\",\"gtm.elementId\":\"windows\",\"gtm.elementTarget\":\"\",\"gtm.triggers\":\"4\",\"gtm.elementUrl\":\"\",\"gtm.uniqueEven",
+    "css": "[\"Styles/torre.css\",\"Styles/Dialog.css\",\"Styles/ScrollBar.css\",\"Styles/Tarjeta.css\",\"Styles/Actualizador.css\",\"Styles/Contactos.css\",\"Styles/Empresa.css\",\"Styles/Links.css\",\"Styles/Index.css\",\"Styles/Sesion.css\",\"Styles/Convertir.css\",\"Styles/SCV.css\",\"Styles/toolkit.css\",\"Styles/dx.common.css\",\"Styles/dx.light.css\",\"Styles/Master.css\",\"Styles/quill.snow.css\",\"Styles/quill.bubble.css\",\"Styles/Versiones.css\",\"Styles/Secuencias.css\",\"Styles/TorreCliente.css\",\"Styles/Planes.css\",\"Styles/Extracto.cs",
+    "version-js": "-Gero-19.07.13.11",
+    "_host": "core.sincoerp.com",
+    "Msal": "{\"AuthorityType\":{\"0\":\"Aad\",\"1\":\"Adfs\",\"2\":\"B2C\",\"Aad\":0,\"Adfs\":1,\"B2C\":2},\"LogLevel\":{\"0\":\"Error\",\"1\":\"Warning\",\"2\":\"Info\",\"3\":\"Verbose\",\"Error\":0,\"Warning\":1,\"Info\":2,\"Verbose\":3}}",
+    "__lists": "[\"Array\",\"ArrayBuffer\",\"Uint8Array\",\"Int8Array\",\"Uint16Array\",\"Int16Array\",\"Uint32Array\",\"Int32Array\",\"BigUint64Array\",\"BigInt64Array\",\"Uint8ClampedArray\",\"Float32Array\",\"Float64Array\",\"WebGLVertexArrayObject\",\"TouchList\",\"TextTrackList\",\"TextTrackCueList\",\"StyleSheetList\",\"SourceBufferList\",\"SVGTransformList\",\"SVGStringList\",\"SVGPointList\",\"SVGNumberList\",\"SVGLengthList\",\"SVGAnimatedTransformList\",\"SVGAnimatedNumberList\",\"SVGAnimatedLengthList\",\"RadioNodeList\",\"PluginArray\",\"PerformanceObserver",
+    "isIE": "false",
+    "isFirefox": "false",
+    "versionIE": "-1",
+    "isMobile": "false",
+    "vt": "{\"cssTipo\":1}",
+    "R": "{\"__\":{\"@@functional/placeholder\":true}}",
+    "reqWidgets": "{\"components\":{}}",
+    "confeti": "{\"activeConfettiBatches\":[],\"canvas\":{},\"canvasContext\":{},\"requestAnimationFrameRequested\":false,\"lastUpdated\":1778255242744,\"iterationIndex\":1}",
+    "google_tag_data": "{\"tidr\":{\"container\":{\"GTM-K539J7CJ\":{\"canonicalContainerId\":\"174967660\",\"scriptContainerId\":\"GTM-K539J7CJ\",\"state\":2,\"containers\":[\"GTM-K539J7CJ\"],\"destinations\":[],\"scriptElement\":{},\"scriptSource\":\"https://www.googletagmanager.com/gtm.js?id=GTM-K539J7CJ\",\"htmlLoadOrder\":\"2\",\"loadScriptType\":\"1\"},\"G-BY576JJSCK\":{\"state\":2,\"context\":{\"source\":6,\"fromContainerExecution\":true,\"loadExperiments\":[0]},\"parent\":{\"ctid\":\"GTM-K539J7CJ\",\"isDestination\":false},\"canonicalContainerId\":\"174968235\",\"scriptCo",
+    "google_tag_manager": "{\"debugGroupId\":\"7942854752196085\",\"tcf\":{},\"pscdl\":\"noapi\",\"GTM-K539J7CJ\":{\"dataLayer\":{\"name\":\"dataLayer\"},\"bootstrap\":1778255242898},\"rm\":{},\"dataLayer\":{\"subscribers\":2,\"gtmDom\":true,\"gtmLoad\":true},\"mb\":{\"messages\":[{\"message\":{\"0\":\"config\",\"1\":\"G-BY576JJSCK\",\"2\":{},\"gtm.uniqueEventId\":3,\"gtm.priorityId\":1},\"notBeforeEventId\":3,\"priorityId\":1,\"messageContext\":{\"noTargetGroup\":true,\"originatingEntity\":{\"entityType\":1,\"indexInOriginContainer\":0,\"nameInOriginContainer\":\"\",\"originContainerId\":\"",
+    "SesionCliente": "{\"aplicacion\":\"core.sincoerp.com_sincosoporte?\",\"valoresSesion\":null,\"sitio\":null,\"tipoApp\":\"ERP\"}",
+    "od": "",
+    "trabajador": "{\"Id\":270,\"NombreCompleto\":\"ADPRO - Yessica Olaya\",\"Nombres\":\"ADPRO - Yessica\",\"Apellidos\":\"Olaya\",\"Correo\":\"yessica.olaya@sinco.com.co\",\"EquipoTrabajo\":\"ADPRO\",\"EquipoTrabajo_Id\":105,\"Iniciales\":\"YOM\",\"UsuarioDominio\":\"sinco\\\\yessica.olaya\",\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false}",
+    "gaGlobal": "{\"vid\":\"1308267876.1778255243\",\"from_cookie\":true}",
+    "JSZipUtils": "{}",
+    "__esbuild_esm_mermaid_nm": "{\"mermaid\":{\"default\":{\"startOnLoad\":true,\"mermaidAPI\":{\"defaultConfig\":{\"flowchart\":{\"useMaxWidth\":true,\"titleTopMargin\":25,\"subGraphTitleMargin\":{\"top\":0,\"bottom\":0},\"diagramPadding\":8,\"htmlLabels\":null,\"nodeSpacing\":50,\"rankSpacing\":50,\"curve\":\"basis\",\"padding\":15,\"defaultRenderer\":\"dagre-wrapper\",\"wrappingWidth\":200,\"inheritDir\":false},\"sequence\":{\"useMaxWidth\":true,\"hideUnusedParticipants\":false,\"activationWidth\":10,\"diagramMarginX\":50,\"diagramMarginY\":10,\"actorMargin\":50,\"width\":150,\"heigh",
+    "mermaid": "{\"startOnLoad\":true,\"mermaidAPI\":{\"defaultConfig\":{\"flowchart\":{\"useMaxWidth\":true,\"titleTopMargin\":25,\"subGraphTitleMargin\":{\"top\":0,\"bottom\":0},\"diagramPadding\":8,\"htmlLabels\":null,\"nodeSpacing\":50,\"rankSpacing\":50,\"curve\":\"basis\",\"padding\":15,\"defaultRenderer\":\"dagre-wrapper\",\"wrappingWidth\":200,\"inheritDir\":false},\"sequence\":{\"useMaxWidth\":true,\"hideUnusedParticipants\":false,\"activationWidth\":10,\"diagramMarginX\":50,\"diagramMarginY\":10,\"actorMargin\":50,\"width\":150,\"height\":65,\"boxMargin\":10,\"",
+    "idOrigen": "-1",
+    "Config": "{\"UrlSoporte\":\"https://core.sincoerp.com/Sincosoporte/\",\"prioridades\":{\"Urgente\":1,\"Alta\":6,\"Media\":8,\"Baja\":24},\"Modulos\":{\"1\":{\"DashBoard\":\"https://sincoerp.com/sincocalidadasp/v3/Api/BI/SincoCalidad/57/1\"},\"2\":{\"DashBoard\":\"https://sincoerp.com/sincocalidadasp/v3/Api/BI/SincoCalidad/54/1\"},\"4\":{\"DashBoard\":\"https://sincoerp.com/sincocalidadasp/v3/Api/BI/SincoCalidad/58/1\"},\"5\":{\"DashBoard\":\"https://sincoerp.com/sincocalidadasp/v3/Api/BI/SincoCalidad/52/1#/\"},\"6\":{\"DashBoard\":\"https://sincoerp",
+    "mensajesTotal": "[{\"Id\":707617,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"900850119\\\",\\\"razonSocial\\\":\\\"PROJECT CONSTRUCTIONS S.A.S\\\",\\\"idUsuario\\\":\\\"48\\\",\\\"UsuDominio\\\":\\\"SINCO\\\\\\\\diego.rodriguez\\\",\\\"email\\\":\\\"xxx@sinco.com.co\\\",\\\"nombreUsuario\\\":\\\"Implementación\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":8737,\\\"idEmpresaCliente\\\":885,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"101\\\",\\\"NomObra\\\":\\\"PROYECTO ROYAL BLUE MANGA\\\",\\\"NomEmpresa\\\":\\\"PROJECT CONSTRUCTIONS S.A.S\\\",\\\"NombreEmpresa\\\":\\\"PROJECT CONSTRUCTIONS S.A.S\\\"",
+    "usetifulTags": "{\"Id\":270,\"NombreCompleto\":\"ADPRO - Yessica Olaya\",\"Nombres\":\"ADPRO - Yessica\",\"Apellidos\":\"Olaya\",\"Correo\":\"yessica.olaya@sinco.com.co\",\"EquipoTrabajo\":\"ADPRO\",\"EquipoTrabajo_Id\":105,\"Iniciales\":\"YOM\",\"UsuarioDominio\":\"sinco\\\\yessica.olaya\",\"UsuarioLogin\":\"admin\",\"AutorizadoEnviarPaquete\":false,\"autoGeneratedTags\":{\"browserName\":\"Chrome\",\"browserVersion\":\"147\",\"browserLanguage\":\"es-419\",\"deviceType\":\"Desktop\",\"screenSize\":\"1280 x 720\",\"domain\":\"core.sincoerp.com\",\"url\":\"https://core.sincoerp.co",
+    "user_central_key": "CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0",
+    "accesos_LoginC": "[{\"Id\":8158,\"Nombre\":\"SincoArinco\",\"URL\":\"https://www5.sincoerp.com/SincoArinco/V3/Marco/Login.aspx\"},{\"Id\":5525,\"Nombre\":\"SincoArquitectura_Nueva\",\"URL\":\"https://sinco.aycaplicativos.com:4443/SincoAyC_Nueva/V3/Marco/Login.aspx\"},{\"Id\":6404,\"Nombre\":\"SincoIProyeC_PRBINT\",\"URL\":\"https://pruebas4.sincoerp.com/SincoIProyeC_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":6736,\"Nombre\":\"SincoEthuss_PRBINT\",\"URL\":\"https://pruebas4.sincoerp.com/SincoEthuss_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":4414,\"Nombre\":\"SincoAmar",
+    "USETIFUL": "{\"user\":{},\"tour\":{}}",
+    "usetiful_instance": "1778255246970",
+    "usetiful_activeTriggersOnElements": "[]",
+    "usetiful_activeListeners": "[]",
+    "usetiful_intervals": "[58,59,60,61]",
+    "usetiful_completionButtonEvents": "[]",
+    "__intercepted": "{\"forms\":[{\"tag\":\"form\",\"timestamp\":1778255256839}],\"windowOpens\":[],\"formSubmits\":[{\"action\":\"https://kilauea-v01.sincoerp.com:444/SincoConsRizek/V3/Marco/Login.aspx\",\"method\":\"post\",\"target\":\"_blank\",\"enctype\":\"application/x-www-form-urlencoded\",\"inputs\":[{\"name\":\"keyC\",\"type\":\"text\",\"value\":\"CD3332D6CFA8A96D0AF9DF723EF18A2788814094X0\"},{\"name\":\"ingreso\",\"type\":\"text\",\"value\":\"0\"},{\"name\":\"usuDominio\",\"type\":\"text\",\"value\":\"sinco\\\\yessica.olaya\"},{\"name\":\"usuario\",\"type\":\"text\",\"value\":\"admin\""
+  },
+  "cookies_final": [
+    {
+      "name": "_ga",
+      "value": "GA1.1.1308267876.1778255243",
+      "domain": ".sincoerp.com",
+      "path": "/",
+      "expires": 1812815243.306034,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "usetiful-visitor-ident",
+      "value": "22b28815-3693-46cb-36fe-3f5d1116649b",
+      "domain": "core.sincoerp.com",
+      "path": "/",
+      "expires": 1809791246,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "uf_geoip",
+      "value": "Colombia",
+      "domain": "core.sincoerp.com",
+      "path": "/",
+      "expires": 1778258848,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_BY576JJSCK",
+      "value": "GS2.1.s1778255243$o1$g1$t1778255256$j47$l0$h0",
+      "domain": ".sincoerp.com",
+      "path": "/",
+      "expires": 1812815256.900836,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ]
+}

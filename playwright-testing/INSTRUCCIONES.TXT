@@ -1,0 +1,2 @@
+python3 grabar.py NOMBRE_PRUEBA
+python3 server.py --> para correr al dashboard

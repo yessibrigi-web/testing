@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.png
+*.log
+resultado_*.txt
+resultado_*.html
+reporte_template.html
+.DS_Store

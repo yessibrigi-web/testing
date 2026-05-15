@@ -1,0 +1,406 @@
+{
+  "timestamp": "2026-05-08T10:42:23.881079",
+  "fases": {
+    "1_cargar_torre": {
+      "duracion_seg": 3.46,
+      "url": "https://core.sincoerp.com/SincoSoporte/Torre.html",
+      "titulo": "Soporte Sincosoft",
+      "cookies_pre_login": [
+        {
+          "name": "_ga",
+          "value": "GA1.1.758645053.1778254971",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.759435,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "_ga_BY576JJSCK",
+          "value": "GS2.1.s1778254970$o1$g0$t1778254970$j60$l0$h0",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.769765,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        }
+      ]
+    },
+    "2_login": {
+      "encriptacion_js": {
+        "cryptojs": true,
+        "scripts": [],
+        "funciones_globales": []
+      },
+      "form_inputs_pre_submit": [
+        {
+          "name": "usuario",
+          "type": "text",
+          "value": "yessica.olaya"
+        },
+        {
+          "name": "pass",
+          "type": "password",
+          "value": "Jeronimo2026"
+        },
+        {
+          "name": "buscarHistorial",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "name": "buscar",
+          "type": "text",
+          "value": ""
+        },
+        {
+          "name": "vencidos_filtro",
+          "type": "radio",
+          "value": "vencidos_no"
+        },
+        {
+          "name": "vencidos_filtro",
+          "type": "radio",
+          "value": "vencidos_si"
+        },
+        {
+          "name": "vencidos_filtro",
+          "type": "radio",
+          "value": "vencidos_hoy"
+        }
+      ],
+      "duracion_seg": 2.16,
+      "requests_login": [
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/Sincosoporte/API/Trabajadores/Validar",
+          "type": "xhr",
+          "post_data": "{\"usuario\":\"yessica.olaya\",\"password\":\"NNYRrHxodOZL+rTuagySNsVa6fbtJnPl66kO1NCCw/sPmkhP1dnPYybg84yuXDS7h6D6Vlbuto5gTNaJqHRDdhhzOwTk/FK7T9tlCg0I9gJLOGZedMepwTFpCyFbnxifb+Gzn/Sc+1gyDCc8cWVtfw==4\"}",
+          "response_status": 200,
+          "response_body": "{\"tokenAuth\":\"Bearer nzrTaflz52op8UUecal7vvgbICjUI+Yxk/mJ8AFoNsTkllSGTJhh/hhCxEfSCttkHJI2zI1WLxhr6zxGlyHayv9+NxjIn2WUxL1EGOOMqHZTfUKApRefJNG9v38gmXC0suPVgeOMTIEr1n1zN0cuy5eM3e7Bhhj92uj2KwEzti/m507SoA7nR0UWAKiB5Aa55ZT/MO+JtO9snXyp44hI3SPe6b+apnPDP+Gf68uYjkPDc8/MZ8uKdhnUavt2OK2oHgsaJL96GSMiqZDdhVy0hg==\",\"token\":{\"value\":9388},\"trabajador\":{\"Id\":270,\"NombreCompleto\":\"ADPRO - Yessica Olaya\",\"Nombres\":\"ADPRO - Yessica\",\"Apellidos\":\"Olaya\",\"Correo\":\"yessica.olaya@sinco.com.co\",\"EquipoTrabajo\":\"ADPRO\","
+        },
+        {
+          "method": "GET",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/negotiate?clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778254970022",
+          "type": "xhr",
+          "post_data": null,
+          "response_status": 200,
+          "response_body": "{\"Url\":\"/SincoSoporte/API/signalr\",\"ConnectionToken\":\"RZmH5jmqTGqFM5uCBPava2t1OiV/M+41EnLAB9d8LVEAmIa/ux8x4FqTdQkzqnw4iTsf5F/xiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp/iFgy8Gp+Xuo4lEqLHM4p\",\"ConnectionId\":\"2477e7a8-fc34-4eb0-a003-d5912db0f65f\",\"KeepAliveTimeout\":20.0,\"DisconnectTimeout\":30.0,\"ConnectionTimeout\":110.0,\"TryWebSockets\":true,\"ProtocolVersion\":\"1.5\",\"TransportConnectTimeout\":5.0,\"LongPollDelay\":0.0}"
+        },
+        {
+          "method": "GET",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/EquiposTrabajo/105/Jerarquia",
+          "type": "xhr",
+          "post_data": null,
+          "response_status": 200,
+          "response_body": "[{\"Id\":0,\"Descripcion\":\"SINCOSOFT\",\"tieneSubMenus\":true},{\"Id\":105,\"Descripcion\":\"ADPRO\",\"tieneSubMenus\":true}]"
+        },
+        {
+          "method": "GET",
+          "url": "https://core.sincoerp.com/Sincosoporte/Api/Mensajes/SinAsignar/105",
+          "type": "xhr",
+          "post_data": null,
+          "response_status": 200,
+          "response_body": "[{\"Id\":0,\"Descripcion\":\"Sin asignar\",\"Mensajes\":[{\"Id\":707617,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"900850119\\\",\\\"razonSocial\\\":\\\"PROJECT CONSTRUCTIONS S.A.S\\\",\\\"idUsuario\\\":\\\"48\\\",\\\"UsuDominio\\\":\\\"SINCO\\\\\\\\diego.rodriguez\\\",\\\"email\\\":\\\"xxx@sinco.com.co\\\",\\\"nombreUsuario\\\":\\\"Implementación\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":8737,\\\"idEmpresaCliente\\\":885,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"101\\\",\\\"NomObra\\\":\\\"PROYECTO ROYAL BLUE MANGA\\\",\\\"NomEmpresa\\\":\\\"PROJECT CONSTRUCTIONS S.A.S\\\",\\"
+        },
+        {
+          "method": "GET",
+          "url": "https://core.sincoerp.com/Sincosoporte/Api/Mensajes/equipo/105",
+          "type": "xhr",
+          "post_data": null,
+          "response_status": 200,
+          "response_body": "[{\"Id\":5,\"Descripcion\":\"ADPRO Compras\",\"Mensajes\":[{\"Id\":707340,\"Equipotrabajo_Id\":5,\"valoresSesion\":\"{\\\"idOrigen\\\":\\\"1\\\",\\\"nit\\\":\\\"830139876\\\",\\\"razonSocial\\\":\\\"DISEÑOS Y CONSTRUCCIONES DYCO S.A.S\\\",\\\"idUsuario\\\":\\\"59\\\",\\\"UsuDominio\\\":null,\\\"email\\\":\\\"residentedecostos@dyco.co\\\",\\\"nombreUsuario\\\":\\\"Juan David Corral Guarnizo\\\",\\\"idEmpresa\\\":\\\"1\\\",\\\"idBaseDatos\\\":8366,\\\"idEmpresaCliente\\\":835,\\\"helpDeskNuevo\\\":true,\\\"IdObra\\\":\\\"100\\\",\\\"NomObra\\\":\\\"SATORI ETAPA 1\\\",\\\"NomEmpresa\\\":\\\"DISEÑOS Y CONS"
+        },
+        {
+          "method": "GET",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/start?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D&_=1778254970023",
+          "type": "xhr",
+          "post_data": null,
+          "response_status": 200,
+          "response_body": "{ \"Response\": \"started\" }"
+        },
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "type": "xhr",
+          "post_data": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22obtenerKeyLoginCentralizado%22%2C%22A%22%3A%5B%22sinco%5C%5Cyessica.olaya%22%5D%2C%22I%22%3A0%7D",
+          "response_status": 200,
+          "response_body": "{\"R\":[{\"Id\":3865,\"Nombre\":\"SincoAEConstIsarco_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":8396,\"Nombre\":\"SincoLiteralCons\",\"URL\":\"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx\"},{\"Id\":8513,\"Nombre\":\"SincoConsAIA\",\"URL\":\"https://www5.sincoerp.com/SincoConsAIA/V3/Marco/Login.aspx\"},{\"Id\":5456,\"Nombre\":\"SincoIngVias_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoIngVias_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":4151"
+        },
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "type": "xhr",
+          "post_data": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22accesosEntornos%22%2C%22A%22%3A%5B%22yessica.olaya%22%5D%2C%22I%22%3A1%7D",
+          "response_status": 200,
+          "response_body": "{\"R\":[{\"Id\":3865,\"Nombre\":\"SincoAEConstIsarco_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":8396,\"Nombre\":\"SincoLiteralCons\",\"URL\":\"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx\"},{\"Id\":8513,\"Nombre\":\"SincoConsAIA\",\"URL\":\"https://www5.sincoerp.com/SincoConsAIA/V3/Marco/Login.aspx\"},{\"Id\":5456,\"Nombre\":\"SincoIngVias_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoIngVias_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":4151"
+        },
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "type": "xhr",
+          "post_data": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22misLinks%22%2C%22A%22%3A%5B270%5D%2C%22I%22%3A2%7D",
+          "response_status": 200,
+          "response_body": "{\"R\":[{\"Id\":3865,\"Nombre\":\"SincoAEConstIsarco_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":8396,\"Nombre\":\"SincoLiteralCons\",\"URL\":\"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx\"},{\"Id\":8513,\"Nombre\":\"SincoConsAIA\",\"URL\":\"https://www5.sincoerp.com/SincoConsAIA/V3/Marco/Login.aspx\"},{\"Id\":5456,\"Nombre\":\"SincoIngVias_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoIngVias_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":4151"
+        },
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "type": "xhr",
+          "post_data": "data=%7B%22H%22%3A%22myhub%22%2C%22M%22%3A%22trabajadoresActivos%22%2C%22A%22%3A%5B%5D%2C%22I%22%3A3%7D",
+          "response_status": 200,
+          "response_body": "{\"R\":[{\"Id\":3865,\"Nombre\":\"SincoAEConstIsarco_PRBINT\",\"URL\":\"https://pruebas.sincoerp.com:7342/SincoAEConstIsarco_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":8396,\"Nombre\":\"SincoLiteralCons\",\"URL\":\"https://www2.sincoerp.com/SincoLiteralCons/V3/Marco/Login.aspx\"},{\"Id\":8513,\"Nombre\":\"SincoConsAIA\",\"URL\":\"https://www5.sincoerp.com/SincoConsAIA/V3/Marco/Login.aspx\"},{\"Id\":5456,\"Nombre\":\"SincoIngVias_Nueva_PRBINT\",\"URL\":\"https://pruebas3.sincoerp.com/SincoIngVias_Nueva_PRBINT/V3/Marco/Login.aspx\"},{\"Id\":4151"
+        },
+        {
+          "method": "GET",
+          "url": "https://www.usetiful.com/api-space/geoip",
+          "type": "xhr",
+          "post_data": null
+        },
+        {
+          "method": "GET",
+          "url": "https://www.usetiful.com/api-space/data.json?lang=es",
+          "type": "xhr",
+          "post_data": null
+        }
+      ],
+      "cookies_post_login": [
+        {
+          "name": "_ga",
+          "value": "GA1.1.758645053.1778254971",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.759435,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "_ga_BY576JJSCK",
+          "value": "GS2.1.s1778254970$o1$g0$t1778254970$j60$l0$h0",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.769765,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "usetiful-visitor-ident",
+          "value": "c1b8f4b5-bba8-4807-3519-3f16913dda96",
+          "domain": "core.sincoerp.com",
+          "path": "/",
+          "expires": 1809790974,
+          "httpOnly": false,
+          "secure": true,
+          "sameSite": "Lax"
+        }
+      ],
+      "url_post_login": "https://core.sincoerp.com/SincoSoporte/Torre.html"
+    },
+    "3_master": {
+      "duracion_seg": 1.06
+    },
+    "4_seleccionar_cliente": {
+      "duracion_seg": 5.26,
+      "requests": [
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "post_data": "data=%7B%22H%22%3A%22administrativo%22%2C%22M%22%3A%22GetEmpId%22%2C%22A%22%3A%5B130%5D%2C%22I%22%3A6%7D"
+        },
+        {
+          "method": "POST",
+          "url": "https://core.sincoerp.com/SincoSoporte/API/signalr/send?transport=serverSentEvents&clientProtocol=1.5&UserName=sinco\\yessica.olaya&EquipoTrabajo=ADPRO&AppEmpresa=sincosoporte&connectionToken=RZmH5jmqTGqFM5uCBPava2t1OiV%2FM%2B41EnLAB9d8LVEAmIa%2Fux8x4FqTdQkzqnw4iTsf5F%2FxiPRriRB4Qn0idGE1c0Gb2Lh04iT5EM82DLp%2FiFgy8Gp%2BXuo4lEqLHM4p&connectionData=%5B%7B%22name%22%3A%22myhub%22%7D%2C%7B%22name%22%3A%22releasemanager%22%7D%5D",
+          "post_data": "data=%7B%22H%22%3A%22administrativo%22%2C%22M%22%3A%22GetExtracto%22%2C%22A%22%3A%5B506%2C130%2C5%2C2026%5D%2C%22I%22%3A7%7D"
+        }
+      ]
+    },
+    "5_seleccionar_entorno": {
+      "duracion_seg": 3.67,
+      "requests": [],
+      "cookies_pre_ingresar": [
+        {
+          "name": "_ga",
+          "value": "GA1.1.758645053.1778254971",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.759435,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "_ga_BY576JJSCK",
+          "value": "GS2.1.s1778254970$o1$g0$t1778254970$j60$l0$h0",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.769765,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "usetiful-visitor-ident",
+          "value": "c1b8f4b5-bba8-4807-3519-3f16913dda96",
+          "domain": "core.sincoerp.com",
+          "path": "/",
+          "expires": 1809790974,
+          "httpOnly": false,
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "uf_geoip",
+          "value": "Colombia",
+          "domain": "core.sincoerp.com",
+          "path": "/",
+          "expires": 1778258575,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        }
+      ]
+    },
+    "6_ingresar_entorno": {
+      "boton_ingresar_info": [
+        {
+          "tag": "SECTION",
+          "id": "opcion-ingreso",
+          "className": "formulario",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<aside class=\"mensajes-login bloqueo\">Ingresando...</aside><section class=\"encabezado\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"56.85781354795439\" height=\"100\" viewBox=\"0 0 339.1 596.4\" style=\"min-width: 57px; min-height: 100px;\"><polygon points=\"90.3,508.9 49.5,543.4 138,583.2 138.5,529.5\" style=\"fill: rgb(15, 63, 109);\"></polygon><polygon points=\"85.9,507 139.6,460.1 139.6,407.2 42.2,488.2 45.9,540.4\" style=\"fill: rgb(55, 107, 157);\"></polygon><polygon points=\"234.5,44"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "windows",
+          "className": "btn windows",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"16\" height=\"16\" viewBox=\"0 0 20 20\"><path d=\"m0.3275,16.86768l7.80771,1.13085l0,-7.46999l-7.80771,0l0,6.33914zm0,-7.40623l7.80771,0l0,-7.47078l-7.80771,1.13085l0,6.33993zm8.8748,8.69177l10.47641,1.51738l0,-9.14206l-10.47641,0l0,7.62468zm0,-16.31763l0,7.62586l10.47641,0l0,-9.14245l-10.47641,1.51659z\" style=\"stroke-width: 0; fill: rgb(255, 255, 255);\"></path></svg>Ingresar con Windows"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "microsoft",
+          "className": "btn microsoft",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\"><rect width=\"10\" height=\"10\" x=\"1\" y=\"1\" fill=\"#f25022\"></rect><rect width=\"10\" height=\"10\" x=\"12\" y=\"1\" fill=\"#7fba00\"></rect><rect width=\"10\" height=\"10\" x=\"1\" y=\"12\" fill=\"#00a4ef\"></rect><rect width=\"10\" height=\"10\" x=\"12\" y=\"12\" fill=\"#ffb900\"></rect></svg>Ingresar con Microsoft"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "main",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "\n      <aside class=\"aside\">\n        <div>\n          <div id=\"EquipoEmpresa\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"20.77319587628866\" height=\"13\" viewBox=\"0 0 155 97\"><path d=\"m13.56963,13.7495c-6.79091,7.34631 -12.40474,13.81108 -12.40474,14.20287c0,0.39181 22.09314,0.68567 49.16629,0.68567l49.07573,0l13.12911,-14.20287l13.12911,-14.20287l-49.8001,0l-49.8001,0l-12.4953,13.51722l0,-0.00003z\" style=\"stroke-width: 0; fill: rgb(56, 113, 167);\"></path><path d=\"m114.78879,"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "widget",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<section class=\"widget-title\">Clientes<section class=\"widget-Controles\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"15\" height=\"15\" viewBox=\"0 0 50 50\" style=\"transform:rotate(45deg);cursor:pointer;\"><line y2=\"25\" x2=\"49\" y1=\"25\" x1=\"1\" style=\"stroke-width: 4; stroke: rgb(128, 128, 128); fill: none;\"></line><line y2=\"49\" x2=\"25\" y1=\"1\" x1=\"25\" style=\"stroke-width: 4; stroke: rgb(128, 128, 128); fill: none;\"></line></svg></section></section><section class=\"widget-Principal\">"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "contenido-detalle",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<section class=\"contenedor-datos\"><div class=\"datos-entorno-nombre\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"19.854545454545455\" height=\"13\" viewBox=\"0 0 168 110\"><path d=\"m15.56963,15.74945c-6.79091,7.34631 -12.40474,13.81108 -12.40474,14.20287c0,0.39181 22.09314,0.68567 49.16629,0.68567l49.07573,0l13.12911,-14.20287l13.12911,-14.20287l-49.8001,0l-49.8001,0l-12.4953,13.51722l0,-0.00003l0,0.00001z\" style=\"stroke-width: 0; fill: rgb(56, 113, 167);\"></path><path d=\"m104.20"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "contenedor-datos opciones",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<section class=\"contenedor-opcion\"><div class=\"desc-opcion\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"15\" height=\"15\" viewBox=\"0 0 20 20\" class=\"iconoseccion\"><path d=\"m17.62496,17.68746l-15.31246,0l0,-15.31246l7.65623,0l0,-2.18749l-7.65623,0c-1.20859,0 -2.18749,0.9789 -2.18749,2.18749l0,15.31246c0,1.20859 0.9789,2.18749 2.18749,2.18749l15.31246,0c1.20859,0 2.18749,-0.9789 2.18749,-2.18749l0,-7.65623l-2.18749,0l0,7.65623zm-5.46874,-17.49996l0,2.18749l3.92108,0l-10.75154,1"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "contenedor-opcion",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<div class=\"desc-opcion\"><svg preserveAspectRatio=\"xMinYMax meet\" focusable=\"false\" width=\"15\" height=\"15\" viewBox=\"0 0 20 20\" class=\"iconoseccion\"><path d=\"m17.62496,17.68746l-15.31246,0l0,-15.31246l7.65623,0l0,-2.18749l-7.65623,0c-1.20859,0 -2.18749,0.9789 -2.18749,2.18749l0,15.31246c0,1.20859 0.9789,2.18749 2.18749,2.18749l15.31246,0c1.20859,0 2.18749,-0.9789 2.18749,-2.18749l0,-7.65623l-2.18749,0l0,7.65623zm-5.46874,-17.49996l0,2.18749l3.92108,0l-10.75154,10.75154l1.54765,1.54765l10.75154,-1"
+        },
+        {
+          "tag": "SECTION",
+          "id": "",
+          "className": "texto-opcion",
+          "onclick": null,
+          "href": null,
+          "innerHTML": "<span class=\"titulo-opcion\">Ingresar</span><span class=\"subtitulo-opcion\">Abrir entorno</span>"
+        }
+      ],
+      "boton_info_error": "'NoneType' object is not subscriptable",
+      "formularios_pagina": [],
+      "duracion_seg": 26.77,
+      "saltos_url": [
+        {
+          "url": "chrome-error://chromewebdata/",
+          "momento": "popup_inicial",
+          "time": 1778255006.1857698
+        },
+        {
+          "url": "chrome-error://chromewebdata/",
+          "momento": "final",
+          "time": 1778255011.694183
+        }
+      ],
+      "url_final": "chrome-error://chromewebdata/",
+      "titulo_final": "kilauea-v01.sincoerp.com",
+      "cookies_finales": [
+        {
+          "name": "_ga",
+          "value": "GA1.1.758645053.1778254971",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814970.759435,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "usetiful-visitor-ident",
+          "value": "c1b8f4b5-bba8-4807-3519-3f16913dda96",
+          "domain": "core.sincoerp.com",
+          "path": "/",
+          "expires": 1809790974,
+          "httpOnly": false,
+          "secure": true,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "uf_geoip",
+          "value": "Colombia",
+          "domain": "core.sincoerp.com",
+          "path": "/",
+          "expires": 1778258575,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "_ga_BY576JJSCK",
+          "value": "GS2.1.s1778254970$o1$g1$t1778254984$j46$l0$h0",
+          "domain": ".sincoerp.com",
+          "path": "/",
+          "expires": 1812814984.990502,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        }
+      ],
+      "popup_requests": [],
+      "popup_responses": {},
+      "html_final": "<!DOCTYPE html><html dir=\"ltr\" lang=\"es\"><head>\n  <meta charset=\"utf-8\">\n  <meta name=\"color-scheme\" content=\"light dark\">\n  <meta name=\"theme-color\" content=\"#fff\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,\n                                 maximum-scale=1.0, user-scalable=no\">\n  <title>kilauea-v01.sincoerp.com</title>\n  <style>/* Copyright 2017 The Chromium Authors\n * Use of this source code is governed by a BSD-style license that can be\n * found in the LICENSE file. */\n\na {\n  color: var(--link-color);\n}\n\nbody {\n  --background-color: #fff;\n  --error-code-color: var(--google-gray-700);\n  --google-blue-50: rgb(232, 240, 254);\n  --google-blue-100: rgb(210, 227, 252);\n  --google-blue-300: rgb(138, 180, 248);\n  --google-blue-600: rgb(26, 115, 232);\n  --google-blue-700: rgb(25, 103, 210);\n  --google-gray-100: rgb(241, 243, 244);\n  --google-gray-300: rgb(218, 220, 224);\n  --google-gray-500: rgb(154, 160, 166);\n  --google-gray-50: rgb(248, 249, 250);\n  --google-gray-600: rgb(128, 134, 139);\n  --google-gray-700: rgb(95, 99, 104);\n  --google-gray-800: rgb(60, 64, 67);\n  --google-gray-900: rgb(32, 33, 36);\n  --heading-color: var(--google-gray-900);\n  --link-color: rgb(88, 88, 88);\n  --primary-button-fill-color-active: var(--google-blue-700);\n  --primary-button-fill-color: var(--google-blue-600);\n  --primary-button-text-color: #fff;\n  --quiet-background-color: rgb(247, 247, 247);\n  --secondary-button-border-color: var(--google-gray-500);\n  --secondary-button-fill-color: #fff;\n  --secondary-button-hover-border-color: var(--google-gray-600);\n  --secondary-button-hover-fill-color: var(--google-gray-50);\n  --secondary-button-text-color: var(--google-gray-700);\n  --small-link-color: var(--google-gray-700);\n  --text-color: var(--google-gray-700);\n  background: var(--background-color);\n  color: var(--text-color);\n  word-wrap: break-word;\n}\n\n.nav-wrapper .secondary-button {\n  background: var(--secondary-button-fill-color);\n  border: 1px solid var(--secondary-button-border-color);\n  color: var(--secondary-button-text-color);\n  float: none;\n  margin: 0;\n  padding: 8px 16px;\n}\n\n.hidden {\n  display: none;\n}\n\nhtml {\n  -webkit-text-size-adjust: 100%;\n  font-size: 125%;\n}\n\n.icon {\n  background-repeat: no-repeat;\n  background-size: 100%;\n}\n\n@media (prefers-color-scheme: dark) {\n  body {\n    --background-color: var(--google-gray-900);\n    --error-code-color: var(--google-gray-500);\n    --heading-color: var(--google-gray-500);\n    --link-color: var(--google-blue-300);\n    --primary-button-fill-color-active: rgb(129, 162, 208);\n    --primary-button-fill-color: var(--google-blue-300);\n    --primary-button-text-color: var(--google-gray-900);\n    --quiet-background-color: var(--background-color);\n    --secondary-button-border-color: var(--google-gray-700);\n    --secondary-button-fill-color: var(--google-gray-900);\n    --secondary-button-hover-fill-color: rgb(48, 51, 57);\n    --secondary-button-text-color: var(--google-blue-300);\n    --small-link-col"
+    }
+  }
+}
