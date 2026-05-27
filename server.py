@@ -18,12 +18,13 @@ import base64
 import importlib
 import threading
 import traceback
+import sqlite3
 from datetime import datetime
 
 import requests as http_requests
 from requests_ntlm import HttpNtlmAuth
 from flask import Flask, jsonify, request, Response, send_from_directory
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 app = Flask(__name__, static_folder=".", static_url_path="")
 
@@ -37,9 +38,151 @@ CONFIG = {
 SESIONES      = {}
 SESIONES_LOCK = threading.Lock()
 
+# ─────────────────────────────────────────────
+# BASE DE DATOS DE MÉTRICAS
+# ─────────────────────────────────────────────
+
+DB_PATH = os.path.join(os.path.dirname(__file__), "metricas.db")
+
+
+def init_db():
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS resultados (
+                id           INTEGER PRIMARY KEY AUTOINCREMENT,
+                fecha        TEXT    NOT NULL,
+                prueba       TEXT    NOT NULL,
+                modulo       TEXT    DEFAULT '',
+                estado       TEXT    NOT NULL,
+                dato_entrada TEXT    DEFAULT '',
+                esperado     TEXT    DEFAULT '',
+                obtenido     TEXT    DEFAULT '',
+                cliente      TEXT    DEFAULT '',
+                entorno      TEXT    DEFAULT '',
+                bd           TEXT    DEFAULT '',
+                usuario      TEXT    DEFAULT '',
+                duracion_s   REAL    DEFAULT 0,
+                addon        TEXT    DEFAULT ''
+            )
+        """)
+        con.commit()
+
+
+def guardar_resultado_db(row):
+    try:
+        with sqlite3.connect(DB_PATH) as con:
+            con.execute("""
+                INSERT INTO resultados
+                (fecha, prueba, modulo, estado, dato_entrada, esperado, obtenido,
+                 cliente, entorno, bd, usuario, duracion_s, addon)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """, (
+                row["fecha"], row["prueba"], row.get("modulo", ""),
+                row["estado"], row.get("dato_entrada", ""), row.get("esperado", ""),
+                row.get("obtenido", ""), row.get("cliente", ""), row.get("entorno", ""),
+                row.get("bd", ""), row.get("usuario", ""),
+                row.get("duracion_s", 0), row.get("addon", ""),
+            ))
+            con.commit()
+    except Exception as e:
+        print(f"  [DB] Error guardando resultado: {e}")
+
+
+init_db()
+
 # Suprimir warnings de SSL
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+# ─────────────────────────────────────────────
+# HELPERS DE NORMALIZACIÓN DE NOMBRES
+# Compartidos entre SincoAPI (lookup de clientes/entornos/BD) y
+# seleccionar_empresa_dropdown (matching de empresas en el ERP).
+# ─────────────────────────────────────────────
+
+def canonicalizar_iniciales(texto):
+    """Colapsa secuencias de tokens de una sola letra alfabética en un único token.
+
+    Sirve para que 'S.A.S' (que tras normalizar queda como 's a s') matchee
+    contra 'SAS' (que queda 'sas') — son la misma forma societaria escrita
+    con/sin puntos. Mismo principio para 'J Y P' ↔ 'JYP', 'L T D A' ↔ 'LTDA'.
+
+    Tokens de UN solo carácter en secuencia aislada (ej. 'y' como conector
+    entre dos palabras largas) NO se colapsan — solo se colapsan secuencias
+    de 2+ iniciales contiguas.
+    """
+    tokens = texto.split()
+    if not tokens:
+        return texto
+    result = []
+    buffer = []
+    for t in tokens:
+        if len(t) == 1 and t.isalpha():
+            buffer.append(t)
+        else:
+            if len(buffer) >= 2:
+                result.append(''.join(buffer))
+            elif buffer:
+                result.extend(buffer)
+            buffer = []
+            result.append(t)
+    if len(buffer) >= 2:
+        result.append(''.join(buffer))
+    elif buffer:
+        result.extend(buffer)
+    return ' '.join(result)
+
+
+def normalizar(texto):
+    sin_tildes = unicodedata.normalize('NFD', texto)
+    sin_tildes = ''.join(c for c in sin_tildes if unicodedata.category(c) != 'Mn')
+    # Reemplazar cualquier carácter que no sea letra, dígito o espacio por un
+    # espacio — así las comas, guiones, paréntesis, etc. no rompen el match
+    # entre nombres que SINCO guarda con/sin esa puntuación.
+    # Ejemplo: "INTERVENTORIA, DISEÑOS Y CONTRATOS S.A.S"
+    #          → "interventoria  disenos y contratos s a s"
+    #          → canonicalizar → "interventoria disenos y contratos sas"
+    base = re.sub(r'[^a-z0-9 ]', ' ', sin_tildes.lower())
+    base = re.sub(r' +', ' ', base).strip()
+    return canonicalizar_iniciales(base)
+
+
+def strip_estado_legal(texto):
+    """Quita sufijos de estado legal colombiano al final del nombre.
+
+    Ejemplo: 'EMPRESA S.A. EN REORGANIZACIÓN' → 'EMPRESA S.A.'
+    SINCO suele guardar el nombre del entorno sin estos sufijos, mientras
+    que en el listado de clientes sí aparecen — esto causa que el match
+    falle aunque sea la misma empresa.
+    """
+    estados = [
+        r'EN\s+REORGANIZACI[OÓ]N',
+        r'EN\s+LIQUIDACI[OÓ]N',
+        r'EN\s+CONCORDATO',
+        r'EN\s+INTERVENCI[OÓ]N',
+        r'EN\s+ACUERDO\s+DE\s+REESTRUCTURACI[OÓ]N',
+    ]
+    patron = r'(?:\s+|\s*[-/]\s*)(?:' + '|'.join(estados) + r')\s*\.?\s*$'
+    return re.sub(patron, '', texto, flags=re.IGNORECASE).strip()
+
+
+def strip_prefijos(texto):
+    """Quita prefijos REPLICA / PRUEBA(S) / CONSULTA - del inicio del nombre.
+
+    Aplica de izquierda a derecha cuantas veces sea necesario. Acepta tanto
+    PRUEBA (singular) como PRUEBAS (plural) — SINCO usa ambas formas:
+    - 'REPLICA CASAHIDALGO CONSTRUCTORES S.A.S.' → 'CASAHIDALGO CONSTRUCTORES S.A.S.'
+    - 'REPLICA CONSULTA - HIDALGO E HIDALGO COLOMBIA S.A.S' → 'HIDALGO E HIDALGO COLOMBIA S.A.S'
+    - 'PRUEBAS BOGOTA LIMPIA SAS ESP' → 'BOGOTA LIMPIA SAS ESP'
+    - 'PRUEBA HIDALGO E HIDALGO S.A.S' → 'HIDALGO E HIDALGO S.A.S'
+    """
+    return re.sub(
+        r'^\s*(?:(?:REPLICA|PRUEBAS?|CONSULTA)\s+(?:-\s+)?)+',
+        '',
+        texto,
+        flags=re.IGNORECASE,
+    ).strip()
 
 
 # ─────────────────────────────────────────────
@@ -270,29 +413,153 @@ class SincoAPI:
                 })
         return resultados[:50]
 
-    def _normalizar(self, texto):
-        sin_tildes = unicodedata.normalize('NFD', texto)
-        sin_tildes = ''.join(c for c in sin_tildes if unicodedata.category(c) != 'Mn')
-        return re.sub(r'[.\s]+', ' ', sin_tildes.lower()).strip()
-
     def obtener_entornos(self, cliente_nombre):
         self.conectar_y_cargar()
-        cliente_norm = self._normalizar(cliente_nombre)
+        cliente_norm = normalizar(cliente_nombre)
+        cliente_sin_estado_norm = normalizar(strip_estado_legal(cliente_nombre))
 
-        # Extraer palabras clave del nombre del cliente (las más significativas)
-        palabras_cliente = [p for p in cliente_norm.split() if len(p) > 2]
+        # Filtrado por NombreCliente del entorno, normalizado y SIN el prefijo
+        # "REPLICA " / "PRUEBAS " que SINCO antepone en entornos no-productivos.
+        #
+        # IMPORTANTE: NO se usa IdCliente == EmpresaId porque son IDs distintos
+        # y además SINCO recicla EmpresaId entre clientes (ej. IdCliente=320 de
+        # REDES Y EDIFICACIONES → entornos EmpresaId=320 de CONSORCIO MORENO
+        # TAFURT). La única relación confiable es el nombre embebido en
+        # NombreCliente del entorno.
+        #
+        # Casos de matching contra cada "candidato" del cliente (nombre completo
+        # y nombre sin sufijo de estado legal "EN REORGANIZACIÓN" / "EN
+        # LIQUIDACIÓN" / etc.):
+        #
+        # A) Exacto — JYP, OTACC, CONALTURA:
+        #    Cliente: "CONSTRUCTORA J Y P S.A.S."
+        #    Entorno: "CONSTRUCTORA J Y P S.A.S"
+        #    Normalizan iguales.
+        #
+        # B) Entorno es prefijo del cliente (cliente con razón social adicional)
+        #    — INTRAMAQ: cliente "INGENIERIA TRANSPORTE Y MAQUINARIA S.A.S.
+        #    INTRAMAQ S.A.S." vs entorno "INGENIERIA TRANSPORTE Y MAQUINARIA
+        #    S.A.S.".
+        #
+        # C) Cliente tiene sufijo de estado legal — REDES: cliente "REDES Y
+        #    EDIFICACIONES S.A. EN REORGANIZACIÓN" se reduce a "REDES Y
+        #    EDIFICACIONES S.A." y queda como prefijo del entorno "REDES Y
+        #    EDIFICACIONES S A R&E S A".
+        #
+        # D) Cliente es prefijo del entorno (entorno con alias/sufijo adicional)
+        #    — combinado con C: el candidato sin estado legal cabe como prefijo
+        #    del NombreCliente del entorno.
+        #
+        # Las reglas de prefijo (B y D) solo aplican si NINGÚN otro cliente
+        # reclama exactamente el nombre del entorno como suyo — evita robarle
+        # entornos al "dueño correcto" cuando exista.
+        clientes_norm_set = {
+            normalizar(c.get("Cliente", ""))
+            for c in self._clientes
+            if c.get("Cliente")
+        }
 
-        entornos = []
+        candidatos = {cliente_norm}
+        # Solo agregamos el candidato sin estado legal si no colisiona con otro
+        # cliente real del sistema (que ya reclamaría sus propios entornos).
+        if (cliente_sin_estado_norm
+                and cliente_sin_estado_norm != cliente_norm
+                and cliente_sin_estado_norm not in clientes_norm_set):
+            candidatos.add(cliente_sin_estado_norm)
+
+        def _check_match(nombre_a_comparar_norm):
+            """True si nombre_a_comparar_norm coincide con algún candidato del cliente.
+
+            Aplica exacto + prefijo bidireccional con la salvaguarda de
+            'no robarle entornos a otro cliente que reclame el nombre exacto'.
+            """
+            if not nombre_a_comparar_norm:
+                return False
+            for candidato in candidatos:
+                if nombre_a_comparar_norm == candidato:
+                    return True
+                if (candidato.startswith(nombre_a_comparar_norm + " ")
+                        and nombre_a_comparar_norm not in clientes_norm_set):
+                    return True
+                if (nombre_a_comparar_norm.startswith(candidato + " ")
+                        and nombre_a_comparar_norm not in clientes_norm_set):
+                    return True
+            return False
+
+        # Pase 1: matching directo por NombreCliente (Canal 1) o BasesDatos (Canal 2)
+        entornos_match_ids = set()
+        entornos_seleccionados = []
+        # Para transitividad multi-tenant: cuando un cliente se identifica vía una
+        # BD dentro de un entorno multi-tenant, agregamos también los OTROS entornos
+        # del mismo SINCO Customer (mismo EmpresaId) cuyo Nombre comparte la raíz —
+        # cubre el caso del entorno de Pruebas que no tiene BD específica del cliente.
+        empresas_canal2 = set()
+        bases_nombres_canal2 = set()
+
         for e in self._entornos:
-            nombre_entorno_cliente = self._normalizar(e.get("NombreCliente", ""))
+            match_canal = None
 
-            # Match: al menos 70% de las palabras del cliente aparecen en NombreCliente del entorno
-            if not nombre_entorno_cliente:
-                continue
-            coincidencias = sum(1 for p in palabras_cliente if p in nombre_entorno_cliente)
-            if coincidencias < len(palabras_cliente) * 0.7:
+            # Canal 1 — NombreCliente del entorno (caso mono-tenant: JYP, INTRAMAQ,
+            # REDES, OTACC, etc.)
+            nombre_e_raw = e.get("NombreCliente", "") or ""
+            if nombre_e_raw:
+                nombre_e_limpio = strip_estado_legal(strip_prefijos(nombre_e_raw))
+                nombre_e_norm = normalizar(nombre_e_limpio)
+                if _check_match(nombre_e_norm):
+                    match_canal = 1
+
+            # Canal 2 — BasesDatos del entorno (caso multi-tenant: el entorno
+            # SincoHidalgo aloja BDs de varios clientes; CASAHIDALGO se identifica
+            # vía su BD 'CASAHIDALGO CONSTRUCTORES S.A.S.' dentro de ese entorno).
+            if match_canal is None:
+                for bd in (e.get("BasesDatos") or []):
+                    bd_nombre_raw = bd.get("Nombre") or ""
+                    if not bd_nombre_raw:
+                        continue
+                    bd_limpio = strip_estado_legal(strip_prefijos(bd_nombre_raw))
+                    bd_norm = normalizar(bd_limpio)
+                    if _check_match(bd_norm):
+                        match_canal = 2
+                        break
+
+            if match_canal is None:
                 continue
 
+            entorno_id = e.get("Id")
+            if entorno_id not in entornos_match_ids:
+                entornos_match_ids.add(entorno_id)
+                entornos_seleccionados.append(e)
+
+            if match_canal == 2:
+                emp_id = e.get("EmpresaId")
+                if emp_id is not None:
+                    empresas_canal2.add(emp_id)
+                # Nombre base = Nombre del entorno sin prefijo REPLICA_
+                base = re.sub(r'^REPLICA_', '', e.get("Nombre") or "", flags=re.IGNORECASE).lower()
+                if base:
+                    bases_nombres_canal2.add(base)
+
+        # Pase 2: transitividad multi-tenant (solo si hubo match Canal 2).
+        # Incluir entornos con el mismo EmpresaId cuyo Nombre base comparte raíz
+        # con alguno de los entornos directamente matched. Ej: SincoHidalgo_PRBINT
+        # entra porque su base 'sincohidalgo_prbint' empieza con 'sincohidalgo'.
+        # SincoCASSEPCNC NO entra porque su base no comienza así.
+        if empresas_canal2 and bases_nombres_canal2:
+            for e in self._entornos:
+                if e.get("Id") in entornos_match_ids:
+                    continue
+                if e.get("EmpresaId") not in empresas_canal2:
+                    continue
+                base_e = re.sub(r'^REPLICA_', '', e.get("Nombre") or "", flags=re.IGNORECASE).lower()
+                if not base_e:
+                    continue
+                if any(base_e.startswith(b) for b in bases_nombres_canal2):
+                    entornos_match_ids.add(e.get("Id"))
+                    entornos_seleccionados.append(e)
+
+        # Pase 3: formato de salida
+        entornos = []
+        for e in entornos_seleccionados:
             nombre = e.get("Nombre", "")
             tipo = e.get("Tipo", "Otro")
 
@@ -312,6 +579,7 @@ class SincoAPI:
                 "id_entorno": e.get("Id"),
             })
 
+        print(f"  [API] obtener_entornos: '{cliente_nombre}' → {len(entornos)} entornos")
         return entornos
 
     def obtener_bases(self, cliente_nombre, entorno_nombre):
@@ -322,8 +590,8 @@ class SincoAPI:
                 bases = []
                 for bd in e.get("BasesDatos", []):
                     nombre_bd = bd.get("Nombre", bd.get("Catalogo", ""))
-                    nombre_bd = re.sub(r'^REPLICA\s+', '', nombre_bd, flags=re.IGNORECASE)
-                    nombre_bd = re.sub(r'^PRUEBAS\s+', '', nombre_bd, flags=re.IGNORECASE)
+                    # Limpiar prefijos REPLICA / PRUEBAS / CONSULTA - para display
+                    nombre_bd = strip_prefijos(nombre_bd)
                     bases.append({
                         "id":       bd.get("Id", ""),
                         "catalogo": bd.get("Catalogo", ""),
@@ -483,7 +751,6 @@ class SincoAPI:
                 if on_progreso:
                     on_progreso("Seleccionando empresa...")
                 popup.locator("#ddlEmpresa").wait_for(state="visible", timeout=15000)
-                popup.wait_for_timeout(500)
                 seleccionada = seleccionar_empresa_dropdown(popup, bd_id, bd_catalogo, bd_nombre)
                 print(f"  [LOGIN] Empresa: {seleccionada}")
 
@@ -583,14 +850,58 @@ def buscar_y_seleccionar_cliente(pagina, cliente):
 def seleccionar_empresa_dropdown(pagina, bd_id, bd_catalogo, bd_nombre):
     """Selecciona una empresa en #ddlEmpresa.
     NOTA: Todos los <option> tienen value='1', así que se selecciona por label (texto).
-    Prioridad: nombre exacto → case-insensitive → sin prefijo REPLICA → parcial → palabras.
+    Prioridad: nombre exacto → case-insensitive → normalizado (sin prefijos
+    REPLICA/PRUEBA(S)/CONSULTA, sin sufijos de estado legal, con iniciales
+    colapsadas tipo 'S A S' → 'sas') → parcial normalizado → palabras normalizadas.
     """
-    # Obtener todas las opciones del dropdown
+    # El <select> se rellena de forma asíncrona vía API
+    # (GET /V3/API/Cliente/{id}/Empresas); al cargar muestra un único
+    # <option> "Cargando...". Esperar a que aparezcan opciones reales antes
+    # de leerlas. 30 s es el mismo bucket usado en wait_for_url para popups,
+    # adecuado para esperas que cuelgan de un fetch HTTP del ERP.
+    READY_SCRIPT = """() => {
+        const sel = document.querySelector('#ddlEmpresa');
+        if (!sel) return false;
+        const opts = Array.from(sel.options).map(o => (o.textContent || '').trim()).filter(Boolean);
+        return opts.length > 0 && !opts.every(t => /^cargando/i.test(t));
+    }"""
+    try:
+        pagina.wait_for_function(READY_SCRIPT, timeout=30000)
+    except PlaywrightTimeoutError:
+        # El dropdown se quedó en 'Cargando...' — algunos entornos lentos (p.ej.
+        # Constructora Capital pruebas) no completan la llamada AJAX a tiempo.
+        # Reintentar: recargar la página y esperar otros 45 s antes de fallar.
+        print("  [MATCH] #ddlEmpresa sigue en 'Cargando...' tras 30s; recargando y reintentando...")
+        pagina.reload(wait_until="networkidle")
+        pagina.wait_for_timeout(2000)
+        try:
+            pagina.wait_for_function(READY_SCRIPT, timeout=45000)
+        except PlaywrightTimeoutError:
+            # Capturar estado del navegador para el mensaje de error.
+            estado = pagina.evaluate("""() => {
+                const sel = document.querySelector('#ddlEmpresa');
+                return {
+                    url: location.href,
+                    title: document.title,
+                    opts: sel ? Array.from(sel.options).map(o => (o.textContent || '').trim()).filter(Boolean) : null,
+                };
+            }""")
+            opts_reales = [t for t in (estado.get("opts") or []) if not re.match(r'^cargando', t, re.IGNORECASE)]
+            if not opts_reales:
+                raise Exception(
+                    f"Timeout esperando empresas en #ddlEmpresa (30s+45s con recarga). "
+                    f"URL={estado.get('url')} Title={estado.get('title')} "
+                    f"Opciones actuales: {estado.get('opts')}"
+                )
+            print(f"  [MATCH] wait expiró pero el dropdown ya tiene {len(opts_reales)} opciones tras recarga; continuando.")
+        else:
+            print("  [MATCH] Dropdown cargado correctamente tras recarga.")
+
     opciones = pagina.locator("#ddlEmpresa option").all()
     labels = []
     for opt in opciones:
         text = opt.text_content().strip()
-        if text:
+        if text and not re.match(r'^cargando', text, re.IGNORECASE):
             labels.append(text)
 
     print(f"  [MATCH] bd_nombre='{bd_nombre}' ({len(labels)} opciones)")
@@ -598,53 +909,65 @@ def seleccionar_empresa_dropdown(pagina, bd_id, bd_catalogo, bd_nombre):
     def seleccionar(texto_label):
         pagina.locator("#ddlEmpresa").select_option(label=texto_label)
 
-    # 1. Match por nombre exacto
-    if bd_nombre:
-        for text in labels:
-            if text == bd_nombre:
-                seleccionar(text)
-                return f"(nombre exacto) {text}"
+    if not bd_nombre:
+        raise Exception(f"bd_nombre vacío; no se puede elegir empresa. Opciones: {labels[:5]}")
 
-    # 2. Match case-insensitive
-    if bd_nombre:
-        bd_lower = bd_nombre.lower()
-        for text in labels:
-            if text.lower() == bd_lower:
-                seleccionar(text)
-                return f"(case-insensitive) {text}"
+    # 1. Match por nombre exacto (crudo)
+    for text in labels:
+        if text == bd_nombre:
+            seleccionar(text)
+            return f"(nombre exacto) {text}"
 
-    # 3. Limpiar prefijo REPLICA del nombre y comparar
-    if bd_nombre:
-        bd_limpio = re.sub(r'^REPLICA[_ ]*', '', bd_nombre, flags=re.IGNORECASE).strip()
-        bd_limpio_lower = bd_limpio.lower()
-        for text in labels:
-            if text.lower() == bd_limpio_lower:
-                seleccionar(text)
-                return f"(sin prefijo) {text}"
+    # 2. Match case-insensitive (crudo)
+    bd_lower = bd_nombre.lower()
+    for text in labels:
+        if text.lower() == bd_lower:
+            seleccionar(text)
+            return f"(case-insensitive) {text}"
 
-        # 4. Contención parcial
-        for text in labels:
-            text_lower = text.lower()
-            if bd_limpio_lower in text_lower or text_lower in bd_limpio_lower:
+    # Normalización compartida para tiers 3–5: quita prefijos PRUEBA(S)/REPLICA/
+    # CONSULTA, quita sufijos de estado legal, colapsa 'S A S' → 'sas', baja a
+    # minúsculas y quita tildes. Así 'CONSTRUCTORA CAPITAL BOGOTA S A S' del
+    # dashboard matchea contra 'PRUEBAS CONSTRUCTORA CAPITAL BOGOTA' del ERP.
+    def _clave(s):
+        return normalizar(strip_estado_legal(strip_prefijos(s)))
+
+    bd_clave = _clave(bd_nombre)
+    opciones_clave = [(text, _clave(text)) for text in labels]
+
+    # 3. Match exacto sobre clave normalizada
+    for text, clave in opciones_clave:
+        if clave and clave == bd_clave:
+            seleccionar(text)
+            return f"(normalizado) {text}"
+
+    # 4. Contención parcial sobre claves normalizadas
+    if bd_clave:
+        for text, clave in opciones_clave:
+            if clave and (bd_clave in clave or clave in bd_clave):
                 seleccionar(text)
                 return f"(parcial) {text}"
 
-        # 5. Palabras clave (60%+ coincidencia)
-        palabras_bd = [p for p in bd_limpio_lower.split() if len(p) > 2]
-        mejor_match, mejor_score = None, 0
-        for text in labels:
-            text_lower = text.lower()
-            coincidencias = sum(1 for p in palabras_bd if p in text_lower)
-            score = coincidencias / max(len(palabras_bd), 1)
-            if score > mejor_score:
-                mejor_score = score
-                mejor_match = text
-        if mejor_match and mejor_score >= 0.6:
-            seleccionar(mejor_match)
-            return f"(palabras {mejor_score:.0%}) {mejor_match}"
+    # 5. Score por palabras sobre clave normalizada (60%+ coincidencia)
+    palabras_bd = [p for p in bd_clave.split() if len(p) > 2]
+    mejor_match, mejor_score = None, 0
+    for text, clave in opciones_clave:
+        coincidencias = sum(1 for p in palabras_bd if p in clave)
+        score = coincidencias / max(len(palabras_bd), 1)
+        if score > mejor_score:
+            mejor_score = score
+            mejor_match = text
+    if mejor_match and mejor_score >= 0.6:
+        seleccionar(mejor_match)
+        return f"(palabras {mejor_score:.0%}) {mejor_match}"
 
-    print(f"  [MATCH] NO se encontró match. Opciones: {labels[:5]}")
-    raise Exception(f"No se encontró la empresa en el dropdown. Nombre={bd_nombre}. Opciones: {labels[:5]}")
+    claves_log = [c for _, c in opciones_clave[:5]]
+    print(f"  [MATCH] NO se encontró match. bd_clave='{bd_clave}' Opciones: {labels[:5]} Claves: {claves_log}")
+    raise Exception(
+        f"No se encontró la empresa en el dropdown. "
+        f"Nombre={bd_nombre} bd_clave={bd_clave!r}. "
+        f"Opciones: {labels[:5]} Claves: {claves_log}"
+    )
 
 
 # ─────────────────────────────────────────────
@@ -856,14 +1179,31 @@ def debug_cliente():
     nombre_cliente = cliente_match.get("Cliente", "")
     entornos_por_nombre = [e for e in sinco_api._entornos if nombre_cliente.lower() in e.get("NombreCliente", "").lower()]
 
+    def _resumen_entorno(e):
+        return {
+            "Id": e.get("Id"),
+            "Nombre": e.get("Nombre"),
+            "NombreCliente": e.get("NombreCliente"),
+            "EmpresaId": e.get("EmpresaId"),
+            "Tipo": e.get("Tipo"),
+            "URL": e.get("URL"),
+            "BasesDatos": [
+                {
+                    "Id": bd.get("Id"),
+                    "Nombre": bd.get("Nombre"),
+                    "Catalogo": bd.get("Catalogo"),
+                    "Principal": bd.get("Principal"),
+                }
+                for bd in (e.get("BasesDatos") or [])
+            ],
+        }
+
     # Buscar entornos por nombre del entorno o cualquier campo que contenga el query
     entornos_por_texto = []
     for e in sinco_api._entornos:
         e_str = json.dumps(e, ensure_ascii=False).lower()
         if q in e_str:
-            entornos_por_texto.append({
-                k: e.get(k) for k in ["Id", "Nombre", "NombreCliente", "EmpresaId", "Tipo", "URL"]
-            })
+            entornos_por_texto.append(_resumen_entorno(e))
 
     return jsonify({
         "cliente": {
@@ -871,8 +1211,8 @@ def debug_cliente():
             "Cliente": nombre_cliente,
             "Nit": cliente_match.get("Nit"),
         },
-        "entornos_por_EmpresaId": [{"Id": e.get("Id"), "Nombre": e.get("Nombre"), "EmpresaId": e.get("EmpresaId"), "NombreCliente": e.get("NombreCliente")} for e in entornos_por_empresa],
-        "entornos_por_NombreCliente": [{"Id": e.get("Id"), "Nombre": e.get("Nombre"), "EmpresaId": e.get("EmpresaId"), "NombreCliente": e.get("NombreCliente")} for e in entornos_por_nombre],
+        "entornos_por_EmpresaId": [_resumen_entorno(e) for e in entornos_por_empresa],
+        "entornos_por_NombreCliente": [_resumen_entorno(e) for e in entornos_por_nombre],
         "entornos_por_texto_libre": entornos_por_texto[:20],
         "total_entornos_EmpresaId": len(entornos_por_empresa),
         "total_entornos_NombreCliente": len(entornos_por_nombre),
@@ -986,40 +1326,119 @@ def eliminar_prueba():
     return jsonify({"ok": True, "mensaje": f"{prueba_id}.py eliminado"})
 
 
+def _normalizar_script_grabado(codigo_codegen: str):
+    """
+    Toma la salida cruda de `playwright codegen` y devuelve solo el cuerpo
+    de acciones limpio (sin imports, sin sync_playwright, sin browser launch,
+    sin primer goto, con `page` → `pagina`). Retorna None si no hay acciones.
+    """
+    patrones_skip = [
+        r'^\s*browser\s*=\s*playwright',
+        r'^\s*context\s*=\s*browser\.new_context',
+        r'^\s*page\s*=\s*context\.new_page',
+        r'^\s*context\.close\(\)',
+        r'^\s*browser\.close\(\)',
+        r'^\s*with sync_playwright',
+        r'^\s*run\(playwright\)',
+        r'^\s*from playwright',
+        r'^\s*import ',
+        r'^\s*def run\(',
+    ]
+    lineas_limpias = []
+    primer_goto_visto = False
+    for linea in codigo_codegen.split('\n'):
+        if any(re.match(p, linea) for p in patrones_skip):
+            continue
+        if not primer_goto_visto and re.match(r'^\s*page\.goto\(', linea):
+            primer_goto_visto = True
+            continue
+        lineas_limpias.append(linea)
+
+    cuerpo = '\n'.join(lineas_limpias)
+    cuerpo = re.sub(r'\bpage\b', 'pagina', cuerpo)
+
+    lineas_no_vacias = [l for l in cuerpo.split('\n') if l.strip()]
+    if not lineas_no_vacias:
+        return None
+
+    indent_min = min(len(l) - len(l.lstrip()) for l in lineas_no_vacias)
+    cuerpo_normalizado = '\n'.join(
+        ('    ' + l[indent_min:]) if l.strip() else ''
+        for l in cuerpo.split('\n')
+    )
+    return cuerpo_normalizado.strip('\n')
+
+
+def _envolver_en_plantilla(cuerpo: str, nombre_display: str, modulo: str) -> str:
+    """Envuelve el cuerpo de acciones en la plantilla estándar del proyecto."""
+    return f'''"""
+Prueba: {nombre_display}
+Módulo: {modulo}
+"""
+
+
+def ejecutar(pagina, frame, on_paso=None):
+    # --- Código grabado con Playwright Codegen ---
+
+{cuerpo}
+
+    return {{
+        "prueba": "{nombre_display}",
+        "estado": "ok",
+        "dato_entrada": "-",
+        "esperado": "Flujo completo sin errores",
+        "obtenido": "Flujo completado",
+    }}
+'''
+
+
 @app.route("/grabar", methods=["POST"])
 def grabar():
-    """Lanza Playwright Codegen autenticado en el entorno via HTTP+NTLM directo."""
+    """Graba una prueba con Playwright Codegen y genera el archivo automáticamente."""
     import subprocess
+    import tempfile
     data = request.get_json() or {}
-    cliente      = data.get("cliente", "").strip()
-    entorno_id   = data.get("entorno_id", "").strip()
-    entorno_url  = data.get("entorno_url", "").strip()
-    bd_id        = data.get("bd_id", "")
-    bd_catalogo  = data.get("bd_catalogo", "").strip()
-    bd_nombre    = data.get("bd_nombre", "").strip()
+    cliente        = data.get("cliente", "").strip()
+    entorno_id     = data.get("entorno_id", "").strip()
+    entorno_url    = data.get("entorno_url", "").strip()
+    bd_id          = data.get("bd_id", "")
+    bd_catalogo    = data.get("bd_catalogo", "").strip()
+    bd_nombre      = data.get("bd_nombre", "").strip()
+    nombre         = data.get("nombre", "").strip()
+    nombre_display = data.get("display", "").strip() or nombre
+    modulo         = data.get("modulo", "Sin categoría").strip()
 
     if not cliente or not entorno_id:
         return jsonify({"error": "Selecciona cliente y entorno antes de grabar"}), 400
     if not entorno_url:
         return jsonify({"error": "No se encontró la URL del entorno"}), 400
+    if not nombre:
+        return jsonify({"error": "Falta el nombre de la prueba a grabar"}), 400
+
+    nombre_limpio = re.sub(r'[^a-zA-Z0-9_]', '', nombre)
+    if not nombre_limpio:
+        return jsonify({"error": "Nombre inválido"}), 400
+
+    ruta_final = os.path.join(os.path.dirname(__file__), "pruebas", f"{nombre_limpio}.py")
+    if os.path.isfile(ruta_final):
+        return jsonify({"error": f"{nombre_limpio}.py ya existe"}), 409
 
     def _grabar_bg():
+        storage_path = os.path.join(tempfile.gettempdir(), f"yom_storage_{nombre_limpio}.json")
+        output_path  = os.path.join(tempfile.gettempdir(), f"yom_codegen_{nombre_limpio}.py")
         try:
-            print(f"  [GRABAR] Login via Chrome (mismo navegador)...")
+            print(f"  [GRABAR] Login para grabación de '{nombre_limpio}'...")
 
             login_url_g = entorno_url
             if not login_url_g.endswith("Login.aspx"):
                 login_url_g = re.sub(r'/V3/Marco/.*$', '/V3/Marco/Login.aspx', login_url_g)
 
+            url_grabacion = None
             with sync_playwright() as pw:
-                browser = pw.chromium.launch(
-                    headless=False,
-                    channel="chrome",
-                )
+                browser = pw.chromium.launch(headless=False, channel="chrome")
                 context = browser.new_context(ignore_https_errors=True)
                 pagina_torre = context.new_page()
 
-                # Login en Torre
                 print(f"  [GRABAR] Login en Torre...")
                 pagina_torre.goto(sinco_api.url_torre)
                 pagina_torre.wait_for_load_state("networkidle")
@@ -1029,14 +1448,12 @@ def grabar():
                 pagina_torre.wait_for_load_state("networkidle")
                 pagina_torre.wait_for_timeout(2000)
 
-                # Leer key
                 key_c = None
                 for _ in range(20):
                     key_c = pagina_torre.evaluate("() => window.user_central_key || null")
                     if key_c:
                         break
                     pagina_torre.wait_for_timeout(300)
-
                 if not key_c:
                     raise Exception("No se pudo obtener user_central_key")
 
@@ -1047,9 +1464,6 @@ def grabar():
                     "() => window.trabajador ? window.trabajador.UsuarioLogin : null"
                 ) or getattr(sinco_api, '_usuario_login', 'admin') or "admin"
 
-                print(f"  [GRABAR] keyC: {key_c[:20]}...")
-
-                # Form POST directo
                 usu_dominio_js = usu_dominio.replace("\\", "\\\\")
                 with pagina_torre.expect_popup(timeout=30000) as popup_info:
                     pagina_torre.evaluate(f"""() => {{
@@ -1082,13 +1496,8 @@ def grabar():
                 popup.wait_for_load_state("networkidle")
                 popup.wait_for_timeout(1500)
 
-                url_actual = popup.url
-                print(f"  [GRABAR] Popup en: {url_actual}")
-
-                # Seleccionar empresa
-                if "Seleccion" in url_actual:
+                if "Seleccion" in popup.url:
                     popup.locator("#ddlEmpresa").wait_for(state="visible", timeout=15000)
-                    popup.wait_for_timeout(500)
                     if bd_id or bd_catalogo or bd_nombre:
                         seleccionar_empresa_dropdown(popup, bd_id, bd_catalogo, bd_nombre)
                     popup.get_by_role("button", name="Ingresar").click()
@@ -1096,29 +1505,62 @@ def grabar():
                     popup.wait_for_load_state("networkidle")
                     popup.wait_for_timeout(1500)
 
-                # Cerrar pestaña de Torre
                 try:
                     pagina_torre.close()
                 except Exception:
                     pass
 
-                print(f"  [GRABAR] ERP listo: {popup.url}")
-                print(f"  [GRABAR] Abriendo Inspector (page.pause)...")
-                print(f"  [GRABAR] Usa el Inspector para grabar acciones.")
-
-                # page.pause() abre Playwright Inspector en la sesión autenticada
-                popup.pause()
-
-                # Cuando el usuario cierra el Inspector, cerramos el browser
+                url_grabacion = popup.url
+                print(f"  [GRABAR] ERP listo: {url_grabacion}")
+                print(f"  [GRABAR] Guardando sesión en {storage_path}...")
+                context.storage_state(path=storage_path)
                 browser.close()
-                print(f"  [GRABAR] Sesión cerrada")
+
+            print(f"  [GRABAR] Lanzando Playwright Codegen — al cerrar Inspector se guardará {nombre_limpio}.py")
+            cmd = [
+                sys.executable, "-m", "playwright", "codegen",
+                "--target=python",
+                "--channel=chrome",
+                f"--load-storage={storage_path}",
+                f"--output={output_path}",
+                url_grabacion,
+            ]
+            subprocess.run(cmd, check=False)
+
+            if not os.path.isfile(output_path):
+                print(f"  [GRABAR] Codegen no generó archivo (usuario canceló)")
+                return
+
+            with open(output_path, encoding="utf-8") as f:
+                codigo_raw = f.read()
+
+            cuerpo = _normalizar_script_grabado(codigo_raw)
+            if not cuerpo:
+                print(f"  [GRABAR] Grabación vacía — no se crea archivo")
+                return
+
+            contenido = _envolver_en_plantilla(cuerpo, nombre_display, modulo)
+            with open(ruta_final, "w", encoding="utf-8") as f:
+                f.write(contenido)
+            print(f"  [GRABAR] Prueba guardada en {ruta_final}")
 
         except Exception as e:
             print(f"  [GRABAR] Error: {e}")
             traceback.print_exc()
+        finally:
+            for p in (storage_path, output_path):
+                try:
+                    if os.path.isfile(p):
+                        os.remove(p)
+                except Exception:
+                    pass
 
     threading.Thread(target=_grabar_bg, daemon=True).start()
-    return jsonify({"ok": True, "mensaje": "Abriendo Chrome con Inspector (login directo)..."})
+    return jsonify({
+        "ok": True,
+        "mensaje": f"Grabando — al cerrar el Inspector se creará {nombre_limpio}.py automáticamente",
+        "nombre": nombre_limpio,
+    })
 
 
 @app.route("/ejecutar", methods=["POST"])
@@ -1185,6 +1627,12 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), "pruebas"))
         modulo = importlib.import_module(prueba_id)
         importlib.reload(modulo)
+
+        _t_inicio = time.time()
+        _docstring = getattr(modulo, '__doc__', '') or ''
+        _mm = re.search(r'Módulo:\s*(.+)', _docstring)
+        _test_modulo = _mm.group(1).strip() if _mm else ''
+        _addon = str((cfg.get("parametros") or {}).get("addon", "") or "").strip()
 
         progreso(1, 5, "Iniciando", "Autenticando en Torre...", 5)
 
@@ -1289,7 +1737,6 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
             if "Seleccion" in url_actual:
                 progreso(3, 5, "Seleccionando empresa", "Eligiendo empresa...", 50)
                 popup.locator("#ddlEmpresa").wait_for(state="visible", timeout=15000)
-                popup.wait_for_timeout(500)
 
                 if bd_id or bd_catalogo or bd_nombre:
                     seleccionada = seleccionar_empresa_dropdown(popup, bd_id, bd_catalogo, bd_nombre)
@@ -1342,19 +1789,35 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
             resultado = modulo.ejecutar(popup, None, **_kwargs)
 
             exito = resultado.get("estado") == "ok"
+            _res_obtenido = resultado.get("obtenido",
+                            "Flujo completado" if exito else "Error en el flujo")
             emit({
                 "tipo":         "resultado",
                 "prueba":       resultado.get("prueba", prueba_id),
                 "estado":       resultado.get("estado", "ok"),
                 "dato_entrada": resultado.get("dato_entrada", "-"),
                 "esperado":     resultado.get("esperado", "Flujo completo sin errores"),
-                "obtenido":     resultado.get("obtenido",
-                                "Flujo completado" if exito else "Error en el flujo"),
+                "obtenido":     _res_obtenido,
                 "empresa":      cfg["cliente"],
                 "usuario":      CONFIG["usuario"],
                 "fecha":        datetime.now().strftime("%d/%m/%Y %H:%M"),
                 "entorno":      cfg["entorno_tipo"],
                 "bd":           cfg.get("bd_nombre", ""),
+            })
+            guardar_resultado_db({
+                "fecha":        datetime.now().isoformat(),
+                "prueba":       resultado.get("prueba", prueba_id),
+                "modulo":       _test_modulo,
+                "estado":       resultado.get("estado", "ok"),
+                "dato_entrada": resultado.get("dato_entrada", "-"),
+                "esperado":     resultado.get("esperado", ""),
+                "obtenido":     _res_obtenido,
+                "cliente":      cfg["cliente"],
+                "entorno":      cfg["entorno_tipo"],
+                "bd":           cfg.get("bd_nombre", ""),
+                "usuario":      CONFIG["usuario"],
+                "duracion_s":   round(time.time() - _t_inicio, 1),
+                "addon":        _addon,
             })
 
             emit({"tipo": "fin", "exito": exito})
@@ -1393,6 +1856,212 @@ def stream(session_id):
 
     return Response(generar(), mimetype="text/event-stream",
                     headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+# ─────────────────────────────────────────────
+# ENDPOINTS DE MÉTRICAS
+# ─────────────────────────────────────────────
+
+def _build_filtros(req):
+    """Construye cláusula WHERE + lista de params desde los query args de la petición."""
+    clauses, params = [], []
+
+    fecha_desde = req.args.get("fecha_desde", "").strip()
+    fecha_hasta = req.args.get("fecha_hasta", "").strip()
+    dias        = req.args.get("dias", "").strip()
+    cliente_f   = req.args.get("cliente", "").strip()
+    prueba_f    = req.args.get("prueba", "").strip()
+    modulo_f    = req.args.get("modulo", "").strip()
+    estado_f    = req.args.get("estado", "").strip()
+    entorno_f   = req.args.get("entorno", "").strip()
+    addon_f     = req.args.get("addon", "").strip()
+
+    # Rango de fechas: rango explícito tiene prioridad sobre el período rápido
+    if fecha_desde:
+        clauses.append("fecha >= ?")
+        params.append(fecha_desde)
+    elif dias and dias.isdigit() and int(dias) < 9000:
+        clauses.append("fecha >= datetime('now', ?)")
+        params.append(f"-{dias} days")
+
+    if fecha_hasta:
+        clauses.append("fecha <= ?")
+        params.append(fecha_hasta + "T23:59:59")
+
+    if cliente_f:
+        clauses.append("cliente = ?");   params.append(cliente_f)
+    if prueba_f:
+        clauses.append("prueba = ?");    params.append(prueba_f)
+    if modulo_f:
+        clauses.append("modulo = ?");    params.append(modulo_f)
+    if estado_f in ("ok", "fail"):
+        clauses.append("estado = ?");    params.append(estado_f)
+    if entorno_f:
+        clauses.append("entorno LIKE ?"); params.append(f"%{entorno_f}%")
+    if addon_f:
+        clauses.append("addon = ?");     params.append(addon_f)
+
+    where = ("WHERE " + " AND ".join(clauses)) if clauses else ""
+    return where, params
+
+
+def _awhere(where, extra):
+    """Añade una condición AND a una cláusula WHERE ya construida."""
+    return f"{where} AND {extra}" if where else f"WHERE {extra}"
+
+
+@app.route("/metricas/opciones")
+def metricas_opciones():
+    """Valores distintos de cada columna para poblar los dropdowns de filtro."""
+    with sqlite3.connect(DB_PATH) as con:
+        def col(sql):
+            return [r[0] for r in con.execute(sql).fetchall() if r[0]]
+        return jsonify({
+            "clientes": col("SELECT DISTINCT cliente FROM resultados WHERE cliente!='' ORDER BY cliente"),
+            "pruebas":  col("SELECT DISTINCT prueba  FROM resultados                   ORDER BY prueba"),
+            "modulos":  col("SELECT DISTINCT modulo  FROM resultados WHERE modulo !='' ORDER BY modulo"),
+            "entornos": col("SELECT DISTINCT entorno FROM resultados WHERE entorno!='' ORDER BY entorno"),
+            "addons":   col("SELECT DISTINCT addon   FROM resultados WHERE addon  !='' ORDER BY addon"),
+        })
+
+
+@app.route("/metricas/historial")
+def metricas_historial():
+    """Registros individuales paginados con todos los filtros activos."""
+    page     = max(1, int(request.args.get("page", 1)))
+    per_page = min(100, max(1, int(request.args.get("per_page", 25))))
+    offset   = (page - 1) * per_page
+    where, params = _build_filtros(request)
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        total = con.execute(
+            f"SELECT COUNT(*) FROM resultados {where}", params
+        ).fetchone()[0]
+        filas = con.execute(f"""
+            SELECT id, fecha, prueba, modulo, estado, dato_entrada, obtenido,
+                   cliente, entorno, bd, usuario, duracion_s, addon
+            FROM resultados {where}
+            ORDER BY fecha DESC LIMIT ? OFFSET ?
+        """, params + [per_page, offset]).fetchall()
+        return jsonify({
+            "total":    total,
+            "page":     page,
+            "per_page": per_page,
+            "pages":    max(1, (total + per_page - 1) // per_page),
+            "datos":    [dict(r) for r in filas],
+        })
+
+
+@app.route("/metricas/resumen")
+def metricas_resumen():
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        agg = con.execute(f"""
+            SELECT COUNT(*) as total,
+                   SUM(CASE WHEN estado='ok'   THEN 1 ELSE 0 END) as ok,
+                   SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
+                   ROUND(AVG(CASE WHEN duracion_s>0 THEN duracion_s END),1) as dur
+            FROM resultados {where}
+        """, params).fetchone()
+        total = agg["total"] or 0
+        if total == 0:
+            return jsonify({"total": 0, "ok": 0, "fail": 0, "tasa": 0,
+                            "peor_prueba": None, "duracion_prom": 0})
+        peor = con.execute(f"""
+            SELECT prueba, COUNT(*) as cnt FROM resultados
+            {_awhere(where, "estado='fail'")}
+            GROUP BY prueba ORDER BY cnt DESC LIMIT 1
+        """, params).fetchone()
+        ok = agg["ok"] or 0
+        return jsonify({
+            "total": total, "ok": ok, "fail": agg["fail"] or 0,
+            "tasa":  round(ok / total * 100, 1),
+            "peor_prueba":   dict(peor) if peor else None,
+            "duracion_prom": agg["dur"] or 0,
+        })
+
+
+@app.route("/metricas/tendencia")
+def metricas_tendencia():
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute(f"""
+            SELECT substr(fecha,1,10) as dia,
+                   SUM(CASE WHEN estado='ok'   THEN 1 ELSE 0 END) as ok,
+                   SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
+                   COUNT(*) as total
+            FROM resultados {where}
+            GROUP BY dia ORDER BY dia
+        """, params).fetchall()
+        return jsonify([dict(r) for r in filas])
+
+
+@app.route("/metricas/por_prueba")
+def metricas_por_prueba():
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute(f"""
+            SELECT prueba, modulo,
+                   SUM(CASE WHEN estado='ok'   THEN 1 ELSE 0 END) as ok,
+                   SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
+                   COUNT(*) as total,
+                   ROUND(AVG(CASE WHEN duracion_s>0 THEN duracion_s END),1) as duracion_prom
+            FROM resultados {where}
+            GROUP BY prueba ORDER BY fail DESC, total DESC
+        """, params).fetchall()
+        return jsonify([dict(r) for r in filas])
+
+
+@app.route("/metricas/por_cliente")
+def metricas_por_cliente():
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute(f"""
+            SELECT cliente,
+                   SUM(CASE WHEN estado='ok'   THEN 1 ELSE 0 END) as ok,
+                   SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
+                   COUNT(*) as total
+            FROM resultados {_awhere(where, "cliente!=''")}
+            GROUP BY cliente ORDER BY total DESC LIMIT 20
+        """, params).fetchall()
+        return jsonify([dict(r) for r in filas])
+
+
+@app.route("/metricas/errores")
+def metricas_errores():
+    n = int(request.args.get("n", 15))
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute(f"""
+            SELECT obtenido, prueba, COUNT(*) as ocurrencias,
+                   MAX(fecha) as ultima_vez
+            FROM resultados
+            {_awhere(where, "estado='fail' AND obtenido!='' AND obtenido IS NOT NULL")}
+            GROUP BY obtenido, prueba ORDER BY ocurrencias DESC LIMIT ?
+        """, params + [n]).fetchall()
+        return jsonify([dict(r) for r in filas])
+
+
+@app.route("/metricas/addons")
+def metricas_addons():
+    where, params = _build_filtros(request)
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute(f"""
+            SELECT addon,
+                   SUM(CASE WHEN estado='ok'   THEN 1 ELSE 0 END) as ok,
+                   SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
+                   COUNT(*) as total
+            FROM resultados {_awhere(where, "addon!='' AND addon IS NOT NULL")}
+            GROUP BY addon ORDER BY fail DESC, total DESC
+        """, params).fetchall()
+        return jsonify([dict(r) for r in filas])
 
 
 if __name__ == "__main__":

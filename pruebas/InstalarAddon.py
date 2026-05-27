@@ -14,10 +14,10 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None, addon=None):
     #   -142 = Migración de ajustes puntuales de proyección
     #    142 = Nueva versión de aprobaciones en ADPRO (compras, anticipos, actas...)
     # Default: 142 (positivo)
+    parametros = parametros or {}
     if addon:
         addon_raw = str(addon).strip()
     else:
-        parametros = parametros or {}
         addon_raw = str(parametros.get("addon") or "142").strip()
     if not addon_raw:
         addon_raw = "142"
@@ -26,8 +26,19 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None, addon=None):
         addon_raw = addon_raw[1:]
     addon_objetivo = addon_raw
 
+    # HD a registrar en la observación (configurado desde el dashboard)
+    hd_observacion = str(parametros.get("hd") or "").strip()
+    if not hd_observacion:
+        return {
+            "prueba":       "Instalar Addon",
+            "estado":       "error",
+            "dato_entrada": addon_objetivo,
+            "esperado":     "HD ingresado en el dashboard",
+            "obtenido":     "Falta el número de HD en el dashboard (campo 'HD #')",
+        }
+
     if on_paso:
-        on_paso(f"Addon objetivo: {addon_objetivo}")
+        on_paso(f"Addon objetivo: {addon_objetivo} | HD: {hd_observacion}")
 
     # Clic en ADPRO
     pagina.get_by_title("Administración de proyectos").click()
@@ -119,14 +130,14 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None, addon=None):
     if on_paso:
         on_paso("Checkbox seleccionado")
 
-    # Observaciones
+    # Observaciones (HD configurado desde el dashboard)
     observacion = frame.locator('input[type="text"]').last
     observacion.click()
-    observacion.press_sequentially("yom")
+    observacion.press_sequentially(hd_observacion)
     pagina.wait_for_timeout(1000)
 
     if on_paso:
-        on_paso("Observación ingresada")
+        on_paso(f"Observación '{hd_observacion}' ingresada")
 
     # Botón instalar
     btn_instalar = frame.get_by_role("button", name="Instalar")

@@ -1,7 +1,8 @@
 """
 Prueba: CambioRangoFechas
 Módulo: Inventarios
-Cambia el valor de la variable RangoFechaMovInv en Maestro ADP configuración.
+Cambia el valor de cualquier variable en Maestro ADP configuración.
+El nombre de la variable y el valor nuevo se reciben como parámetros desde el dashboard.
 """
 import base64
 
@@ -16,6 +17,13 @@ def capturar(pagina):
 def ejecutar(pagina, frame, on_paso=None, parametros=None):
 
     parametros = parametros or {}
+
+    # Nombre de la variable a buscar (campo "Variable" del dashboard)
+    variable = str(parametros.get("variable") or "rangofechamovinv").strip().lower()
+    if not variable:
+        variable = "rangofechamovinv"
+
+    # Nuevo valor a asignar (campo "Valor" del dashboard)
     valor = str(parametros.get("valor") or "365").strip()
     if not valor:
         valor = "365"
@@ -58,9 +66,9 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None):
     # ── Buscar variable ──
     codigo_input = frame2.get_by_role("textbox", name="Codigo")
     codigo_input.click()
-    codigo_input.fill("rangofechamovinv")
+    codigo_input.fill(variable)
     pagina.wait_for_timeout(500)
-    if on_paso: on_paso("Código ingresado")
+    if on_paso: on_paso(f"Variable '{variable}' ingresada")
 
     frame2.get_by_role("button", name="Consultar").click()
     pagina.wait_for_load_state("networkidle")
@@ -68,7 +76,8 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None):
     if on_paso: on_paso("Consulta ejecutada")
 
     # ── Cambiar valor ──
-    celda_valor = frame2.get_by_role("cell", name="RangoFechaMovInv Rango de").get_by_placeholder("Valor")
+    # Se usa el placeholder "Valor" del primer resultado; funciona para cualquier variable
+    celda_valor = frame2.get_by_placeholder("Valor").first
     celda_valor.click(click_count=3)
     celda_valor.fill(valor)
     pagina.wait_for_timeout(500)
@@ -104,7 +113,7 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None):
         return {
             "prueba":       "CambioRangoFechas",
             "estado":       "fail",
-            "dato_entrada": valor,
+            "dato_entrada": f"{variable} = {valor}",
             "esperado":     "La variable se actualizo correctamente",
             "obtenido":     "No apareció mensaje de confirmación",
             "screenshot":   capturar(pagina),
@@ -113,8 +122,8 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None):
     return {
         "prueba":       "CambioRangoFechas",
         "estado":       "ok",
-        "dato_entrada": valor,
+        "dato_entrada": f"{variable} = {valor}",
         "esperado":     "La variable se actualizo correctamente",
-        "obtenido":     f"RangoFechaMovInv actualizado a '{valor}'",
+        "obtenido":     f"'{variable}' actualizado a '{valor}'",
         "screenshot":   screenshot,
     }

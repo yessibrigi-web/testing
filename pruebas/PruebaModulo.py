@@ -1,6 +1,6 @@
 """
-Prueba: prueba
-Módulo: Inventarios
+Prueba: Prueba Modulo
+Módulo: PPto
 """
 
 
@@ -13,7 +13,7 @@ def ejecutar(pagina, frame, on_paso=None):
     # Ejemplo: pagina.get_by_role("button", name="Guardar").click()
 
     return {
-        "prueba": "prueba",
+        "prueba": "Prueba Modulo",
         "estado": "ok",
         "dato_entrada": "-",
         "esperado": "Flujo completo sin errores",

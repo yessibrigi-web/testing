@@ -40,7 +40,7 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None, addon=None):
     # ─────────────────────────────────────────────
     if on_paso: on_paso(f"── PASO 1: Instalar Addon {addon_full} ──")
 
-    resultado1 = InstalarAddon.ejecutar(pagina, frame, on_paso, addon=addon_full)
+    resultado1 = InstalarAddon.ejecutar(pagina, frame, on_paso, parametros=parametros, addon=addon_full)
 
     if resultado1.get("estado") != "ok":
         return {

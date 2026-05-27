@@ -1,5 +1,5 @@
 """
-Prueba: Entrar by CC
+Prueba: Entrar by
 Módulo: Compras
 """
 

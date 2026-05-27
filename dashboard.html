@@ -213,6 +213,56 @@
         .resize-handle:hover, .resize-handle.active { background:var(--accent); }
         @keyframes spin { to { transform:rotate(360deg); } }
         @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+        /* ── Métricas ── */
+        .metrics-card { background:white; border-radius:8px; border:1px solid var(--g200); padding:14px 16px; }
+        .metrics-card-hdr { font-size:11px; font-weight:700; color:var(--g500); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; display:flex; align-items:center; gap:6px; }
+        .metrics-card-hdr svg { width:13px; height:13px; }
+        .metrics-kpi { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px; }
+        .metrics-kpi .sum-card .sv { font-size:26px; }
+        .metrics-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+        .metrics-table { width:100%; border-collapse:collapse; }
+        .metrics-table thead th { padding:6px 10px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--g400); background:var(--g50); border-bottom:1px solid var(--g200); }
+        .metrics-table tbody td { padding:7px 10px; font-size:12px; border-bottom:1px solid var(--g50); }
+        .metrics-table tbody tr:hover { background:var(--g50); }
+        .metrics-pill { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; }
+        .metrics-pill.ok   { background:var(--success-bg); color:var(--success); }
+        .metrics-pill.fail { background:var(--danger-bg);  color:var(--danger); }
+        .metrics-pill.warn { background:#fffbeb; color:var(--warning); }
+        .metrics-bar-bg { height:6px; background:var(--g100); border-radius:3px; overflow:hidden; display:inline-block; width:80px; vertical-align:middle; margin-right:6px; }
+        .metrics-bar-fill { height:100%; border-radius:3px; }
+        .metrics-empty { text-align:center; padding:60px 32px; color:var(--g400); }
+        .metrics-empty svg { width:48px; height:48px; color:var(--g300); margin-bottom:12px; display:block; margin-left:auto; margin-right:auto; }
+        .metrics-empty h3 { font-size:15px; font-weight:600; color:var(--g600); margin-bottom:4px; }
+        .metrics-empty p { font-size:13px; }
+        .metrics-toolbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+        .metrics-toolbar h2 { font-size:14px; font-weight:700; color:var(--g900); }
+        .metrics-toolbar-right { display:flex; gap:8px; align-items:center; }
+        .metrics-select { padding:5px 10px; border:1px solid var(--g300); border-radius:6px; font-size:12px; background:white; color:var(--g700); cursor:pointer; font-family:inherit; }
+        .metrics-refresh { padding:5px 14px; border-radius:6px; font-size:12px; font-weight:600; background:var(--accent); color:white; border:none; cursor:pointer; font-family:inherit; }
+        .metrics-refresh:hover { background:var(--accent-hover); }
+        /* filtros */
+        .mf-bar { background:white; border:1px solid var(--g200); border-radius:8px; padding:10px 14px; margin-bottom:14px; display:flex; align-items:flex-end; gap:8px; flex-wrap:wrap; }
+        .mf-group { display:flex; flex-direction:column; gap:3px; }
+        .mf-group label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--g400); white-space:nowrap; }
+        .mf-group input[type=date], .mf-group select { padding:5px 8px; border:1px solid var(--g300); border-radius:6px; font-size:12px; color:var(--g800); font-family:inherit; background:white; height:30px; }
+        .mf-group input[type=date]:focus, .mf-group select:focus { outline:none; border-color:var(--accent); }
+        .mf-sep { align-self:flex-end; padding-bottom:7px; color:var(--g300); font-size:12px; }
+        .mf-apply { padding:0 14px; height:30px; border-radius:6px; font-size:12px; font-weight:600; background:var(--accent); color:white; border:none; cursor:pointer; align-self:flex-end; font-family:inherit; white-space:nowrap; }
+        .mf-apply:hover { background:var(--accent-hover); }
+        .mf-clear { padding:0 10px; height:30px; border-radius:6px; font-size:12px; font-weight:600; background:var(--g100); color:var(--g600); border:1px solid var(--g200); cursor:pointer; align-self:flex-end; font-family:inherit; }
+        .mf-clear:hover { background:var(--g200); }
+        .mf-count { align-self:flex-end; padding-bottom:7px; font-size:11px; color:var(--g400); margin-left:auto; white-space:nowrap; }
+        /* historial */
+        .hist-table { width:100%; border-collapse:collapse; font-size:12px; }
+        .hist-table thead th { padding:6px 10px; text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--g400); background:var(--g50); border-bottom:1px solid var(--g200); white-space:nowrap; }
+        .hist-table tbody td { padding:7px 10px; border-bottom:1px solid var(--g50); vertical-align:middle; max-width:0; }
+        .hist-table tbody tr:hover { background:var(--g50); }
+        .hist-pag { display:flex; align-items:center; gap:8px; padding:10px 0 4px; }
+        .hist-pag-info { font-size:11px; color:var(--g400); margin:0 4px; }
+        .hist-pag-btn { padding:3px 9px; border:1px solid var(--g200); border-radius:5px; background:#fff; font-size:12px; cursor:pointer; color:var(--g600); }
+        .hist-pag-btn:hover { background:var(--g50); }
+        .hist-pag-btn.active { background:var(--primary); color:#fff; border-color:var(--primary); font-weight:600; }
     </style>
 </head>
 <body>
@@ -261,6 +311,14 @@
         <span class="lbl">Addon #</span>
         <input type="text" id="paramAddon" value="142" placeholder="142 o -142" maxlength="6" autocomplete="off">
     </div>
+    <div class="filter-param" title="Número del HD que se registrará en la observación al activar el addon">
+        <span class="lbl">HD #</span>
+        <input type="text" id="paramHD" value="" placeholder="HD123456" maxlength="20" autocomplete="off">
+    </div>
+    <div class="filter-param" id="paramVariableWrap" title="Selecciona CambioRangoFechas para habilitar" style="opacity:0.5;">
+        <span class="lbl">Variable</span>
+        <input type="text" id="paramVariable" value="rangofechamovinv" placeholder="rangofechamovinv" maxlength="60" autocomplete="off" disabled>
+    </div>
     <div class="filter-param" id="paramValorWrap" title="Selecciona CambioRangoFechas para habilitar" style="opacity:0.5;">
         <span class="lbl">Valor</span>
         <input type="text" id="paramValor" value="365" placeholder="365" maxlength="10" autocomplete="off" disabled>
@@ -291,6 +349,9 @@
             <div class="tab-btn active" data-tab="exec" onclick="switchTab('exec')">Ejecucion<span class="tab-badge" id="execBadge" style="display:none"></span></div>
             <div class="tab-btn" data-tab="editor" onclick="switchTab('editor')">Codigo</div>
             <div class="tab-btn" data-tab="results" onclick="switchTab('results')">Resultados<span class="tab-badge" id="resBadge" style="display:none"></span></div>
+            <div class="tab-btn" data-tab="metrics" onclick="switchTab('metrics')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;margin-right:4px;vertical-align:middle;"><path d="M3 3v18h18"/><polyline points="7 16 12 9 16 13 21 6"/></svg>Métricas
+            </div>
             <div class="tabs-right"><button class="btn-editor" id="btnToggleLog" onclick="toggleLog()" style="display:none;padding:3px 10px;font-size:11px;">Log</button></div>
         </div>
         <div class="tab-content active" id="tabExec">
@@ -343,6 +404,163 @@
                 </div>
             </div>
         </div>
+        <!-- ── Tab Métricas ── -->
+        <div class="tab-content" id="tabMetrics">
+            <div class="exec-container">
+                <div class="metrics-toolbar">
+                    <h2>Informe de métricas</h2>
+                    <div class="metrics-toolbar-right">
+                        <span class="mf-count" id="mfCount"></span>
+                        <button class="metrics-refresh" onclick="cargarMetricas()">↻ Actualizar</button>
+                    </div>
+                </div>
+
+                <!-- Barra de filtros -->
+                <div class="mf-bar">
+                    <div class="mf-group">
+                        <label>Período rápido</label>
+                        <select id="metricsDias" onchange="_mfQuickPeriod()">
+                            <option value="7">Últimos 7 días</option>
+                            <option value="30" selected>Últimos 30 días</option>
+                            <option value="90">Últimos 90 días</option>
+                            <option value="365">Último año</option>
+                            <option value="9999">Todo el historial</option>
+                        </select>
+                    </div>
+                    <div class="mf-sep">ó</div>
+                    <div class="mf-group">
+                        <label>Desde</label>
+                        <input type="date" id="mfDesde" onchange="_mfClearQuick()">
+                    </div>
+                    <div class="mf-group">
+                        <label>Hasta</label>
+                        <input type="date" id="mfHasta" onchange="_mfClearQuick()">
+                    </div>
+                    <div class="mf-group">
+                        <label>Cliente</label>
+                        <select id="mfCliente"><option value="">Todos los clientes</option></select>
+                    </div>
+                    <div class="mf-group">
+                        <label>Flujo</label>
+                        <select id="mfPrueba"><option value="">Todos los flujos</option></select>
+                    </div>
+                    <div class="mf-group">
+                        <label>Módulo</label>
+                        <select id="mfModulo"><option value="">Todos los módulos</option></select>
+                    </div>
+                    <div class="mf-group">
+                        <label>Estado</label>
+                        <select id="mfEstado">
+                            <option value="">Todos</option>
+                            <option value="ok">✓ Solo exitosas</option>
+                            <option value="fail">✗ Solo fallidas</option>
+                        </select>
+                    </div>
+                    <button class="mf-apply" onclick="cargarMetricas()">Aplicar filtros</button>
+                    <button class="mf-clear" onclick="limpiarFiltros()">Limpiar ×</button>
+                </div>
+
+                <!-- KPIs -->
+                <div class="metrics-kpi" id="metricsKPI"></div>
+
+                <!-- Tendencia -->
+                <div class="metrics-card" style="margin-bottom:16px;">
+                    <div class="metrics-card-hdr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><polyline points="7 16 12 9 16 13 21 6"/></svg>
+                        Tendencia diaria <span id="tendenciaSubtitulo" style="font-weight:400;color:var(--g400);text-transform:none;letter-spacing:0;"></span>
+                    </div>
+                    <div style="height:190px;position:relative;"><canvas id="chartTendencia"></canvas></div>
+                </div>
+
+                <!-- Tasa por prueba + Por cliente -->
+                <div class="metrics-grid-2">
+                    <div class="metrics-card">
+                        <div class="metrics-card-hdr">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                            Tasa de éxito por flujo
+                        </div>
+                        <div style="height:220px;position:relative;overflow:hidden;"><canvas id="chartPorPrueba"></canvas></div>
+                    </div>
+                    <div class="metrics-card">
+                        <div class="metrics-card-hdr">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                            Ejecuciones por cliente <span style="font-weight:400;color:var(--g400);text-transform:none;letter-spacing:0;">(top 10)</span>
+                        </div>
+                        <div style="height:220px;position:relative;overflow:hidden;"><canvas id="chartPorCliente"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Tiempo de ejecución -->
+                <div class="metrics-card" style="margin-bottom:16px;">
+                    <div class="metrics-card-hdr">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                        Tiempo promedio de ejecución por flujo (segundos)
+                    </div>
+                    <div style="height:170px;position:relative;"><canvas id="chartTiempos"></canvas></div>
+                </div>
+
+                <!-- Errores + Addons -->
+                <div class="metrics-grid-2">
+                    <div class="metrics-card">
+                        <div class="metrics-card-hdr">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            Errores frecuentes
+                        </div>
+                        <div style="overflow-y:auto;max-height:260px;" id="tablaErrores">
+                            <div class="metrics-empty" style="padding:24px;"><p>Sin errores registrados</p></div>
+                        </div>
+                    </div>
+                    <div class="metrics-card">
+                        <div class="metrics-card-hdr">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            Addons — éxito / fallo
+                        </div>
+                        <div style="overflow-y:auto;max-height:260px;" id="tablaAddons">
+                            <div class="metrics-empty" style="padding:24px;"><p>Sin datos de addons</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historial de ejecuciones -->
+                <div class="metrics-card" id="historialCard" style="display:none;margin-bottom:16px;">
+                    <div class="metrics-card-hdr" style="display:flex;align-items:center;justify-content:space-between;">
+                        <span style="display:flex;align-items:center;gap:6px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+                            Historial de ejecuciones
+                        </span>
+                        <span id="historialTotal" style="font-size:11px;font-weight:400;color:var(--g400);text-transform:none;letter-spacing:0;"></span>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="hist-table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Flujo</th>
+                                    <th>Módulo</th>
+                                    <th>Estado</th>
+                                    <th>Cliente</th>
+                                    <th>Entorno</th>
+                                    <th>BD</th>
+                                    <th>Addon</th>
+                                    <th style="text-align:right;">Duración</th>
+                                    <th>Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historialBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="hist-pag" id="historialPag"></div>
+                </div>
+
+                <!-- Estado vacío global -->
+                <div class="metrics-empty" id="metricsEmpty" style="display:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><polyline points="7 16 12 9 16 13 21 6"/></svg>
+                    <h3>Sin datos de ejecución</h3>
+                    <p>Ejecuta pruebas desde el panel principal para ver las métricas aquí.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="log-panel" id="logPanel">
             <div class="log-header"><span>Log de ejecucion</span><span class="close-log" onclick="toggleLog()">&times;</span></div>
             <div class="log-body" id="logBody"></div>
@@ -363,8 +581,22 @@
     </div>
 </div>
 
+<div class="modal-bg" id="modalGrabar" onclick="cerrarModalGrabar()">
+    <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-hdr">Grabar prueba</div>
+        <div class="modal-body">
+            <label>Nombre del archivo</label><input type="text" id="grabNombre" placeholder="MiPrueba (sin .py)">
+            <label>Nombre descriptivo</label><input type="text" id="grabDisplay" placeholder="Mi Prueba de Ejemplo">
+            <label>Modulo</label>
+            <select id="grabModulo"><option value="PPto">PPto</option><option value="Compras" selected>Compras</option><option value="Inventarios">Inventarios</option><option value="Contratos">Contratos</option><option value="Mantenimiento">Mantenimiento</option><option value="Addons">Addons</option></select>
+        </div>
+        <div class="modal-foot"><button onclick="cerrarModalGrabar()">Cancelar</button><button class="modal-ok" onclick="confirmarGrabar()">Grabar</button></div>
+    </div>
+</div>
+
 <div class="lightbox" id="lightbox" onclick="cerrarLightbox()"><div class="lightbox-close">&times;</div><img id="lightboxImg" src="" alt="Screenshot"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
 <script>
@@ -431,16 +663,25 @@ function renderTests(){
 }
 
 function actualizarInputValor(){
-    const wrap=document.getElementById('paramValorWrap'),inp=document.getElementById('paramValor');
-    if(!wrap||!inp)return;
     const habilitado=currentTest==='CambioRangoFechas';
-    inp.disabled=!habilitado;
-    wrap.style.opacity=habilitado?'1':'0.5';
-    wrap.title=habilitado?'Valor para CambioRangoFechas (RangoFechaMovInv)':'Selecciona CambioRangoFechas para habilitar';
+
+    const wrapVal=document.getElementById('paramValorWrap'),inpVal=document.getElementById('paramValor');
+    if(wrapVal&&inpVal){
+        inpVal.disabled=!habilitado;
+        wrapVal.style.opacity=habilitado?'1':'0.5';
+        wrapVal.title=habilitado?'Nuevo valor a asignar a la variable':'Selecciona CambioRangoFechas para habilitar';
+    }
+
+    const wrapVar=document.getElementById('paramVariableWrap'),inpVar=document.getElementById('paramVariable');
+    if(wrapVar&&inpVar){
+        inpVar.disabled=!habilitado;
+        wrapVar.style.opacity=habilitado?'1':'0.5';
+        wrapVar.title=habilitado?'Nombre de la variable a modificar en Maestro ADP configuración':'Selecciona CambioRangoFechas para habilitar';
+    }
 }
 
-function _activateTab(tab){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['Exec','Editor','Results'].forEach(t=>{const el=document.getElementById('tab'+t);if(el)el.classList.toggle('active',t.toLowerCase()===tab);});}
-function switchTab(tab){_activateTab(tab);if(tab==='editor'&&currentTest)abrirEditor(currentTest);}
+function _activateTab(tab){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['Exec','Editor','Results','Metrics'].forEach(t=>{const el=document.getElementById('tab'+t);if(el)el.classList.toggle('active',t.toLowerCase()===tab);});}
+function switchTab(tab){_activateTab(tab);if(tab==='editor'&&currentTest)abrirEditor(currentTest);if(tab==='metrics')cargarMetricas();}
 
 let _editorLoadId=0;
 async function abrirEditor(id){
@@ -468,17 +709,58 @@ async function guardarCodigo(){if(!currentTest||!editor)return;try{const r=await
 function descartarCambios(){if(editor&&editorOriginal){editor.setValue(editorOriginal);document.getElementById('editorUnsaved').style.display='none';}}
 async function eliminarPrueba(){if(!currentTest)return;if(!confirm('Eliminar '+currentTest+'.py? Esta accion no se puede deshacer.'))return;try{const r=await fetch('/prueba/eliminar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:currentTest})});const d=await r.json();if(d.error){alert(d.error);return;}currentTest=null;if(editor)editor.setValue('');document.getElementById('editorBar').style.display='none';document.getElementById('editorWrap').innerHTML='<div class="editor-empty" id="editorEmpty">Selecciona una prueba para ver su codigo</div>';editor=null;const rp=await fetch('/pruebas');pruebas=await rp.json();renderModuleChips();renderTests();}catch(e){alert('Error eliminando: '+e);}}
 
-async function grabarPrueba(){
-    const cfg=getConfig();if(!cfg.cliente){alert('Selecciona un cliente antes de grabar.');return;}if(!cfg.entorno_id){alert('Selecciona un entorno antes de grabar.');return;}
+function grabarPrueba(){
+    const cfg=getConfig();
+    if(!cfg.cliente){alert('Selecciona un cliente antes de grabar.');return;}
+    if(!cfg.entorno_id){alert('Selecciona un entorno antes de grabar.');return;}
+    document.getElementById('modalGrabar').classList.add('active');
+    setTimeout(()=>document.getElementById('grabNombre').focus(),50);
+}
+
+async function confirmarGrabar(){
+    const cfg=getConfig();
+    const nombre=document.getElementById('grabNombre').value.trim();
+    const display=document.getElementById('grabDisplay').value.trim()||nombre;
+    const modulo=document.getElementById('grabModulo').value;
+    if(!nombre){alert('Ingresa un nombre para la prueba');return;}
+    cerrarModalGrabar();
     log('Preparando Codegen — login en segundo plano...');
-    try{const r=await fetch('/grabar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)});if(!r.ok){alert('Error HTTP '+r.status);return;}const d=await r.json();if(d.error){alert(d.error);return;}log('Login completado — Codegen se abrirá en unos segundos directo en el ERP','ok');}catch(e){alert('Error al iniciar grabación: '+e);}
+    try{
+        const r=await fetch('/grabar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...cfg,nombre,display,modulo})});
+        if(!r.ok){const d=await r.json().catch(()=>({error:'HTTP '+r.status}));alert(d.error||('Error HTTP '+r.status));return;}
+        const d=await r.json();
+        if(d.error){alert(d.error);return;}
+        log('Grabando — al cerrar el Inspector se creará '+d.nombre+'.py automáticamente','ok');
+        document.getElementById('grabNombre').value='';
+        document.getElementById('grabDisplay').value='';
+        esperarPruebaGrabada(d.nombre);
+    }catch(e){alert('Error al iniciar grabación: '+e);}
+}
+
+function esperarPruebaGrabada(nombre){
+    const inicio=Date.now();
+    const intervalo=setInterval(async()=>{
+        if(Date.now()-inicio>600000){clearInterval(intervalo);log('Timeout esperando grabación de '+nombre,'err');return;}
+        try{
+            const r=await fetch('/pruebas');
+            const data=await r.json();
+            if(data.some(p=>p.id===nombre)){
+                clearInterval(intervalo);
+                pruebas=data;
+                renderModuleChips();
+                renderTests();
+                log('Prueba '+nombre+'.py generada y normalizada','ok');
+            }
+        }catch(e){}
+    },5000);
 }
 
 function abrirModalNueva(){document.getElementById('modalNueva').classList.add('active');setTimeout(()=>document.getElementById('newNombre').focus(),50);}
 function cerrarModalNueva(){document.getElementById('modalNueva').classList.remove('active');}
+function cerrarModalGrabar(){document.getElementById('modalGrabar').classList.remove('active');}
 async function crearPrueba(){const nombre=document.getElementById('newNombre').value.trim(),display=document.getElementById('newDisplay').value.trim()||nombre,modulo=document.getElementById('newModulo').value;if(!nombre){alert('Ingresa un nombre');return;}try{const r=await fetch('/prueba/nueva',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,display,modulo})});const d=await r.json();if(d.error){alert(d.error);return;}cerrarModalNueva();document.getElementById('newNombre').value='';document.getElementById('newDisplay').value='';const rp=await fetch('/pruebas');pruebas=await rp.json();renderModuleChips();renderTests();abrirEditor(d.id);}catch(e){alert('Error: '+e);}}
 
-function getConfig(){const addonEl=document.getElementById('paramAddon');const addon=addonEl?(addonEl.value||'').trim():'';const valorEl=document.getElementById('paramValor');const valor=valorEl?(valorEl.value||'').trim():'';return{cliente:selectedClienteId,entorno_id:selectedEntornoId,entorno_tipo:selectedEntornoTipo,entorno_url:selectedEntornoUrl,bd_id:selectedBDId,bd_catalogo:selectedBDCatalogo,bd_nombre:selectedBDNombre,parametros:{addon:addon,valor:valor}};}
+function getConfig(){const addonEl=document.getElementById('paramAddon');const addon=addonEl?(addonEl.value||'').trim():'';const valorEl=document.getElementById('paramValor');const valor=valorEl?(valorEl.value||'').trim():'';const hdEl=document.getElementById('paramHD');const hd=hdEl?(hdEl.value||'').trim():'';const varEl=document.getElementById('paramVariable');const variable=varEl?(varEl.value||'').trim():'';return{cliente:selectedClienteId,entorno_id:selectedEntornoId,entorno_tipo:selectedEntornoTipo,entorno_url:selectedEntornoUrl,bd_id:selectedBDId,bd_catalogo:selectedBDCatalogo,bd_nombre:selectedBDNombre,parametros:{addon:addon,valor:valor,hd:hd,variable:variable}};}
 
 function ejecutarUna(prueba_id){
     if(ejecutando)return;const cfg=getConfig();if(!cfg.cliente){alert('Selecciona un cliente en el header antes de ejecutar.');return;}if(!cfg.entorno_id){alert('Selecciona un entorno antes de ejecutar.');return;}
@@ -508,7 +790,289 @@ function log(msg,tipo='info'){const el=document.getElementById('logBody'),cls=ti
 function toggleLog(){document.getElementById('logPanel').classList.toggle('visible');}
 function abrirLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('active');}
 function cerrarLightbox(){document.getElementById('lightbox').classList.remove('active');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){cerrarLightbox();cerrarDropdowns();cerrarModalNueva();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){cerrarLightbox();cerrarDropdowns();cerrarModalNueva();cerrarModalGrabar();}});
+
+// ── MÉTRICAS ──────────────────────────────────────────────────────────────────
+let _chartTendencia=null,_chartPrueba=null,_chartCliente=null,_chartTiempos=null;
+const MOD_COLORS_MET={PPto:'#8b5cf6',Compras:'#2563eb',Inventarios:'#f59e0b',Contratos:'#10b981',Mantenimiento:'#ec4899',Addons:'#6366f1'};
+
+let _histPage=1;
+
+function _getFiltros(){
+    const p=new URLSearchParams();
+    const dias=document.getElementById('metricsDias').value;
+    const desde=document.getElementById('mfDesde').value;
+    const hasta=document.getElementById('mfHasta').value;
+    if(desde)p.set('fecha_desde',desde);
+    if(hasta)p.set('fecha_hasta',hasta);
+    if(!desde&&!hasta&&dias&&dias!=='0')p.set('dias',dias);
+    const cl=document.getElementById('mfCliente').value;
+    const pr=document.getElementById('mfPrueba').value;
+    const mo=document.getElementById('mfModulo').value;
+    const es=document.getElementById('mfEstado').value;
+    if(cl)p.set('cliente',cl);
+    if(pr)p.set('prueba',pr);
+    if(mo)p.set('modulo',mo);
+    if(es)p.set('estado',es);
+    return p;
+}
+
+function _mfQuickPeriod(){
+    document.getElementById('mfDesde').value='';
+    document.getElementById('mfHasta').value='';
+}
+
+function _mfClearQuick(){
+    const sel=document.getElementById('metricsDias');
+    if(![...sel.options].some(o=>o.value==='0'))
+        sel.insertAdjacentHTML('afterbegin','<option value="0">Rango personalizado</option>');
+    sel.value='0';
+}
+
+function limpiarFiltros(){
+    document.getElementById('metricsDias').value='30';
+    document.getElementById('mfDesde').value='';
+    document.getElementById('mfHasta').value='';
+    document.getElementById('mfCliente').value='';
+    document.getElementById('mfPrueba').value='';
+    document.getElementById('mfModulo').value='';
+    document.getElementById('mfEstado').value='';
+    cargarMetricas();
+}
+
+async function _cargarOpciones(){
+    try{
+        const d=await fetch('/metricas/opciones').then(r=>r.json());
+        _poblarSelect('mfCliente','Todos los clientes',d.clientes||[]);
+        _poblarSelect('mfPrueba','Todos los flujos',d.pruebas||[]);
+        _poblarSelect('mfModulo','Todos los módulos',d.modulos||[]);
+    }catch(e){}
+}
+
+function _poblarSelect(id,placeholder,opts){
+    const el=document.getElementById(id);if(!el)return;
+    const cur=el.value;
+    el.innerHTML=`<option value="">${placeholder}</option>`+opts.map(v=>`<option value="${v}">${v}</option>`).join('');
+    if(opts.includes(cur))el.value=cur;
+}
+
+async function cargarMetricas(){
+    await _cargarOpciones();
+    const qs=_getFiltros();
+    const qstr=qs.toString();
+    const url=e=>'/metricas/'+e+(qstr?'?'+qstr:'');
+    try{
+        const [resumen,tendencia,porPrueba,porCliente,errores,addons]=await Promise.all([
+            fetch(url('resumen')).then(r=>r.json()),
+            fetch(url('tendencia')).then(r=>r.json()),
+            fetch(url('por_prueba')).then(r=>r.json()),
+            fetch(url('por_cliente')).then(r=>r.json()),
+            fetch(url('errores')).then(r=>r.json()),
+            fetch(url('addons')).then(r=>r.json()),
+        ]);
+        const vacio=resumen.total===0;
+        document.getElementById('metricsEmpty').style.display=vacio?'block':'none';
+        const cnt=document.getElementById('mfCount');
+        if(cnt){cnt.textContent=resumen.total;cnt.style.display=resumen.total>0?'inline':'none';}
+        if(vacio){document.getElementById('historialCard').style.display='none';return;}
+        _renderKPI(resumen);
+        _renderTendencia(tendencia,qs);
+        _renderPorPrueba(porPrueba);
+        _renderPorCliente(porCliente);
+        _renderTiempos(porPrueba);
+        _renderErrores(errores);
+        _renderAddons(addons);
+        cargarHistorial(1);
+    }catch(e){console.error('Error métricas:',e);}
+}
+
+function _renderKPI(d){
+    const color=d.tasa>=80?'var(--success)':d.tasa>=50?'var(--warning)':'var(--danger)';
+    document.getElementById('metricsKPI').innerHTML=`
+        <div class="sum-card"><div class="sl">Total ejecuciones</div><div class="sv">${d.total}</div></div>
+        <div class="sum-card"><div class="sl">Exitosas / Fallidas</div><div class="sv"><span style="color:var(--success)">${d.ok}</span> <span style="font-size:14px;color:var(--g400);">/</span> <span style="color:var(--danger)">${d.fail}</span></div></div>
+        <div class="sum-card"><div class="sl">Tasa de éxito</div><div class="sv" style="color:${color}">${d.tasa}%</div></div>
+        <div class="sum-card"><div class="sl">Tiempo promedio</div><div class="sv" style="font-size:18px;">${d.duracion_prom>0?d.duracion_prom+'s':'—'}</div></div>`;
+}
+
+function _renderTendencia(data,qs){
+    const dias=qs instanceof URLSearchParams?qs.get('dias')||'':'';
+    const desde=qs instanceof URLSearchParams?qs.get('fecha_desde')||'':'';
+    const hasta=qs instanceof URLSearchParams?qs.get('fecha_hasta')||'':'';
+    let sub='';
+    if(desde||hasta)sub=`— ${desde||'…'} → ${hasta||'hoy'} (${data.length} días)`;
+    else if(dias)sub=`— últimos ${dias} días (${data.length} con actividad)`;
+    else sub=`— todo el tiempo (${data.length} con actividad)`;
+    document.getElementById('tendenciaSubtitulo').textContent=sub;
+    if(_chartTendencia)_chartTendencia.destroy();
+    if(!data.length)return;
+    _chartTendencia=new Chart(document.getElementById('chartTendencia'),{
+        type:'line',
+        data:{labels:data.map(r=>r.dia),datasets:[
+            {label:'Exitosas',data:data.map(r=>r.ok),borderColor:'#16a34a',backgroundColor:'rgba(22,163,74,0.08)',tension:0.35,fill:true,pointRadius:3},
+            {label:'Fallidas',data:data.map(r=>r.fail),borderColor:'#dc2626',backgroundColor:'rgba(220,38,38,0.08)',tension:0.35,fill:true,pointRadius:3},
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{position:'top',labels:{font:{size:11},padding:10,boxWidth:12}}},
+            scales:{
+                y:{beginAtZero:true,ticks:{stepSize:1,font:{size:10}},grid:{color:'#f1f5f9'}},
+                x:{ticks:{font:{size:10},maxRotation:45},grid:{display:false}}
+            }
+        }
+    });
+}
+
+function _renderPorPrueba(data){
+    if(_chartPrueba)_chartPrueba.destroy();
+    if(!data.length)return;
+    const top=data.slice(0,15);
+    const tasas=top.map(r=>r.total>0?Math.round(r.ok/r.total*100):0);
+    const bgColors=top.map((r,i)=>{const t=tasas[i];const col=MOD_COLORS_MET[r.modulo]||'#64748b';return t>=80?col+'cc':t>=50?'#f59e0bcc':'#dc2626cc';});
+    _chartPrueba=new Chart(document.getElementById('chartPorPrueba'),{
+        type:'bar',
+        data:{labels:top.map(r=>r.prueba),datasets:[{label:'Tasa éxito %',data:tasas,backgroundColor:bgColors,borderRadius:4}]},
+        options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const r=top[ctx.dataIndex];return ` ${ctx.raw}%  (${r.ok} ok / ${r.fail} fail de ${r.total})`;}}}},
+            scales:{
+                x:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'#f1f5f9'}},
+                y:{ticks:{font:{size:10}},grid:{display:false}}
+            }
+        }
+    });
+}
+
+function _renderPorCliente(data){
+    if(_chartCliente)_chartCliente.destroy();
+    if(!data.length)return;
+    const top=data.slice(0,10);
+    _chartCliente=new Chart(document.getElementById('chartPorCliente'),{
+        type:'bar',
+        data:{
+            labels:top.map(r=>r.cliente.length>28?r.cliente.substring(0,28)+'…':r.cliente),
+            datasets:[
+                {label:'Exitosas',data:top.map(r=>r.ok),backgroundColor:'rgba(22,163,74,0.75)',borderRadius:4,stack:'s'},
+                {label:'Fallidas',data:top.map(r=>r.fail),backgroundColor:'rgba(220,38,38,0.75)',borderRadius:4,stack:'s'},
+            ]
+        },
+        options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{position:'top',labels:{font:{size:11},padding:8,boxWidth:12}}},
+            scales:{
+                x:{beginAtZero:true,stacked:true,ticks:{font:{size:10}},grid:{color:'#f1f5f9'}},
+                y:{stacked:true,ticks:{font:{size:10}},grid:{display:false}}
+            }
+        }
+    });
+}
+
+function _renderTiempos(data){
+    if(_chartTiempos)_chartTiempos.destroy();
+    const filt=data.filter(r=>r.duracion_prom&&r.duracion_prom>0).slice(0,15);
+    if(!filt.length)return;
+    const vals=filt.map(r=>r.duracion_prom);
+    const colors=vals.map(v=>v>120?'rgba(220,38,38,0.7)':v>60?'rgba(245,158,11,0.7)':'rgba(37,99,235,0.7)');
+    _chartTiempos=new Chart(document.getElementById('chartTiempos'),{
+        type:'bar',
+        data:{labels:filt.map(r=>r.prueba),datasets:[{label:'Segundos (prom)',data:vals,backgroundColor:colors,borderRadius:4}]},
+        options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw}s`}}},
+            scales:{
+                y:{beginAtZero:true,ticks:{callback:v=>v+'s',font:{size:10}},grid:{color:'#f1f5f9'}},
+                x:{ticks:{font:{size:10},maxRotation:40},grid:{display:false}}
+            }
+        }
+    });
+}
+
+function _renderErrores(data){
+    const el=document.getElementById('tablaErrores');
+    if(!data.length){el.innerHTML='<div style="text-align:center;padding:24px;color:var(--g400);font-size:12px;">Sin errores registrados</div>';return;}
+    el.innerHTML=`<table class="metrics-table">
+        <thead><tr><th>Mensaje de error</th><th>Flujo</th><th style="text-align:right;">Veces</th><th>Última vez</th></tr></thead>
+        <tbody>${data.map(r=>{
+            const msg=r.obtenido.length>70?r.obtenido.substring(0,70)+'…':r.obtenido;
+            return`<tr>
+                <td style="max-width:220px;" title="${r.obtenido.replace(/"/g,'&quot;')}"><code style="font-size:10px;color:var(--g700);">${msg}</code></td>
+                <td style="color:var(--g600);">${r.prueba}</td>
+                <td style="text-align:right;"><span class="metrics-pill fail">${r.ocurrencias}</span></td>
+                <td style="color:var(--g400);font-size:11px;">${r.ultima_vez?r.ultima_vez.substring(0,10):'—'}</td>
+            </tr>`;
+        }).join('')}</tbody>
+    </table>`;
+}
+
+function _renderAddons(data){
+    const el=document.getElementById('tablaAddons');
+    if(!data.length){el.innerHTML='<div style="text-align:center;padding:24px;color:var(--g400);font-size:12px;">Sin datos de addons</div>';return;}
+    el.innerHTML=`<table class="metrics-table">
+        <thead><tr><th>Addon #</th><th style="text-align:center;">OK</th><th style="text-align:center;">Fallos</th><th>Tasa</th><th style="text-align:right;">Total</th></tr></thead>
+        <tbody>${data.map(r=>{
+            const tasa=r.total>0?Math.round(r.ok/r.total*100):0;
+            const cls=tasa>=80?'ok':tasa>=50?'warn':'fail';
+            const barW=tasa;
+            return`<tr>
+                <td><strong style="font-family:monospace;">${r.addon}</strong></td>
+                <td style="text-align:center;color:var(--success);font-weight:600;">${r.ok}</td>
+                <td style="text-align:center;color:var(--danger);font-weight:600;">${r.fail}</td>
+                <td><span class="metrics-bar-bg"><span class="metrics-bar-fill" style="width:${barW}%;background:${tasa>=80?'var(--success)':tasa>=50?'var(--warning)':'var(--danger)'};"></span></span><span class="metrics-pill ${cls}">${tasa}%</span></td>
+                <td style="text-align:right;color:var(--g500);">${r.total}</td>
+            </tr>`;
+        }).join('')}</tbody>
+    </table>`;
+}
+async function cargarHistorial(page){
+    _histPage=page||1;
+    const qs=_getFiltros();
+    qs.set('page',_histPage);
+    qs.set('per_page',20);
+    try{
+        const d=await fetch('/metricas/historial?'+qs.toString()).then(r=>r.json());
+        const card=document.getElementById('historialCard');
+        if(!d.total){card.style.display='none';return;}
+        card.style.display='block';
+        _renderHistorial(d);
+        _pagHistorial(d);
+    }catch(e){console.error('historial:',e);}
+}
+
+function _renderHistorial(d){
+    const tbody=document.getElementById('historialBody');
+    const MOD_C={PPto:'#8b5cf6',Compras:'#2563eb',Inventarios:'#f59e0b',Contratos:'#10b981',Mantenimiento:'#ec4899',Addons:'#6366f1'};
+    tbody.innerHTML=d.items.map(r=>{
+        const mc=MOD_C[r.modulo]||'#64748b';
+        const dur=r.duracion_s>0?r.duracion_s+'s':'—';
+        const pill=r.estado==='ok'
+            ?'<span class="badge ok" style="font-size:10px;">OK</span>'
+            :'<span class="badge fail" style="font-size:10px;">Fail</span>';
+        const fecha=r.fecha?r.fecha.substring(0,16).replace('T',' '):'—';
+        return`<tr>
+            <td style="font-size:11px;color:var(--g500);white-space:nowrap;">${fecha}</td>
+            <td style="font-weight:600;">${r.prueba}</td>
+            <td><span style="background:${mc}22;color:${mc};padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;">${r.modulo||'—'}</span></td>
+            <td>${pill}</td>
+            <td style="font-size:11px;">${r.cliente||'—'}</td>
+            <td style="font-size:11px;">${r.entorno||'—'}</td>
+            <td style="font-size:11px;font-family:monospace;">${r.bd||'—'}</td>
+            <td style="font-size:11px;font-family:monospace;">${r.addon||'—'}</td>
+            <td style="text-align:right;font-size:11px;color:var(--g500);">${dur}</td>
+            <td style="font-size:10px;color:var(--g500);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${(r.obtenido||'').replace(/"/g,'&quot;')}">${r.obtenido||'—'}</td>
+        </tr>`;
+    }).join('');
+}
+
+function _pagHistorial(d){
+    const el=document.getElementById('historialPag');
+    const total=Math.ceil(d.total/d.per_page);
+    if(total<=1){el.innerHTML='';return;}
+    const cur=d.page;
+    let pages=[];
+    for(let i=Math.max(1,cur-2);i<=Math.min(total,cur+2);i++)pages.push(i);
+    let html='';
+    if(pages[0]>1)html+='<button class="hist-pag-btn" onclick="cargarHistorial(1)">1</button>'+(pages[0]>2?'<span style="padding:0 4px;">…</span>':'');
+    html+=pages.map(p=>`<button class="hist-pag-btn${p===cur?' active':''}" onclick="cargarHistorial(${p})">${p}</button>`).join('');
+    if(pages[pages.length-1]<total)html+=(pages[pages.length-1]<total-1?'<span style="padding:0 4px;">…</span>':'')+`<button class="hist-pag-btn" onclick="cargarHistorial(${total})">${total}</button>`;
+    el.innerHTML=html;
+}
+// ── FIN MÉTRICAS ──────────────────────────────────────────────────────────────
 
 (function(){const h=document.getElementById('resizeHandle'),p=document.getElementById('panelTests');let sx,sw;h.addEventListener('mousedown',e=>{sx=e.clientX;sw=p.offsetWidth;h.classList.add('active');document.addEventListener('mousemove',mv);document.addEventListener('mouseup',up);e.preventDefault();});function mv(e){p.style.width=Math.max(200,Math.min(600,sw+(e.clientX-sx)))+'px';}function up(){h.classList.remove('active');document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up);}})();
 </script>

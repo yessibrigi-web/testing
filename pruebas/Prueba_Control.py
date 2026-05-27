@@ -1,6 +1,6 @@
 """
-Prueba: Control
-Módulo: PPto
+Prueba: Generación de control de proyecto
+Módulo: Control 
 """
 
 def ejecutar(pagina, frame, on_paso=None):

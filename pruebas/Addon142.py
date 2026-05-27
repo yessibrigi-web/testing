@@ -25,8 +25,18 @@ def verificar_item_parametrizacion(frame, nombre_item, pagina):
         return False, f"Item '{nombre_item}' no encontrado: {str(e)[:80]}"
 
 
-def verificar_opcion_adpro(pagina, ruta, nombre_boton):
-    """Navega a una opción de ADPRO y verifica que cargue correctamente."""
+def verificar_opcion_adpro(pagina, ruta, nombre_boton, mensajes_info=None):
+    """Navega a una opción de ADPRO y verifica que cargue correctamente.
+
+    Devuelve (ok, error, advertencia):
+      ok=True,  error=None,  advertencia=None  → cargó sin problemas
+      ok=True,  error=None,  advertencia=str   → cargó pero hay aviso de config del cliente
+      ok=False, error=str,   advertencia=None  → error real de flujo
+
+    mensajes_info: subcadenas que, si aparecen en pantalla, representan
+    configuración pendiente del cliente y NO deben contarse como error.
+    """
+    mensajes_info = mensajes_info or []
     try:
         pagina.evaluate(f"""
             () => {{
@@ -43,16 +53,44 @@ def verificar_opcion_adpro(pagina, ruta, nombre_boton):
 
         frame2 = pagina.locator("#pagina1").content_frame
 
+        # Mensajes informativos del cliente — no son errores de flujo del addon
+        for msg in mensajes_info:
+            try:
+                if frame2.get_by_text(msg, exact=False).is_visible(timeout=3000):
+                    advertencia = f"⚠️ {nombre_boton}: {msg[:90]} (configuración pendiente del cliente)"
+                    return True, None, advertencia
+            except Exception:
+                pass
+
         # Verificar error "Algo salió mal"
         try:
             if frame2.get_by_text("Algo salió mal", exact=False).is_visible(timeout=3000):
-                return False, f"Error al cargar '{nombre_boton}': Algo salió mal"
+                return False, f"Error al cargar '{nombre_boton}': Algo salió mal", None
         except Exception:
             pass
 
-        return True, None
+        return True, None, None
     except Exception as e:
-        return False, f"Error navegando a '{nombre_boton}': {str(e)[:80]}"
+        return False, f"Error navegando a '{nombre_boton}': {str(e)[:80]}", None
+
+
+def expandir_menu_padres(pagina, rutas_padres):
+    """Re-abre el menú admin y expande la cadena de menús padres."""
+    pagina.get_by_title("Administración de proyectos").click()
+    pagina.wait_for_selector("div.menu-caja:visible", timeout=30000)
+    pagina.wait_for_timeout(800)
+    for ruta in rutas_padres:
+        pagina.evaluate(f"""
+            () => {{
+                const items = document.querySelectorAll('div.menu-caja');
+                for (const item of items) {{
+                    if (item.getAttribute('title') === 'Ruta: {ruta}') {{
+                        item.click(); break;
+                    }}
+                }}
+            }}
+        """)
+        pagina.wait_for_timeout(800)
 
 
 def ejecutar(pagina, frame, on_paso=None):
@@ -194,9 +232,45 @@ def ejecutar(pagina, frame, on_paso=None):
     ]
 
     for ruta, nombre in opciones_adpro:
-        ok, error = verificar_opcion_adpro(pagina, ruta, nombre)
+        ok, error, advertencia = verificar_opcion_adpro(pagina, ruta, nombre)
         if ok:
-            if on_paso: on_paso(f"✓ {nombre}")
+            if on_paso: on_paso(advertencia if advertencia else f"✓ {nombre}")
+        else:
+            errores.append(error)
+            if on_paso: on_paso(f"✗ {nombre}")
+
+    # Opciones adicionales bajo ADPRO/Almacén (3 padres distintos)
+    # Cada entrada: (padres, ruta_hoja, nombre, mensajes_info)
+    # mensajes_info: mensajes del ERP que indican configuración pendiente del
+    # cliente, no un error de flujo del addon.
+    opciones_almacen = [
+        (
+            ["ADPRO/Almacén", "ADPRO/Almacén/COMPRAS", "ADPRO/Almacén/COMPRAS/APROBACIÓN ÓRDENES DE COMPRA"],
+            "ADPRO/Almacén/COMPRAS/APROBACIÓN ÓRDENES DE COMPRA/Aprobaciones orden de compra",
+            "Aprobaciones orden de compra",
+            [],
+        ),
+        (
+            ["ADPRO/Almacén", "ADPRO/Almacén/Anticipos", "ADPRO/Almacén/Anticipos/Aprobaciones"],
+            "ADPRO/Almacén/Anticipos/Aprobaciones/Aprobación de anticipos",
+            "Aprobación de anticipos",
+            [],
+        ),
+        (
+            ["ADPRO/Almacén", "ADPRO/Almacén/ANTICIPOS", "ADPRO/Almacén/ANTICIPOS/APROBACIÓN ANTICIPOS"],
+            "ADPRO/Almacén/ANTICIPOS/APROBACIÓN ANTICIPOS/Aprobación única de anticipos",
+            "Aprobación única de anticipos",
+            # El ERP puede mostrar este aviso cuando no hay semanas parametrizadas;
+            # es una configuración que debe hacer el cliente, no un fallo del addon.
+            ["No se encontraron semanas parametrizadas"],
+        ),
+    ]
+
+    for padres, ruta, nombre, msgs_info in opciones_almacen:
+        expandir_menu_padres(pagina, padres)
+        ok, error, advertencia = verificar_opcion_adpro(pagina, ruta, nombre, msgs_info)
+        if ok:
+            if on_paso: on_paso(advertencia if advertencia else f"✓ {nombre}")
         else:
             errores.append(error)
             if on_paso: on_paso(f"✗ {nombre}")
@@ -206,7 +280,7 @@ def ejecutar(pagina, frame, on_paso=None):
             "prueba":       "Validar Addon 142",
             "estado":       "fail",
             "dato_entrada": "142",
-            "esperado":     "3 opciones de Aprobaciones activas en ADPRO",
+            "esperado":     "6 opciones de Aprobaciones activas en ADPRO",
             "obtenido":     f"Errores: {' | '.join(errores)}",
             "screenshot":   capturar(pagina),
         }
@@ -217,7 +291,7 @@ def ejecutar(pagina, frame, on_paso=None):
         "prueba":       "Validar Addon 142",
         "estado":       "ok",
         "dato_entrada": "142",
-        "esperado":     "6 items en Parametrización y 3 opciones en ADPRO activas",
+        "esperado":     "6 items en Parametrización y 6 opciones en ADPRO activas",
         "obtenido":     "Addon 142 validado correctamente",
         "screenshot":   capturar(pagina),
     }
