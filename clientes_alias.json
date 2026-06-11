@@ -1,0 +1,9 @@
+{
+  "_comentario": "Mapeo manual cliente → NombreCliente del entorno en Torre.",
+  "_uso": "Cuando Torre tiene nombres distintos entre clientes y entornos, agregue una entrada aquí.",
+  "_formato": { "NOMBRE EXACTO DEL CLIENTE EN TORRE": "NOMBRE EXACTO EN NombreCliente DEL ENTORNO" },
+
+  "PULSO PROYECTOS TEMATICOS S.A.S.": "PULSO PROMOTORA TEMATICA S.A.S.",
+  "SELCO SEL CONSULTING S.A.S.": "SEL CONSULTING SAS",
+  "HAUS GROUP S.A.": "HAUS PANAMA"
+}

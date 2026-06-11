@@ -1,6 +1,6 @@
 """
 Prueba: Dar Acceso usuario 50
-Módulo: Configuración de usuarios
+Módulo: Configuracion
 """
 
 def ejecutar(pagina, frame, on_paso=None):

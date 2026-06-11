@@ -72,7 +72,7 @@ When pasting codegen output into a test, strip `CapsLock` press artifacts, repla
 
 ## Project layout cheatsheet
 
-- `server.py` — Flask app, `SincoAPI` class, login orchestration, test dispatcher, code editor endpoints. ~1400 lines, single file by design.
+- `server.py` — Flask app, `SincoAPI` class, login orchestration, test dispatcher, code editor endpoints. ~2100 lines, single file by design. Every test result is persisted to `metricas.db` (SQLite3) with columns: fecha, prueba, modulo, estado, dato_entrada, esperado, obtenido, cliente, entorno, bd, usuario, duracion_s, addon.
 - `dashboard.html` — single-page UI (CodeMirror editor, SSE event stream, dropdowns hitting `/torre/*`). Self-contained, no build step.
 - `pruebas/` — the test corpus. Each `.py` is one test.
 - `playwright-testing/` — legacy pytest experiment, do not modify in tandem with `Testing/`.

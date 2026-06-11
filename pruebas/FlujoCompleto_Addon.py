@@ -1,6 +1,6 @@
 """
 Prueba: Flujo Completo Addon/Aprobaciones
-Módulo: ADPRO
+Módulo: Aprobaciones
 Orquesta: InstalarAddon → DarAcceso → Validación específica del addon
 """
 import sys

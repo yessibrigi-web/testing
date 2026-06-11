@@ -22,11 +22,11 @@ import sqlite3
 from datetime import datetime
 
 import requests as http_requests
-from requests_ntlm import HttpNtlmAuth
-from flask import Flask, jsonify, request, Response, send_from_directory
+from flask import Flask, jsonify, request, Response, send_from_directory, session
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 app = Flask(__name__, static_folder=".", static_url_path="")
+app.secret_key = os.environ.get("FLASK_SECRET", "sinco-dashboard-secret-2024")
 
 CONFIG = {
     "usuario":   "yessica.olaya",
@@ -89,6 +89,96 @@ def guardar_resultado_db(row):
 
 
 init_db()
+
+
+# ─────────────────────────────────────────────
+# VALIDACIÓN DE ADDON EN PRUEBAS
+# ─────────────────────────────────────────────
+
+PRUEBAS_INSTALACION_ADDON = {"InstalarAddon", "FlujoCompleto_Addon"}
+
+
+def _es_entorno_pruebas(entorno_tipo: str) -> bool:
+    """Devuelve True si el entorno es de pruebas/QA (no producción)."""
+    t = entorno_tipo.upper()
+    return any(kw in t for kw in ("PRUEBA", "QA", "TEST", "REPLICA", "SANDBOX"))
+
+
+def verificar_addon_en_pruebas(cliente: str, entorno_tipo: str, addon_num: str) -> dict:
+    """Consulta metricas.db para determinar si el addon ya fue instalado
+    exitosamente en el entorno indicado para ese cliente.
+
+    Retorna un dict con:
+        instalado      bool   — True si hay registro ok o auditoría
+        tiene_auditoria bool  — True si existe cualquier registro previo
+        tiene_ok       bool  — True si hay al menos un resultado 'ok'
+        registros      list  — registros relevantes encontrados
+    """
+    addon_limpio = str(addon_num).strip().lstrip("+")
+    if not addon_limpio:
+        return {"instalado": False, "tiene_auditoria": False, "tiene_ok": False, "registros": []}
+
+    try:
+        with sqlite3.connect(DB_PATH) as con:
+            con.row_factory = sqlite3.Row
+            cur = con.execute("""
+                SELECT fecha, prueba, estado, entorno, addon, obtenido
+                FROM   resultados
+                WHERE  cliente = ?
+                  AND  addon   = ?
+                  AND  (prueba LIKE '%Instalar Addon%' OR prueba LIKE '%Flujo Addon%')
+                ORDER  BY fecha DESC
+                LIMIT  20
+            """, (cliente, addon_limpio))
+            rows = [dict(r) for r in cur.fetchall()]
+    except Exception as e:
+        print(f"  [VERIFICAR] Error consultando DB: {e}")
+        rows = []
+
+    # Filtrar al entorno específico (si hay datos con entorno) pero también
+    # incluir registros sin entorno (compatibilidad con registros antiguos)
+    entorno_norm = entorno_tipo.upper()
+    relevantes = [
+        r for r in rows
+        if (not r.get("entorno")) or (entorno_norm in r["entorno"].upper()) or (r["entorno"].upper() in entorno_norm)
+    ]
+
+    tiene_ok       = any(r["estado"] == "ok" for r in relevantes)
+    tiene_auditoria = bool(relevantes)
+    instalado      = tiene_ok or tiene_auditoria
+
+    return {
+        "instalado":       instalado,
+        "tiene_auditoria": tiene_auditoria,
+        "tiene_ok":        tiene_ok,
+        "registros":       relevantes,
+    }
+
+
+def registrar_verificacion(cliente: str, entorno_tipo: str, bd_nombre: str,
+                            addon_num: str, resultado_verificacion: dict):
+    """Guarda trazabilidad de la verificación en metricas.db."""
+    instalado = resultado_verificacion.get("instalado", False)
+    guardar_resultado_db({
+        "fecha":        datetime.now().isoformat(),
+        "prueba":       "Verificación Addon",
+        "modulo":       "Addons",
+        "estado":       "advertencia" if instalado else "verificado",
+        "dato_entrada": addon_num,
+        "esperado":     "Addon no instalado en pruebas",
+        "obtenido":     (
+            "Addon ya instalado en pruebas — se bloqueó instalación duplicada"
+            if instalado else
+            "Addon no encontrado en pruebas — instalación permitida"
+        ),
+        "cliente":      cliente,
+        "entorno":      entorno_tipo,
+        "bd":           bd_nombre,
+        "usuario":      CONFIG["usuario"],
+        "duracion_s":   0,
+        "addon":        addon_num,
+    })
+
 
 # Suprimir warnings de SSL
 import urllib3
@@ -400,23 +490,49 @@ class SincoAPI:
     def buscar_clientes(self, q):
         self.conectar_y_cargar()
         q_lower = q.lower()
-        resultados = []
+        primero = []   # empieza con el query
+        resto   = []   # contiene el query en el medio
         for c in self._clientes:
             nombre = c.get("Cliente", "")
-            if q_lower in nombre.lower():
-                resultados.append({
-                    "id":     nombre,
-                    "nombre": nombre,
-                    "nit":    c.get("Nit", ""),
-                    "ciudad": c.get("Ciudad", ""),
-                    "id_cliente": c.get("IdCliente"),
-                })
-        return resultados[:50]
+            nombre_lower = nombre.lower()
+            if q_lower not in nombre_lower:
+                continue
+            entrada = {
+                "id":         nombre,
+                "nombre":     nombre,
+                "nit":        c.get("Nit", ""),
+                "ciudad":     c.get("Ciudad", ""),
+                "id_cliente": c.get("IdCliente"),
+            }
+            if nombre_lower.startswith(q_lower):
+                primero.append(entrada)
+            else:
+                resto.append(entrada)
+        return (primero + resto)[:50]
 
     def obtener_entornos(self, cliente_nombre):
         self.conectar_y_cargar()
+
+        # Alias manual: permite corregir desajustes de nombre entre clientes y entornos en Torre
+        _alias_path = os.path.join(os.path.dirname(__file__), "clientes_alias.json")
+        try:
+            with open(_alias_path, encoding="utf-8") as _f:
+                _alias = json.load(_f)
+            if cliente_nombre in _alias:
+                cliente_nombre = _alias[cliente_nombre]
+                print(f"  [API] alias aplicado → '{cliente_nombre}'")
+        except Exception:
+            pass
+
         cliente_norm = normalizar(cliente_nombre)
         cliente_sin_estado_norm = normalizar(strip_estado_legal(cliente_nombre))
+
+        # IdCliente del cliente seleccionado (para fallback por EmpresaId)
+        id_cliente_seleccionado = None
+        for c in self._clientes:
+            if c.get("Cliente", "") == cliente_nombre:
+                id_cliente_seleccionado = c.get("IdCliente")
+                break
 
         # Filtrado por NombreCliente del entorno, normalizado y SIN el prefijo
         # "REPLICA " / "PRUEBAS " que SINCO antepone en entornos no-productivos.
@@ -538,6 +654,14 @@ class SincoAPI:
                 base = re.sub(r'^REPLICA_', '', e.get("Nombre") or "", flags=re.IGNORECASE).lower()
                 if base:
                     bases_nombres_canal2.add(base)
+
+        # Pase 1b: fallback por EmpresaId == IdCliente cuando nombre no coincide.
+        # Caso PULSO PROYECTOS TEMATICOS S.A.S. (cliente) vs
+        # PULSO PROMOTORA TEMATICA S.A.S. (entorno) — nombres distintos en Torre.
+        # Solo se aplica si los canales 1 y 2 no encontraron ningún entorno.
+        # Doble verificación: EmpresaId + al menos la primera palabra del cliente
+        # debe aparecer en el NombreCliente del entorno (evita falsos positivos por
+        # reciclaje de IDs en SINCO).
 
         # Pase 2: transitividad multi-tenant (solo si hubo match Canal 2).
         # Incluir entornos con el mismo EmpresaId cuyo Nombre base comparte raíz
@@ -734,6 +858,12 @@ class SincoAPI:
                 }}""")
 
             popup = popup_info.value
+
+            # Mover popup fuera de pantalla (NTLM requiere headless=False pero no tiene que ser visible)
+            try:
+                popup.evaluate("window.moveTo(-32000, -32000); window.resizeTo(1, 1);")
+            except Exception:
+                pass
 
             # Esperar los saltos: Login.aspx → Seleccion.aspx → Seleccion_iv.aspx
             try:
@@ -1017,9 +1147,33 @@ def index():
     return send_from_directory(".", "dashboard.html")
 
 
+@app.route("/login", methods=["POST"])
+def login():
+    """Guarda las credenciales del usuario en la sesión Flask."""
+    data = request.get_json(force=True) or {}
+    usuario  = (data.get("usuario")  or "").strip()
+    password = (data.get("password") or "").strip()
+    if not usuario or not password:
+        return jsonify({"error": "Usuario y contraseña son obligatorios"}), 400
+    session["usuario"]  = usuario
+    session["password"] = password
+    print(f"  [LOGIN] Sesión iniciada para: {usuario}")
+    return jsonify({"ok": True, "usuario": usuario})
+
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    """Cierra la sesión activa."""
+    usuario = session.get("usuario", "—")
+    session.clear()
+    print(f"  [LOGIN] Sesión cerrada para: {usuario}")
+    return jsonify({"ok": True})
+
+
 @app.route("/config")
 def get_config():
-    return jsonify({"usuario": CONFIG["usuario"]})
+    usuario = session.get("usuario") or CONFIG["usuario"]
+    return jsonify({"usuario": usuario, "autenticado": "usuario" in session})
 
 
 @app.route("/debug/ingresar")
@@ -1423,6 +1577,10 @@ def grabar():
     if os.path.isfile(ruta_final):
         return jsonify({"error": f"{nombre_limpio}.py ya existe"}), 409
 
+    # Capturar credenciales en el contexto de request antes de entrar al hilo
+    _usu_grabar = session.get("usuario")  or sinco_api.usuario
+    _pwd_grabar = session.get("password") or sinco_api.password
+
     def _grabar_bg():
         storage_path = os.path.join(tempfile.gettempdir(), f"yom_storage_{nombre_limpio}.json")
         output_path  = os.path.join(tempfile.gettempdir(), f"yom_codegen_{nombre_limpio}.py")
@@ -1442,8 +1600,8 @@ def grabar():
                 print(f"  [GRABAR] Login en Torre...")
                 pagina_torre.goto(sinco_api.url_torre)
                 pagina_torre.wait_for_load_state("networkidle")
-                pagina_torre.get_by_role("textbox", name="UsuarioWindows").fill(sinco_api.usuario)
-                pagina_torre.get_by_role("textbox", name="Contraseña").fill(sinco_api.password)
+                pagina_torre.get_by_role("textbox", name="UsuarioWindows").fill(_usu_grabar)
+                pagina_torre.get_by_role("textbox", name="Contraseña").fill(_pwd_grabar)
                 pagina_torre.get_by_role("button", name="Ingresar con Windows").click()
                 pagina_torre.wait_for_load_state("networkidle")
                 pagina_torre.wait_for_timeout(2000)
@@ -1489,6 +1647,13 @@ def grabar():
                     }}""")
 
                 popup = popup_info.value
+
+                # Mover popup fuera de pantalla (NTLM requiere headless=False pero no tiene que ser visible)
+                try:
+                    popup.evaluate("window.moveTo(-32000, -32000); window.resizeTo(1, 1);")
+                except Exception:
+                    pass
+
                 try:
                     popup.wait_for_url("**/Seleccion_iv.aspx", timeout=30000)
                 except Exception:
@@ -1563,6 +1728,59 @@ def grabar():
     })
 
 
+@app.route("/verificar_addon", methods=["POST"])
+def verificar_addon():
+    """Consulta si un addon ya está instalado en el entorno de pruebas de un cliente.
+
+    Body JSON:
+        cliente      str  — nombre del cliente
+        entorno_tipo str  — tipo de entorno (Pruebas, Producción, etc.)
+        bd_nombre    str  — nombre de la base de datos (para trazabilidad)
+        addon        str  — número de addon (ej: "142", "-142")
+
+    Responde con el formato estándar de validación de instalación.
+    """
+    data         = request.get_json() or {}
+    cliente      = data.get("cliente", "").strip()
+    entorno_tipo = data.get("entorno_tipo", "").strip()
+    bd_nombre    = data.get("bd_nombre", "").strip()
+    addon_raw    = str(data.get("addon", "142")).strip().lstrip("+") or "142"
+
+    if not cliente:
+        return jsonify({"error": "Debes seleccionar un cliente"}), 400
+
+    verificacion = verificar_addon_en_pruebas(cliente, entorno_tipo, addon_raw)
+    instalado    = verificacion["instalado"]
+
+    if instalado:
+        ultimo = verificacion["registros"][0] if verificacion["registros"] else {}
+        estado_msg = (
+            f"Alerta: el addon ya se encuentra instalado en pruebas. "
+            f"Verifique si corresponde realizar el despliegue a producción."
+        )
+        ultimo_registro = (
+            f"Último registro: {ultimo.get('fecha','–')[:10]} | "
+            f"Estado: {ultimo.get('estado','–')} | {ultimo.get('obtenido','–')}"
+            if ultimo else "Sin detalle disponible"
+        )
+    else:
+        estado_msg      = "Instalación permitida en pruebas."
+        ultimo_registro = "Sin registros previos en pruebas."
+
+    respuesta = {
+        "cliente":            cliente,
+        "addon":              addon_raw,
+        "entorno_consultado": entorno_tipo or "Pruebas",
+        "instalado":          instalado,
+        "tiene_auditoria":    verificacion["tiene_auditoria"],
+        "tiene_ok":           verificacion["tiene_ok"],
+        "estado_mensaje":     estado_msg,
+        "ultimo_registro":    ultimo_registro,
+        "registros":          verificacion["registros"],
+    }
+    return jsonify(respuesta)
+
+
 @app.route("/ejecutar", methods=["POST"])
 def ejecutar():
     data         = request.get_json()
@@ -1589,6 +1807,8 @@ def ejecutar():
     with SESIONES_LOCK:
         SESIONES[session_id] = {"eventos": [], "done": False}
 
+    # Capturar credenciales aquí (contexto de request) antes de lanzar el hilo,
+    # porque Flask session no es accesible fuera del contexto de petición HTTP.
     cfg = {
         "cliente":      cliente,
         "entorno_id":   entorno_id,
@@ -1598,6 +1818,8 @@ def ejecutar():
         "bd_catalogo":  bd_catalogo,
         "bd_nombre":    bd_nombre,
         "parametros":   parametros,
+        "usu":          session.get("usuario")  or sinco_api.usuario,
+        "pwd":          session.get("password") or sinco_api.password,
     }
 
     hilo = threading.Thread(
@@ -1634,6 +1856,74 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
         _test_modulo = _mm.group(1).strip() if _mm else ''
         _addon = str((cfg.get("parametros") or {}).get("addon", "") or "").strip()
 
+        # ═══════════════════════════════════════════════════
+        # GUARDIA: verificar addon antes de abrir el navegador
+        # Aplica solo a pruebas de instalación de addon en entorno de pruebas
+        # ═══════════════════════════════════════════════════
+        if prueba_id in PRUEBAS_INSTALACION_ADDON and _addon and _es_entorno_pruebas(cfg.get("entorno_tipo", "")):
+            addon_limpio = _addon.lstrip("+").lstrip("-")
+            _verificacion = verificar_addon_en_pruebas(cfg["cliente"], cfg.get("entorno_tipo", ""), addon_limpio)
+
+            if _verificacion["instalado"]:
+                _ult = _verificacion["registros"][0] if _verificacion["registros"] else {}
+                _msg_alerta = (
+                    f"⚠️  ALERTA: El addon {_addon} ya se encuentra instalado en pruebas para {cfg['cliente']}. "
+                    f"Si las validaciones del cliente ya fueron completadas y aprobadas, "
+                    f"se puede proceder con la instalación en PRODUCCIÓN."
+                )
+                _detalle = (
+                    f"Último registro: {_ult.get('fecha','–')[:19]} | "
+                    f"Estado: {_ult.get('estado','–')} | {_ult.get('obtenido','–')}"
+                    if _ult else ""
+                )
+                registrar_verificacion(
+                    cfg["cliente"], cfg.get("entorno_tipo", ""),
+                    cfg.get("bd_nombre", ""), addon_limpio, _verificacion,
+                )
+                emit({
+                    "tipo":         "resultado",
+                    "prueba":       f"Verificación Addon {_addon}",
+                    "estado":       "advertencia",
+                    "dato_entrada": _addon,
+                    "esperado":     "Addon no instalado en pruebas",
+                    "obtenido":     _msg_alerta,
+                    "empresa":      cfg["cliente"],
+                    "usuario":      CONFIG["usuario"],
+                    "fecha":        datetime.now().strftime("%d/%m/%Y %H:%M"),
+                    "entorno":      cfg.get("entorno_tipo", ""),
+                    "bd":           cfg.get("bd_nombre", ""),
+                    "detalle":      _detalle,
+                    "resumen": {
+                        "cliente":            cfg["cliente"],
+                        "addon":              _addon,
+                        "entorno_consultado": cfg.get("entorno_tipo", "Pruebas"),
+                        "estado_mensaje":     (
+                            f"Alerta: el addon ya se encuentra instalado en pruebas. "
+                            f"Verifique si corresponde realizar el despliegue a producción."
+                        ),
+                    },
+                })
+                emit({"tipo": "fin", "exito": False})
+                return  # Abortar — no se abre navegador ni se instala
+
+            # Addon NO encontrado → informar que procede
+            registrar_verificacion(
+                cfg["cliente"], cfg.get("entorno_tipo", ""),
+                cfg.get("bd_nombre", ""), addon_limpio, _verificacion,
+            )
+            emit({
+                "tipo":         "progreso",
+                "paso":         0,
+                "total":        5,
+                "nombre":       "Verificación OK",
+                "descripcion":  (
+                    f"✅ Addon {_addon} no instalado en pruebas para {cfg['cliente']}. "
+                    f"Instalación permitida."
+                ),
+                "porcentaje":   3,
+                "screenshot":   None,
+            })
+
         progreso(1, 5, "Iniciando", "Autenticando en Torre...", 5)
 
         # ═══════════════════════════════════════════════════
@@ -1660,8 +1950,8 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
             t0 = time.time()
             pagina.goto(sinco_api.url_torre)
             pagina.wait_for_load_state("networkidle")
-            pagina.get_by_role("textbox", name="UsuarioWindows").fill(sinco_api.usuario)
-            pagina.get_by_role("textbox", name="Contraseña").fill(sinco_api.password)
+            pagina.get_by_role("textbox", name="UsuarioWindows").fill(cfg["usu"])
+            pagina.get_by_role("textbox", name="Contraseña").fill(cfg["pwd"])
             pagina.get_by_role("button", name="Ingresar con Windows").click()
             pagina.wait_for_load_state("networkidle")
             pagina.wait_for_timeout(2000)
@@ -2027,7 +2317,7 @@ def metricas_por_cliente():
                    SUM(CASE WHEN estado='fail' THEN 1 ELSE 0 END) as fail,
                    COUNT(*) as total
             FROM resultados {_awhere(where, "cliente!=''")}
-            GROUP BY cliente ORDER BY total DESC LIMIT 20
+            GROUP BY cliente ORDER BY total DESC
         """, params).fetchall()
         return jsonify([dict(r) for r in filas])
 
@@ -2062,6 +2352,75 @@ def metricas_addons():
             GROUP BY addon ORDER BY fail DESC, total DESC
         """, params).fetchall()
         return jsonify([dict(r) for r in filas])
+
+
+@app.route("/metricas/cobertura_addons")
+def metricas_cobertura_addons():
+    """Matriz de cobertura: por cliente muestra si addon 142/143 fue instalado
+    en Pruebas y/o Producción.
+    Cada celda: {ok, advertencia, intentos, ultima_fecha}
+      ok=True         → al menos un estado='ok' (instalación exitosa nueva)
+      advertencia=True → addon ya estaba instalado cuando se verificó (también cuenta como presente)
+    """
+
+    ADDONS_TARGET  = {"142", "143"}
+    KW_PRUEBAS     = ("PRUEBA", "QA", "TEST", "REPLICA", "SANDBOX")
+    # estados que confirman que el addon ESTÁ instalado
+    ESTADOS_OK     = {"ok", "advertencia"}
+    # estados que solo indican intentos (no confirman presencia del addon)
+    ESTADOS_FALLO  = {"fail", "error"}
+
+    def tipo_entorno(entorno: str) -> str:
+        t = (entorno or "").upper()
+        return "pruebas" if any(kw in t for kw in KW_PRUEBAS) else "produccion"
+
+    def addon_norm(raw: str) -> str:
+        return raw.replace("-", "").replace(" ", "").strip()
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+        filas = con.execute("""
+            SELECT cliente, addon, entorno, estado,
+                   MAX(fecha) as ultima_fecha,
+                   COUNT(*)   as intentos
+            FROM resultados
+            WHERE cliente != ''
+              AND addon    != ''
+              AND addon IS NOT NULL
+            GROUP BY cliente, addon, entorno, estado
+            ORDER BY cliente, addon, entorno
+        """).fetchall()
+
+    clientes: dict = {}
+    for r in filas:
+        an = addon_norm(r["addon"])
+        if an not in ADDONS_TARGET:
+            continue
+        cli    = r["cliente"]
+        tipo   = tipo_entorno(r["entorno"])
+        key    = f"a{an}_{tipo}"
+        estado = r["estado"]
+
+        if cli not in clientes:
+            clientes[cli] = {"cliente": cli}
+
+        if key not in clientes[cli]:
+            clientes[cli][key] = {
+                "ok": False, "advertencia": False,
+                "intentos": 0, "ultima_fecha": None
+            }
+
+        clientes[cli][key]["intentos"] += r["intentos"]
+        if estado == "ok":
+            clientes[cli][key]["ok"] = True
+        elif estado == "advertencia":
+            clientes[cli][key]["advertencia"] = True
+        fecha_actual = clientes[cli][key]["ultima_fecha"]
+        if r["ultima_fecha"] and (not fecha_actual or r["ultima_fecha"] > fecha_actual):
+            clientes[cli][key]["ultima_fecha"] = r["ultima_fecha"]
+
+    resultado = sorted(clientes.values(), key=lambda x: x["cliente"].upper())
+    return jsonify(resultado)
 
 
 if __name__ == "__main__":

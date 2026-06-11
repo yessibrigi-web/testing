@@ -1,5 +1,5 @@
 """
-Prueba: CambioRangoFechas
+Prueba: Modificación de config
 Módulo: Inventarios
 Cambia el valor de cualquier variable en Maestro ADP configuración.
 El nombre de la variable y el valor nuevo se reciben como parámetros desde el dashboard.
@@ -76,16 +76,20 @@ def ejecutar(pagina, frame, on_paso=None, parametros=None):
     if on_paso: on_paso("Consulta ejecutada")
 
     # ── Cambiar valor ──
-    # Se usa el placeholder "Valor" del primer resultado; funciona para cualquier variable
-    celda_valor = frame2.get_by_placeholder("Valor").first
-    celda_valor.click(click_count=3)
-    celda_valor.fill(valor)
-    pagina.wait_for_timeout(500)
+    # El input de valor tiene id="txtValor_" (puede llevar sufijo numérico).
+    input_valor = frame2.locator("[id^='txtValor_']").first
+    input_valor.wait_for(state="attached", timeout=10000)
+    input_valor.click(force=True)
+    input_valor.click(click_count=3, force=True)
+    input_valor.fill(valor, force=True)
+    input_valor.evaluate("""(el, v) => {
+        el.value = v;
+        el.dispatchEvent(new Event('input', {bubbles: true}));
+        el.dispatchEvent(new Event('change', {bubbles: true}));
+    }""", valor)
+    pagina.keyboard.press("Tab")
+    pagina.wait_for_timeout(800)
     if on_paso: on_paso(f"Valor '{valor}' ingresado")
-
-    # Clic fuera del input para disparar el guardado
-    frame2.locator("html").click()
-    pagina.wait_for_timeout(1000)
 
     # ── Esperar confirmación y capturar screenshot ──
     screenshot = None
