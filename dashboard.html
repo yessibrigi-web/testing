@@ -164,6 +164,24 @@
         .exec-progress-fill.ok { background:var(--success); }
         .exec-progress-fill.fail { background:var(--danger); }
         .exec-progress-fill.advertencia { background:#f59e0b; }
+        /* ── Sub-pestañas multi-ejecución ── */
+        .exec-subtabs { display:flex; gap:6px; padding:8px 12px; background:var(--g50); border-bottom:1px solid var(--g200); overflow-x:auto; flex-shrink:0; align-items:stretch; }
+        .exec-subtabs::-webkit-scrollbar { height:3px; } .exec-subtabs::-webkit-scrollbar-thumb { background:var(--g300); border-radius:2px; }
+        .exec-stab { display:flex; align-items:center; gap:7px; padding:6px 10px; border-radius:8px; border:1.5px solid var(--g200); background:white; cursor:pointer; min-width:140px; max-width:200px; transition:all .15s; flex-shrink:0; position:relative; }
+        .exec-stab:hover { border-color:var(--g300); background:var(--g50); }
+        .exec-stab.active { border-color:var(--accent); background:var(--blue-bg); }
+        .stab-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+        .stab-dot.running { background:var(--accent); animation:pulse-dot 1s ease-in-out infinite; }
+        .stab-dot.ok { background:var(--success); }
+        .stab-dot.fail { background:var(--danger); }
+        .stab-dot.warn { background:#f59e0b; }
+        @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.35} }
+        .stab-info { flex:1; min-width:0; }
+        .stab-nombre { font-size:11px; font-weight:700; color:var(--g800); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .stab-prueba { font-size:10px; color:var(--g500); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .stab-tiempo { font-size:10px; color:var(--g400); font-variant-numeric:tabular-nums; flex-shrink:0; }
+        .stab-close { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--g400); line-height:1; flex-shrink:0; }
+        .stab-close:hover { background:var(--g200); color:var(--g700); }
         .tl-step { display:flex; gap:10px; padding:4px 0; }
         .tl-line { display:flex; flex-direction:column; align-items:center; width:20px; flex-shrink:0; }
         .tl-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; border:2px solid; }
@@ -211,6 +229,71 @@
         .badge.ok { background:var(--success-bg); color:var(--success); }
         .badge.fail { background:var(--danger-bg); color:var(--danger); }
         .badge.advertencia,.tab-badge.advertencia,.exec-badge.advertencia { background:#fef3c7; color:#b45309; }
+        /* ── Panel OC ── */
+        .oc-container { padding:24px; max-width:900px; margin:0 auto; }
+        .oc-header { margin-bottom:20px; }
+        .oc-titulo { font-size:16px; font-weight:700; color:var(--g900); margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+        .oc-subtitulo { font-size:12px; color:var(--g500); }
+        .oc-context-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+        .oc-ctx-chip { background:var(--g100); border:1px solid var(--g200); border-radius:8px; padding:6px 12px; font-size:11px; color:var(--g600); }
+        .oc-ctx-chip strong { color:var(--g900); font-weight:700; }
+        .oc-form-card { background:white; border:1px solid var(--g200); border-radius:12px; padding:20px 24px; margin-bottom:20px; box-shadow:var(--shadow); }
+        .oc-form-title { font-size:12px; font-weight:700; color:var(--g700); text-transform:uppercase; letter-spacing:.06em; margin-bottom:14px; }
+        .oc-field-row { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+        .oc-field { flex:1; min-width:200px; }
+        .oc-field label { display:block; font-size:11px; font-weight:700; color:var(--g600); text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; }
+        .oc-field input { width:100%; padding:9px 12px; border:1.5px solid var(--g200); border-radius:8px; font-size:13px; font-family:inherit; color:var(--g900); outline:none; transition:border-color .15s; }
+        .oc-field input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.12); }
+        .oc-field input.input-ok { border-color:var(--success); }
+        .oc-field input.input-err { border-color:var(--danger); }
+        .oc-btn-row { display:flex; gap:10px; flex-wrap:wrap; }
+        .oc-btn { padding:9px 18px; border:none; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer; transition:all .15s; display:flex; align-items:center; gap:6px; font-family:inherit; }
+        .oc-btn:disabled { opacity:.45; cursor:not-allowed; }
+        .oc-btn.validar { background:var(--blue-bg); color:var(--accent); border:1.5px solid var(--blue-border); }
+        .oc-btn.validar:hover:not(:disabled) { background:var(--accent); color:white; }
+        .oc-btn.reversar { background:#fef3c7; color:#b45309; border:1.5px solid #fde68a; }
+        .oc-btn.reversar:hover:not(:disabled) { background:#f59e0b; color:white; border-color:#f59e0b; }
+        .oc-btn.limpiar { background:var(--g100); color:var(--g600); border:1.5px solid var(--g200); }
+        .oc-btn.limpiar:hover:not(:disabled) { background:var(--g200); }
+        .oc-spinner { width:13px; height:13px; border:2px solid currentColor; border-top-color:transparent; border-radius:50%; animation:spin .6s linear infinite; display:none; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        /* Resultado pasos */
+        .oc-resultado { display:none; }
+        .oc-paso { background:white; border:1px solid var(--g200); border-radius:10px; margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); }
+        .oc-paso-hdr { display:flex; align-items:center; gap:10px; padding:12px 16px; cursor:pointer; user-select:none; }
+        .oc-paso-ico { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+        .oc-paso-ico.ok { background:var(--success-bg); color:var(--success); }
+        .oc-paso-ico.fail { background:var(--danger-bg); color:var(--danger); }
+        .oc-paso-ico.warn { background:#fef3c7; color:#b45309; }
+        .oc-paso-ico.loading { background:var(--blue-bg); color:var(--accent); }
+        .oc-paso-titulo { font-weight:700; font-size:13px; flex:1; }
+        .oc-paso-badge { font-size:10px; font-weight:700; padding:2px 9px; border-radius:10px; }
+        .oc-paso-badge.ok { background:var(--success-bg); color:var(--success); }
+        .oc-paso-badge.fail { background:var(--danger-bg); color:var(--danger); }
+        .oc-paso-badge.warn { background:#fef3c7; color:#b45309; }
+        .oc-paso-badge.bloq { background:var(--g100); color:var(--g500); }
+        .oc-paso-chevron { color:var(--g400); font-size:12px; transition:transform .2s; }
+        .oc-paso-chevron.open { transform:rotate(90deg); }
+        .oc-paso-body { display:none; padding:0 16px 14px; }
+        .oc-paso-body.open { display:block; }
+        .oc-http { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+        .oc-http-code { font-size:11px; font-weight:700; padding:2px 8px; border-radius:5px; font-family:monospace; }
+        .oc-http-code.s200 { background:#dcfce7; color:#16a34a; }
+        .oc-http-code.s4xx,.oc-http-code.s5xx { background:var(--danger-bg); color:var(--danger); }
+        .oc-http-code.s0 { background:var(--g100); color:var(--g500); }
+        .oc-json { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; font-size:11px; font-family:'SF Mono','Fira Code',monospace; white-space:pre-wrap; word-break:break-all; max-height:220px; overflow-y:auto; margin-top:6px; }
+        .oc-puede { display:flex; align-items:center; gap:8px; margin-top:8px; padding:8px 12px; border-radius:7px; font-size:12px; font-weight:600; }
+        .oc-puede.si { background:var(--success-bg); color:var(--success); border:1px solid var(--success-border); }
+        .oc-puede.no { background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger-border); }
+        .oc-resumen-final { background:white; border:2px solid var(--g200); border-radius:12px; padding:16px 20px; margin-top:4px; }
+        .oc-resumen-final.ok { border-color:var(--success-border); background:var(--success-bg); }
+        .oc-resumen-final.fail { border-color:var(--danger-border); background:var(--danger-bg); }
+        .oc-resumen-title { font-weight:700; font-size:14px; margin-bottom:4px; }
+        .oc-resumen-desc { font-size:12px; color:var(--g600); }
+        .oc-empty { text-align:center; padding:48px 24px; color:var(--g400); }
+        .oc-empty svg { width:40px; height:40px; margin-bottom:12px; }
+        .oc-empty h3 { font-size:14px; color:var(--g600); margin-bottom:4px; }
+        .oc-empty p { font-size:12px; }
         .alerta-addon-box { background:#fefce8; border:2px solid #fbbf24; border-radius:10px; padding:14px 16px; margin:8px 0; }
         .alerta-addon-box .alerta-titulo { font-weight:700; color:#b45309; font-size:13px; margin-bottom:6px; }
         .alerta-addon-box .alerta-item { font-size:12px; color:#374151; margin:3px 0; }
@@ -458,10 +541,14 @@
             <div class="tab-btn" data-tab="metrics" onclick="switchTab('metrics')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;margin-right:4px;vertical-align:middle;"><path d="M3 3v18h18"/><polyline points="7 16 12 9 16 13 21 6"/></svg>Métricas
             </div>
+            <div class="tab-btn" data-tab="oc" onclick="switchTab('oc')" style="display:flex;align-items:center;gap:4px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>Gestión OC<span class="tab-badge" id="ocBadge" style="display:none"></span>
+            </div>
             <div class="tabs-right"><button class="btn-editor" id="btnToggleLog" onclick="toggleLog()" style="display:none;padding:3px 10px;font-size:11px;">Log</button></div>
         </div>
-        <div class="tab-content active" id="tabExec">
-            <div class="exec-container">
+        <div class="tab-content active" id="tabExec" style="display:flex;flex-direction:column;overflow:hidden;">
+            <div class="exec-subtabs" id="execSubtabs" style="display:none;"></div>
+            <div class="exec-container" style="flex:1;overflow-y:auto;">
                 <div class="exec-empty" id="execEmpty">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                     <h3>Sin ejecucion activa</h3>
@@ -724,6 +811,123 @@
             </div>
         </div>
 
+        <!-- ── Tab Gestión OC ── -->
+        <div class="tab-content" id="tabOc">
+            <div class="oc-container">
+                <div class="oc-header">
+                    <div class="oc-titulo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#2563eb;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                        Reversar Cierre de OC
+                    </div>
+                    <div class="oc-subtitulo">Valida y revierte el cierre de una Orden de Compra vía API — <code style="font-size:11px;background:var(--g100);padding:1px 5px;border-radius:4px;">/V3/ADPRO/API/Compras/ReversarCierre</code></div>
+                </div>
+
+                <!-- Contexto: cliente y entorno activos -->
+                <div class="oc-context-bar" id="ocContextBar">
+                    <div class="oc-ctx-chip">Cliente: <strong id="ocCtxCliente">—</strong></div>
+                    <div class="oc-ctx-chip">Entorno: <strong id="ocCtxEntorno">—</strong></div>
+                    <div class="oc-ctx-chip" id="ocCtxUrlWrap" style="display:none;">URL: <strong id="ocCtxUrl" style="font-family:monospace;font-size:10px;"></strong></div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="oc-form-card">
+                    <div class="oc-form-title">Datos de la Orden de Compra</div>
+                    <!-- Estado del token -->
+                    <div id="ocTokenEstado" style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:8px 12px;border-radius:8px;background:var(--g100);border:1px solid var(--g200);font-size:12px;">
+                        <span id="ocTokenIco" style="font-size:14px;">⏳</span>
+                        <span id="ocTokenMsg" style="color:var(--g600);">Verificando disponibilidad de token...</span>
+                        <div style="margin-left:auto;display:flex;gap:6px;">
+                            <button id="btnOcCapturarToken" onclick="ocCapturarToken()" style="font-size:11px;padding:3px 10px;border:1.5px solid var(--accent);border-radius:6px;background:var(--blue-bg);cursor:pointer;color:var(--accent);font-weight:600;">
+                                ⚡ Capturar automáticamente
+                            </button>
+                            <button onclick="ocMostrarTokenManual()" style="font-size:11px;padding:3px 10px;border:1px solid var(--g300);border-radius:6px;background:white;cursor:pointer;color:var(--g700);">Ingresar manual</button>
+                        </div>
+                    </div>
+                    <!-- Token manual (oculto por defecto) -->
+                    <div id="ocTokenManualWrap" style="display:none;margin-bottom:12px;">
+                        <div class="oc-field">
+                            <label>Bearer Token <span style="font-weight:400;color:var(--g400);text-transform:none;">(pégalo desde DevTools → Application → localStorage o Network)</span></label>
+                            <input type="text" id="ocBearerToken" placeholder="eyJ0eXAiOiJKV1Qi..."
+                                   style="font-family:monospace;font-size:11px;"
+                                   oninput="ocGuardarTokenManual()">
+                        </div>
+                        <div style="margin-top:4px;font-size:11px;color:var(--g500);">
+                            💡 <strong>Cómo obtenerlo:</strong> abre el ERP en Chrome → F12 → Application → Local Storage → busca "token" o "access_token" — o en Network busca cualquier petición al ERP y copia el header <code>Authorization: Bearer ...</code>
+                        </div>
+                    </div>
+                    <div class="oc-field-row">
+                        <div class="oc-field" style="max-width:300px;">
+                            <label>ID Orden de Compra</label>
+                            <input type="text" id="ocIdCompra" placeholder="Ej: 34800069"
+                                   oninput="ocLimpiarResultado()"
+                                   onkeydown="if(event.key==='Enter')ocEjecutar('validar')">
+                        </div>
+                        <div class="oc-btn-row">
+                            <button class="oc-btn validar" id="btnOcValidar" onclick="ocEjecutar('validar')">
+                                <div class="oc-spinner" id="spnOcValidar"></div>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;" id="icoOcValidar"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                                Solo Validar
+                            </button>
+                            <button class="oc-btn reversar" id="btnOcReversar" onclick="ocEjecutar('validar_y_reversar')">
+                                <div class="oc-spinner" id="spnOcReversar"></div>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;" id="icoOcReversar"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+                                Validar y Reversar
+                            </button>
+                            <button class="oc-btn limpiar" onclick="ocLimpiarTodo()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div id="ocAlertaCtx" style="display:none;margin-top:12px;padding:8px 12px;background:#fef3c7;border:1px solid #fde68a;border-radius:7px;font-size:12px;color:#92400e;">
+                        ⚠️ Selecciona un cliente y entorno en el encabezado antes de continuar.
+                    </div>
+                </div>
+
+                <!-- Área de resultado -->
+                <div id="ocResultado" class="oc-resultado">
+                    <!-- Paso 1: Validar -->
+                    <div class="oc-paso" id="ocPaso1">
+                        <div class="oc-paso-hdr" onclick="ocTogglePaso('ocPaso1Body')">
+                            <div class="oc-paso-ico loading" id="ocP1Ico">…</div>
+                            <div class="oc-paso-titulo">Paso 1 — Validar cierre</div>
+                            <span class="oc-paso-badge" id="ocP1Badge"></span>
+                            <span class="oc-paso-chevron open" id="ocP1Chev">›</span>
+                        </div>
+                        <div class="oc-paso-body open" id="ocPaso1Body">
+                            <div id="ocP1Contenido" style="color:var(--g400);font-size:12px;">Esperando ejecución...</div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2: Reversar (solo visible si se ejecutó) -->
+                    <div class="oc-paso" id="ocPaso2" style="display:none;">
+                        <div class="oc-paso-hdr" onclick="ocTogglePaso('ocPaso2Body')">
+                            <div class="oc-paso-ico loading" id="ocP2Ico">…</div>
+                            <div class="oc-paso-titulo">Paso 2 — Reversar cierre</div>
+                            <span class="oc-paso-badge" id="ocP2Badge"></span>
+                            <span class="oc-paso-chevron open" id="ocP2Chev">›</span>
+                        </div>
+                        <div class="oc-paso-body open" id="ocPaso2Body">
+                            <div id="ocP2Contenido" style="color:var(--g400);font-size:12px;">Esperando validación...</div>
+                        </div>
+                    </div>
+
+                    <!-- Resumen final -->
+                    <div class="oc-resumen-final" id="ocResumenFinal" style="display:none;">
+                        <div class="oc-resumen-title" id="ocResumenTitulo"></div>
+                        <div class="oc-resumen-desc" id="ocResumenDesc"></div>
+                    </div>
+                </div>
+
+                <!-- Estado vacío -->
+                <div class="oc-empty" id="ocEmpty">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    <h3>Sin resultados aún</h3>
+                    <p>Ingresa el ID de la OC y ejecuta la validación para ver el resultado aquí.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="log-panel" id="logPanel">
             <div class="log-header"><span>Log de ejecucion</span><span class="close-log" onclick="toggleLog()">&times;</span></div>
             <div class="log-body" id="logBody"></div>
@@ -808,10 +1012,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
 <script>
-let pruebas=[],ejecutando=false,estadoFlujos={},contadores={total:0,ok:0,fail:0};
+let pruebas=[],estadoFlujos={};
 let currentTest=null,editor=null,editorOriginal='';
 let selectedClienteId='',selectedClienteNombre='',selectedEntornoId='',selectedEntornoTipo='',selectedEntornoNombre='',selectedEntornoUrl='',selectedBDId='',selectedBDCatalogo='',selectedBDNombre='';
-let filtroModulo='Todos',filtroTexto='',pasosRegistrados={},timerInterval=null,timerStart=0,_buscarTimeout=null,resultadoRow=0;
+let filtroModulo='Todos',filtroTexto='',_buscarTimeout=null,resultadoRow=0;
+// ── Multi-ejecución ──
+let execSessions={}, execOrder=[], activeExecId=null;
+const EXEC_MAX=6;
 const MODULOS_ORDEN=['PPto','Compras','Inventarios','Contratos','Mantenimiento','Addons','Aprobaciones','Configuracion','Control'];
 const MOD_COLORS={PPto:'#8b5cf6',Compras:'#2563eb',Inventarios:'#f59e0b',Contratos:'#10b981',Mantenimiento:'#ec4899',Addons:'#6366f1',Aprobaciones:'#d97706',Configuracion:'#0d9488',Control:'#0891b2'};
 const gruposColapsados={};
@@ -1022,8 +1229,379 @@ function actualizarInputValor(){
     }
 }
 
-function _activateTab(tab){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['Exec','Editor','Results','Metrics'].forEach(t=>{const el=document.getElementById('tab'+t);if(el)el.classList.toggle('active',t.toLowerCase()===tab);});}
-function switchTab(tab){_activateTab(tab);if(tab==='editor'&&currentTest)abrirEditor(currentTest);if(tab==='metrics')cargarMetricas();}
+function _activateTab(tab){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['Exec','Editor','Results','Metrics','Oc'].forEach(t=>{const el=document.getElementById('tab'+t);if(el)el.classList.toggle('active',t.toLowerCase()===tab);});}
+function switchTab(tab){_activateTab(tab);if(tab==='editor'&&currentTest)abrirEditor(currentTest);if(tab==='metrics')cargarMetricas();if(tab==='oc')ocActualizarContexto();}
+
+// ── GESTIÓN OC ───────────────────────────────────────────────────────────────
+
+function ocActualizarContexto(){
+    const cliente  = selectedClienteNombre || '—';
+    const entorno  = selectedEntornoTipo  || '—';
+    const url      = selectedEntornoUrl   || '';
+    document.getElementById('ocCtxCliente').textContent = cliente;
+    document.getElementById('ocCtxEntorno').textContent = entorno;
+    if(url){
+        const base = url.replace(/\/V3\/.*/,'');
+        document.getElementById('ocCtxUrl').textContent = base+'/V3/ADPRO/API/…';
+        document.getElementById('ocCtxUrlWrap').style.display='';
+    }
+    ocVerificarToken();
+}
+
+async function ocVerificarToken(){
+    const box = document.getElementById('ocTokenEstado');
+    const ico = document.getElementById('ocTokenIco');
+    const msg = document.getElementById('ocTokenMsg');
+
+    if(!selectedEntornoUrl){
+        box.style.background='var(--g100)'; box.style.borderColor='var(--g200)';
+        ico.textContent='⚠️'; msg.textContent='Selecciona un entorno para verificar el token.'; msg.style.color='var(--g500)';
+        return;
+    }
+
+    // Si hay token manual activo, mostrar ese
+    const tokenManual = (document.getElementById('ocBearerToken').value||'').trim();
+    if(tokenManual.length > 20){
+        box.style.background='#f0fdf4'; box.style.borderColor='var(--success-border)';
+        ico.textContent='🔑'; msg.textContent='Token manual activo — listo para usar.'; msg.style.color='var(--success)';
+        return;
+    }
+
+    ico.textContent='⏳'; msg.textContent='Verificando token cacheado...'; msg.style.color='var(--g500)';
+    box.style.background='var(--g100)'; box.style.borderColor='var(--g200)';
+
+    try {
+        const r = await fetch('/oc/token_estado',{
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({entorno_url: selectedEntornoUrl})
+        });
+        const d = await r.json();
+        if(d.disponible){
+            box.style.background='#f0fdf4'; box.style.borderColor='var(--success-border)';
+            ico.textContent='✅';
+            msg.innerHTML=`Token JWT cacheado disponible — <code style="font-family:monospace;font-size:10px;">${d.preview}</code> (${d.longitud} chars). <span style="color:var(--success);font-weight:600;">Listo.</span>`;
+            msg.style.color='var(--g700)';
+        } else {
+            box.style.background='#fefce8'; box.style.borderColor='#fde68a';
+            ico.textContent='⚠️';
+            msg.innerHTML='No hay token cacheado para este entorno. <strong>Ejecuta cualquier prueba primero</strong> y el token se capturará automáticamente, o ingrésalo manualmente.';
+            msg.style.color='#92400e';
+        }
+    } catch(e){
+        ico.textContent='❓'; msg.textContent='No se pudo verificar el token.'; msg.style.color='var(--g500)';
+    }
+}
+
+async function ocCapturarToken(){
+    if(!selectedEntornoUrl){
+        document.getElementById('ocAlertaCtx').style.display='';
+        return;
+    }
+    const btn = document.getElementById('btnOcCapturarToken');
+    const box = document.getElementById('ocTokenEstado');
+    const ico = document.getElementById('ocTokenIco');
+    const msg = document.getElementById('ocTokenMsg');
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Iniciando Chrome...';
+    box.style.background='var(--blue-bg)'; box.style.borderColor='var(--blue-border)';
+    ico.textContent='⏳'; msg.style.color='var(--accent)';
+    msg.textContent='Abriendo Chrome y conectando al ERP — esto toma ~20 segundos...';
+
+    try {
+        const r = await fetch('/oc/capturar_token', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                entorno_url:  selectedEntornoUrl,
+                bd_id:        selectedBDId,
+                bd_catalogo:  selectedBDCatalogo,
+                bd_nombre:    selectedBDNombre,
+            })
+        });
+        if(!r.ok){
+            const txt = await r.text();
+            throw new Error(`HTTP ${r.status} — ¿Reiniciaste el servidor? Detalle: ${txt.substring(0,200)}`);
+        }
+        const data2 = await r.json();
+        const { session_id, error } = data2;
+        if(error){ throw new Error(error); }
+
+        // Escuchar el stream SSE de progreso
+        const src = new EventSource('/stream/' + session_id);
+        src.onmessage = function(ev){
+            const d = JSON.parse(ev.data);
+
+            if(d.tipo === 'progreso'){
+                btn.textContent = '⏳ ' + d.descripcion;
+                msg.textContent = d.descripcion + ' (' + d.porcentaje + '%)';
+            }
+            if(d.tipo === 'error'){
+                msg.textContent = '❌ ' + d.mensaje;
+                msg.style.color = 'var(--danger)';
+            }
+            if(d.tipo === 'token_ok'){
+                // Token capturado exitosamente
+                box.style.background='#f0fdf4'; box.style.borderColor='var(--success-border)';
+                ico.textContent='✅';
+                msg.innerHTML = `Token JWT capturado automáticamente — <code style="font-family:monospace;font-size:10px;">${d.preview}</code> (${d.longitud} chars). <span style="color:var(--success);font-weight:600;">Listo para usar.</span>`;
+                msg.style.color='var(--g700)';
+            }
+            if(d.tipo === 'fin'){
+                src.close();
+                btn.disabled = false;
+                btn.textContent = '⚡ Capturar automáticamente';
+                if(!d.exito && d.tipo !== 'token_ok'){
+                    box.style.background='#fefce8'; box.style.borderColor='#fde68a';
+                    ico.textContent='⚠️';
+                    const razon = d.mensaje || 'No se encontró el token en el ERP.';
+                    msg.innerHTML = razon + ' Usa el campo <strong>manual</strong> o ejecuta una prueba primero.';
+                    msg.style.color='#92400e';
+                }
+            }
+        };
+        src.onerror = function(){
+            src.close();
+            btn.disabled = false;
+            btn.textContent = '⚡ Capturar automáticamente';
+            ico.textContent='❌';
+            msg.textContent='Error de conexión al capturar el token.';
+            msg.style.color='var(--danger)';
+            box.style.background='var(--danger-bg)'; box.style.borderColor='var(--danger-border)';
+        };
+    } catch(e){
+        btn.disabled = false;
+        btn.textContent = '⚡ Capturar automáticamente';
+        ico.textContent='❌';
+        msg.textContent = 'Error: ' + e.message;
+        msg.style.color='var(--danger)';
+    }
+}
+
+function ocMostrarTokenManual(){
+    const wrap = document.getElementById('ocTokenManualWrap');
+    const visible = wrap.style.display !== 'none';
+    wrap.style.display = visible ? 'none' : '';
+    if(!visible) document.getElementById('ocBearerToken').focus();
+}
+
+function ocGuardarTokenManual(){
+    // Al cambiar el campo manual, actualizar el indicador de estado
+    ocVerificarToken();
+}
+
+function ocTogglePaso(bodyId){
+    const body=document.getElementById(bodyId);
+    const isOpen=body.classList.contains('open');
+    body.classList.toggle('open',!isOpen);
+    body.style.display=isOpen?'none':'block';
+    const chevId=bodyId==='ocPaso1Body'?'ocP1Chev':'ocP2Chev';
+    document.getElementById(chevId).classList.toggle('open',!isOpen);
+}
+
+function ocLimpiarResultado(){
+    document.getElementById('ocResultado').style.display='none';
+    document.getElementById('ocEmpty').style.display='block';
+    document.getElementById('ocPaso2').style.display='none';
+    document.getElementById('ocResumenFinal').style.display='none';
+    // reset paso 1
+    document.getElementById('ocP1Ico').className='oc-paso-ico loading';
+    document.getElementById('ocP1Ico').textContent='…';
+    document.getElementById('ocP1Badge').textContent='';
+    document.getElementById('ocP1Badge').className='oc-paso-badge';
+    document.getElementById('ocP1Contenido').innerHTML='<span style="color:var(--g400);font-size:12px;">Esperando ejecución...</span>';
+    document.getElementById('ocPaso1Body').style.display='block';
+    document.getElementById('ocPaso1Body').classList.add('open');
+}
+
+function ocLimpiarTodo(){
+    document.getElementById('ocIdCompra').value='';
+    document.getElementById('ocIdCompra').className='';
+    ocLimpiarResultado();
+    document.getElementById('ocAlertaCtx').style.display='none';
+}
+
+function _ocSetLoading(accion,loading){
+    const isVal = accion==='validar'||accion==='validar_y_reversar';
+    const isRev = accion==='validar_y_reversar';
+    ['btnOcValidar','btnOcReversar'].forEach(id=>{document.getElementById(id).disabled=loading;});
+    const showSpn=(id,ico,show)=>{document.getElementById(id).style.display=show?'block':'none';document.getElementById(ico).style.display=show?'none':'';};
+    showSpn('spnOcValidar','icoOcValidar',loading&&isVal);
+    showSpn('spnOcReversar','icoOcReversar',loading&&isRev);
+}
+
+function _ocHttpClass(code){
+    if(code===200)return 's200';
+    if(code>=400&&code<500)return 's4xx';
+    if(code>=500)return 's5xx';
+    return 's0';
+}
+
+function _ocRenderPaso1(paso){
+    const puede=paso.puede_reversar;
+    const icoEl=document.getElementById('ocP1Ico');
+    const badgeEl=document.getElementById('ocP1Badge');
+    if(paso.exito){
+        icoEl.className='oc-paso-ico '+(puede?'ok':'fail');
+        icoEl.textContent=puede?'✓':'✗';
+        badgeEl.className='oc-paso-badge '+(puede?'ok':'fail');
+        badgeEl.textContent=puede?'Puede reversarse':'No puede reversarse';
+    } else {
+        icoEl.className='oc-paso-ico fail';
+        icoEl.textContent='✗';
+        badgeEl.className='oc-paso-badge fail';
+        badgeEl.textContent='Error';
+    }
+    const httpCls=_ocHttpClass(paso.status_http||0);
+    const jsonStr=JSON.stringify(paso.respuesta||paso.error||{},null,2);
+    const puedeHtml=paso.exito?`<div class="oc-puede ${puede?'si':'no'}">
+        ${puede?'✅ La OC <strong>puede</strong> ser reversada':'❌ La OC <strong>no puede</strong> ser reversada en este momento'}
+    </div>`:'';
+    document.getElementById('ocP1Contenido').innerHTML=`
+        <div class="oc-http">
+            <span class="oc-http-code ${httpCls}">HTTP ${paso.status_http||'—'}</span>
+            <span style="font-size:11px;color:var(--g500);">operacion: "validar"</span>
+        </div>
+        ${puedeHtml}
+        <div style="font-size:11px;color:var(--g500);margin-top:8px;margin-bottom:4px;">Respuesta del servidor:</div>
+        <div class="oc-json">${esc(jsonStr)}</div>
+        ${paso.error?`<div style="margin-top:8px;font-size:12px;color:var(--danger);">Error: ${esc(paso.error)}</div>`:''}
+    `;
+}
+
+function _ocRenderPaso2(paso){
+    const ok=paso.exito;
+    document.getElementById('ocPaso2').style.display='';
+    const icoEl=document.getElementById('ocP2Ico');
+    const badgeEl=document.getElementById('ocP2Badge');
+    icoEl.className='oc-paso-ico '+(ok?'ok':'fail');
+    icoEl.textContent=ok?'✓':'✗';
+    badgeEl.className='oc-paso-badge '+(ok?'ok':'fail');
+    badgeEl.textContent=ok?'Reversada':'Error al reversar';
+    const httpCls=_ocHttpClass(paso.status_http||0);
+    const jsonStr=JSON.stringify(paso.respuesta||paso.error||{},null,2);
+    document.getElementById('ocP2Contenido').innerHTML=`
+        <div class="oc-http">
+            <span class="oc-http-code ${httpCls}">HTTP ${paso.status_http||'—'}</span>
+            <span style="font-size:11px;color:var(--g500);">operacion: "reversar"</span>
+        </div>
+        <div style="font-size:11px;color:var(--g500);margin-top:8px;margin-bottom:4px;">Respuesta del servidor:</div>
+        <div class="oc-json">${esc(jsonStr)}</div>
+        ${paso.error?`<div style="margin-top:8px;font-size:12px;color:var(--danger);">Error: ${esc(paso.error)}</div>`:''}
+    `;
+}
+
+async function ocEjecutar(accion){
+    const idCompra=document.getElementById('ocIdCompra').value.trim();
+    if(!idCompra){
+        document.getElementById('ocIdCompra').focus();
+        document.getElementById('ocIdCompra').classList.add('input-err');
+        return;
+    }
+    document.getElementById('ocIdCompra').classList.remove('input-err');
+
+    if(!selectedEntornoUrl){
+        document.getElementById('ocAlertaCtx').style.display='';
+        return;
+    }
+    document.getElementById('ocAlertaCtx').style.display='none';
+
+    // Mostrar área de resultado
+    document.getElementById('ocEmpty').style.display='none';
+    document.getElementById('ocResultado').style.display='block';
+    document.getElementById('ocPaso2').style.display= accion==='validar_y_reversar'?'':'none';
+    document.getElementById('ocResumenFinal').style.display='none';
+
+    // Reset visual paso 1
+    document.getElementById('ocP1Ico').className='oc-paso-ico loading';
+    document.getElementById('ocP1Ico').textContent='…';
+    document.getElementById('ocP1Badge').textContent='Validando...';
+    document.getElementById('ocP1Badge').className='oc-paso-badge';
+    document.getElementById('ocP1Contenido').innerHTML='<span style="color:var(--g400);font-size:12px;">Consultando API...</span>';
+
+    if(accion==='validar_y_reversar'){
+        document.getElementById('ocP2Ico').className='oc-paso-ico loading';
+        document.getElementById('ocP2Ico').textContent='…';
+        document.getElementById('ocP2Badge').textContent='En espera';
+        document.getElementById('ocP2Badge').className='oc-paso-badge bloq';
+        document.getElementById('ocP2Contenido').innerHTML='<span style="color:var(--g400);font-size:12px;">Esperando resultado de validación...</span>';
+    }
+
+    _ocSetLoading(accion,true);
+    ocActualizarContexto();
+
+    // Badge pestaña
+    const ob=document.getElementById('ocBadge');
+    ob.style.display='inline';ob.className='tab-badge running';ob.textContent='…';
+
+    try {
+        const tokenManual = (document.getElementById('ocBearerToken').value||'').trim();
+        const res=await fetch('/oc/reversar_cierre',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                entorno_url:   selectedEntornoUrl,
+                idCompra:      idCompra,
+                accion:        accion,
+                cliente:       selectedClienteNombre,
+                entorno_tipo:  selectedEntornoTipo,
+                bearer_token:  tokenManual,
+            })
+        });
+        const data=await res.json();
+
+        if(data.error){
+            document.getElementById('ocP1Ico').className='oc-paso-ico fail';
+            document.getElementById('ocP1Ico').textContent='✗';
+            document.getElementById('ocP1Badge').textContent='Error';
+            document.getElementById('ocP1Badge').className='oc-paso-badge fail';
+            document.getElementById('ocP1Contenido').innerHTML=`<div style="font-size:12px;color:var(--danger);">⚠️ ${esc(data.error)}</div>`;
+            ob.className='tab-badge fail';ob.textContent='Error';
+            return;
+        }
+
+        // Renderizar pasos
+        if(data.pasos&&data.pasos.length>0) _ocRenderPaso1(data.pasos[0]);
+        if(data.pasos&&data.pasos.length>1) _ocRenderPaso2(data.pasos[1]);
+
+        // Paso 2 bloqueado (no pudo reversar)
+        if(accion==='validar_y_reversar'&&data.reverso_bloqueado){
+            document.getElementById('ocPaso2').style.display='';
+            document.getElementById('ocP2Ico').className='oc-paso-ico warn';
+            document.getElementById('ocP2Ico').textContent='⊘';
+            document.getElementById('ocP2Badge').className='oc-paso-badge bloq';
+            document.getElementById('ocP2Badge').textContent='No ejecutado';
+            document.getElementById('ocP2Contenido').innerHTML='<div style="font-size:12px;color:var(--g500);">La validación indicó que esta OC no puede reversarse. El paso de reversión fue omitido.</div>';
+        }
+
+        // Resumen final
+        const rfEl=document.getElementById('ocResumenFinal');
+        rfEl.style.display='';
+        if(accion==='validar'){
+            const puede=data.puede_reversar;
+            rfEl.className='oc-resumen-final '+(puede?'ok':'fail');
+            document.getElementById('ocResumenTitulo').textContent=puede?'✅ OC puede ser reversada':'❌ OC no puede ser reversada';
+            document.getElementById('ocResumenDesc').textContent=puede
+                ?'La validación fue exitosa. Puedes proceder con "Validar y Reversar" para ejecutar la reversión.'
+                :'La validación indica que esta OC no cumple las condiciones para ser reversada en este momento.';
+            ob.className='tab-badge '+(puede?'ok':'fail');ob.textContent=puede?'OK':'No';
+        } else {
+            const ok=data.reverso_exitoso;
+            rfEl.className='oc-resumen-final '+(ok?'ok':'fail');
+            document.getElementById('ocResumenTitulo').textContent=ok?'✅ OC reversada correctamente':'❌ No se pudo reversar la OC';
+            document.getElementById('ocResumenDesc').textContent=ok
+                ?`La OC ${idCompra} fue reversada exitosamente. El resultado quedó registrado en métricas.`
+                :(data.reverso_bloqueado?'La OC no cumple las condiciones para ser reversada.':'Ocurrió un error durante la reversión. Revisa la respuesta del servidor.');
+            ob.className='tab-badge '+(ok?'ok':'fail');ob.textContent=ok?'OK':'Error';
+            if(ok) document.getElementById('ocIdCompra').classList.add('input-ok');
+        }
+    } catch(e){
+        document.getElementById('ocP1Contenido').innerHTML=`<div style="font-size:12px;color:var(--danger);">Error de conexión: ${esc(e.toString())}</div>`;
+        ob.className='tab-badge fail';ob.textContent='Error';
+    } finally {
+        _ocSetLoading(accion,false);
+    }
+}
 
 let _editorLoadId=0;
 async function abrirEditor(id){
@@ -1104,64 +1682,200 @@ async function crearPrueba(){const nombre=document.getElementById('newNombre').v
 
 function getConfig(){const addonEl=document.getElementById('paramAddon');const addon=addonEl?(addonEl.value||'').trim():'';const valorEl=document.getElementById('paramValor');const valor=valorEl?(valorEl.value||'').trim():'';const hdEl=document.getElementById('paramHD');const hd=hdEl?(hdEl.value||'').trim():'';const varEl=document.getElementById('paramVariable');const variable=varEl?(varEl.value||'').trim():'';return{cliente:selectedClienteId,entorno_id:selectedEntornoId,entorno_tipo:selectedEntornoTipo,entorno_url:selectedEntornoUrl,bd_id:selectedBDId,bd_catalogo:selectedBDCatalogo,bd_nombre:selectedBDNombre,parametros:{addon:addon,valor:valor,hd:hd,variable:variable}};}
 
+// ════════════════════════════════════════════════════════════
+// MOTOR MULTI-EJECUCIÓN
+// ════════════════════════════════════════════════════════════
+
 function ejecutarUna(prueba_id){
-    if(ejecutando)return;const cfg=getConfig();if(!cfg.cliente){alert('Selecciona un cliente en el header antes de ejecutar.');return;}if(!cfg.entorno_id){alert('Selecciona un entorno antes de ejecutar.');return;}
-    switchTab('exec');currentTest=prueba_id;renderTests();ejecutando=true;contadores={total:0,ok:0,fail:0};resultadoRow=0;pasosRegistrados={};
-    document.getElementById('execEmpty').style.display='none';document.getElementById('execContent').style.display='block';document.getElementById('execTimeline').innerHTML='';document.getElementById('execProgressBar').style.width='0%';document.getElementById('execProgressBar').className='exec-progress-fill';document.getElementById('execSummary').style.display='none';document.getElementById('resultsBody').innerHTML='';document.getElementById('resultsWrap').style.display='none';document.getElementById('resultsEmpty').style.display='block';document.getElementById('logBody').innerHTML='';document.getElementById('logPanel').classList.add('visible');document.getElementById('btnToggleLog').style.display='inline-block';
-    const p=pruebas.find(x=>x.id===prueba_id);document.getElementById('execTitle').textContent=p?p.nombre:prueba_id;document.getElementById('execStatus').textContent='Ejecutando';document.getElementById('execStatus').className='exec-badge running';document.getElementById('execScreenshot').innerHTML='Sin screenshot';document.getElementById('execScreenshot').className='exec-screenshot-empty';
-    timerStart=Date.now();clearInterval(timerInterval);timerInterval=setInterval(()=>{document.getElementById('execTime').textContent=Math.round((Date.now()-timerStart)/1000)+'s';},1000);
-    setFlowEstado(prueba_id,'running');const badge=document.getElementById('execBadge');badge.style.display='inline';badge.className='tab-badge running';badge.textContent='En curso';
-    log('Iniciando: '+prueba_id);correrFlujo(prueba_id).then(()=>{clearInterval(timerInterval);ejecutando=false;actualizarResumen();});
+    if(!selectedClienteId){alert('Selecciona un cliente en el header antes de ejecutar.');return;}
+    if(!selectedEntornoId){alert('Selecciona un entorno antes de ejecutar.');return;}
+
+    // Liberar hueco si se alcanzó el máximo
+    if(execOrder.length>=EXEC_MAX){
+        const viejas=execOrder.filter(id=>execSessions[id]&&execSessions[id].estado!=='running');
+        if(viejas.length) cerrarExec(viejas[0]);
+        else{alert('Máximo '+EXEC_MAX+' ejecuciones simultáneas. Cierra una completada para continuar.');return;}
+    }
+
+    switchTab('exec');
+    currentTest=prueba_id; renderTests();
+    document.getElementById('logBody').innerHTML='';
+    document.getElementById('logPanel').classList.add('visible');
+    document.getElementById('btnToggleLog').style.display='inline-block';
+
+    const p=pruebas.find(x=>x.id===prueba_id);
+    const sesId='ex_'+Date.now()+'_'+Math.random().toString(36).slice(2,5);
+    execSessions[sesId]={
+        id:sesId, prueba_id, nombre:p?p.nombre:prueba_id,
+        cliente:selectedClienteNombre||selectedClienteId,
+        entorno:selectedEntornoTipo, bd:selectedBDNombre,
+        estado:'running', progreso:0,
+        tlHtml:'', _pasosVistos:{}, screenshot:null,
+        contadores:{total:0,ok:0,fail:0},
+        t_inicio:Date.now(), t_fin:null,
+    };
+    execOrder.push(sesId);
+    activarExec(sesId);
+    setFlowEstado(prueba_id,'running');
+    _badgeEjecucion();
+    log('Iniciando: '+prueba_id);
+    _correrFlujoMulti(sesId, prueba_id);
 }
 
-function correrFlujo(pid){return new Promise(resolve=>{
-    fetch('/ejecutar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...getConfig(),prueba:pid})})
-    .then(r=>r.json()).then(data=>{
-        if(data.error){log('ERROR: '+data.error,'err');setFlowEstado(pid,'fail');contadores.total++;contadores.fail++;resolve();return;}
-        let _huboAdvertencia=false;
+function activarExec(sesId){
+    activeExecId=sesId;
+    renderExecTabs();
+    renderExecPanel();
+}
+
+function cerrarExec(sesId){
+    const ses=execSessions[sesId];
+    if(!ses||ses.estado==='running') return;
+    delete execSessions[sesId];
+    execOrder=execOrder.filter(id=>id!==sesId);
+    if(activeExecId===sesId) activeExecId=execOrder.length?execOrder[execOrder.length-1]:null;
+    renderExecTabs();
+    renderExecPanel();
+    _badgeEjecucion();
+}
+
+function renderExecTabs(){
+    const bar=document.getElementById('execSubtabs');
+    if(!execOrder.length){bar.style.display='none';return;}
+    bar.style.display='flex';
+    bar.innerHTML=execOrder.map(id=>{
+        const s=execSessions[id]; if(!s) return '';
+        const activo=id===activeExecId;
+        const dotCls=s.estado==='running'?'running':s.estado==='ok'?'ok':s.estado==='advertencia'?'warn':'fail';
+        const seg=s.t_fin?Math.round((s.t_fin-s.t_inicio)/1000):Math.round((Date.now()-s.t_inicio)/1000);
+        const clienteCorto=(s.cliente||'').split(' ').slice(0,2).join(' ');
+        const canClose=s.estado!=='running';
+        return `<div class="exec-stab${activo?' active':''}" onclick="activarExec('${id}')">
+            <div class="stab-dot ${dotCls}"></div>
+            <div class="stab-info">
+                <div class="stab-nombre">${esc(clienteCorto)}</div>
+                <div class="stab-prueba">${esc(s.nombre)}</div>
+            </div>
+            <div class="stab-tiempo">${seg}s</div>
+            ${canClose?`<div class="stab-close" onclick="event.stopPropagation();cerrarExec('${id}')" title="Cerrar">×</div>`:''}
+        </div>`;
+    }).join('');
+}
+
+function renderExecPanel(){
+    const emptyEl=document.getElementById('execEmpty');
+    const contentEl=document.getElementById('execContent');
+    if(!activeExecId||!execSessions[activeExecId]){
+        emptyEl.style.display=''; contentEl.style.display='none'; return;
+    }
+    const s=execSessions[activeExecId];
+    emptyEl.style.display='none'; contentEl.style.display='block';
+
+    const estadoLabel=s.estado==='running'?'Ejecutando':s.estado==='ok'?'OK':s.estado==='advertencia'?'Alerta':'Fallida';
+    document.getElementById('execTitle').textContent=s.nombre+(s.cliente?' — '+s.cliente:'');
+    document.getElementById('execStatus').textContent=estadoLabel;
+    document.getElementById('execStatus').className='exec-badge '+(s.estado==='running'?'running':s.estado);
+    const seg=s.t_fin?Math.round((s.t_fin-s.t_inicio)/1000):Math.round((Date.now()-s.t_inicio)/1000);
+    document.getElementById('execTime').textContent=seg+'s';
+
+    const bar=document.getElementById('execProgressBar');
+    bar.style.width=s.progreso+'%';
+    bar.className='exec-progress-fill'+(s.estado!=='running'?' '+s.estado:'');
+
+    document.getElementById('execTimeline').innerHTML=s.tlHtml;
+
+    const sc=document.getElementById('execScreenshot');
+    if(s.screenshot){sc.className='';sc.innerHTML=`<img src="data:image/png;base64,${s.screenshot}" onclick="abrirLightbox(this.src)" style="width:100%;border-radius:8px;border:1px solid var(--g200);cursor:pointer;">`;}
+    else{sc.className='exec-screenshot-empty';sc.innerHTML='Sin screenshot';}
+
+    const sumEl=document.getElementById('execSummary');
+    if(s.estado!=='running'&&s.contadores.total>0){
+        const pct=Math.round((s.contadores.ok/s.contadores.total)*100);
+        sumEl.style.display='grid';
+        document.getElementById('sc_total').textContent=s.contadores.total;
+        document.getElementById('sc_ok').textContent=s.contadores.ok;
+        document.getElementById('sc_fail').textContent=s.contadores.fail;
+        document.getElementById('sc_pct').textContent=pct+'%';
+    } else sumEl.style.display='none';
+}
+
+function _badgeEjecucion(){
+    const corriendo=execOrder.filter(id=>execSessions[id]?.estado==='running').length;
+    const badge=document.getElementById('execBadge');
+    if(corriendo>0){
+        badge.style.display='inline'; badge.className='tab-badge running';
+        badge.textContent=corriendo>1?corriendo+' activas':'En curso';
+    } else if(execOrder.length){
+        const hayFail=execOrder.some(id=>execSessions[id]?.estado==='fail');
+        badge.style.display='inline'; badge.className='tab-badge '+(hayFail?'fail':'ok');
+        badge.textContent=hayFail?'Error':'OK';
+    } else badge.style.display='none';
+}
+
+setInterval(()=>{
+    if(!execOrder.some(id=>execSessions[id]?.estado==='running')) return;
+    if(activeExecId&&execSessions[activeExecId]?.estado==='running'){
+        const seg=Math.round((Date.now()-execSessions[activeExecId].t_inicio)/1000);
+        document.getElementById('execTime').textContent=seg+'s';
+    }
+    renderExecTabs();
+},1000);
+
+async function _correrFlujoMulti(sesId, pid){
+    const ses=execSessions[sesId]; if(!ses) return;
+    try{
+        const r=await fetch('/ejecutar',{method:'POST',headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({...getConfig(),prueba:pid})});
+        const data=await r.json();
+        if(data.error){
+            log('ERROR: '+data.error,'err');
+            ses.estado='fail'; ses.t_fin=Date.now();
+            setFlowEstado(pid,'fail'); _finExec(sesId); return;
+        }
         const src=new EventSource('/stream/'+data.session_id);
-        src.onmessage=function(ev){
-            const d=JSON.parse(ev.data);
-            if(d.tipo==='progreso'){
-                document.getElementById('execProgressBar').style.width=d.porcentaje+'%';
-                log('['+d.paso+'/'+d.total+'] '+d.nombre+': '+d.descripcion);
-                actualizarPasos(d.paso,d.total,d.nombre,d.descripcion,d.screenshot);
-            }
-            if(d.tipo==='error') log('ERROR: '+d.mensaje,'err');
-            if(d.tipo==='resultado'){
-                agregarResultado(d);
-                contadores.total++;
-                if(d.estado==='ok') contadores.ok++;
-                else if(d.estado==='advertencia'){_huboAdvertencia=true;/* no suma a fail */}
-                else contadores.fail++;
-            }
-            if(d.tipo==='fin'){
-                src.close();
-                const ok=d.exito;
-                const estadoFinal=_huboAdvertencia?'advertencia':(ok?'ok':'fail');
-                const barClass=_huboAdvertencia?'advertencia':(ok?'ok':'fail');
-                document.getElementById('execProgressBar').classList.add(barClass);
-                document.getElementById('execStatus').textContent=_huboAdvertencia?'Alerta':(ok?'OK':'Fallida');
-                document.getElementById('execStatus').className='exec-badge '+estadoFinal;
-                setFlowEstado(pid,estadoFinal);
-                const b=document.getElementById('execBadge');
-                b.className='tab-badge '+estadoFinal;
-                b.textContent=_huboAdvertencia?'Alerta':(ok?'OK':'Error');
-                const logTipo=_huboAdvertencia?'err':(ok?'ok':'err');
-                const logMsg=_huboAdvertencia?'ALERTA: Addon ya instalado en pruebas':(ok?'OK':'FALLIDO');
-                log('Flujo '+pid+': '+logMsg,logTipo);
-                resolve();
-            }
-        };
-        src.onerror=function(){src.close();log('Error de conexion','err');setFlowEstado(pid,'fail');contadores.total++;contadores.fail++;resolve();};
-    }).catch(err=>{log('Error: '+err,'err');setFlowEstado(pid,'fail');contadores.total++;contadores.fail++;resolve();});
-});}
-
-function actualizarPasos(pa,total,nombre,desc,ss){
-    Object.keys(pasosRegistrados).forEach(k=>{const n=parseInt(k);if(n<pa){const dot=document.getElementById('tl-dot-'+n),wire=document.getElementById('tl-wire-'+n);if(dot)dot.className='tl-dot done';if(wire)wire.className='tl-wire done';}});
-    if(!pasosRegistrados[pa]){pasosRegistrados[pa]=true;const tl=document.getElementById('execTimeline'),s=document.createElement('div');s.className='tl-step';s.innerHTML=`<div class="tl-line"><div class="tl-dot active" id="tl-dot-${pa}"></div><div class="tl-wire" id="tl-wire-${pa}"></div></div><div class="tl-info"><div class="tl-name">${nombre}</div><div class="tl-desc">${desc}</div>${ss?`<div class="tl-screenshot"><img src="data:image/png;base64,${ss}" onclick="abrirLightbox(this.src)"></div>`:''}</div>`;tl.appendChild(s);}
-    if(ss){const sc=document.getElementById('execScreenshot');sc.className='';sc.innerHTML=`<img src="data:image/png;base64,${ss}" onclick="abrirLightbox(this.src)" style="width:100%;border-radius:8px;border:1px solid var(--g200);cursor:pointer;">`;}
+        src.onmessage=ev=>_onEvento(sesId,pid,JSON.parse(ev.data),src);
+        src.onerror=()=>{src.close();ses.estado='fail';ses.t_fin=Date.now();log('Error de conexión','err');setFlowEstado(pid,'fail');_finExec(sesId);};
+    }catch(e){ses.estado='fail';ses.t_fin=Date.now();log('Error: '+e,'err');setFlowEstado(pid,'fail');_finExec(sesId);}
 }
+
+function _onEvento(sesId, pid, d, src){
+    const ses=execSessions[sesId]; if(!ses) return;
+    const esActiva=sesId===activeExecId;
+    if(d.tipo==='progreso'){
+        ses.progreso=d.porcentaje;
+        log('['+d.paso+'/'+d.total+'] '+d.nombre+': '+d.descripcion);
+        if(!ses._pasosVistos[d.paso]){
+            ses._pasosVistos[d.paso]=true;
+            const ss=d.screenshot||'';
+            ses.tlHtml+=`<div class="tl-step"><div class="tl-line"><div class="tl-dot done"></div><div class="tl-wire done"></div></div><div class="tl-info"><div class="tl-name">${esc(d.nombre)}</div><div class="tl-desc">${esc(d.descripcion)}</div>${ss?`<div class="tl-screenshot"><img src="data:image/png;base64,${ss}" onclick="abrirLightbox(this.src)"></div>`:''}</div></div>`;
+        }
+        if(d.screenshot) ses.screenshot=d.screenshot;
+        if(esActiva){
+            document.getElementById('execProgressBar').style.width=d.porcentaje+'%';
+            document.getElementById('execTimeline').innerHTML=ses.tlHtml;
+            if(d.screenshot){const sc=document.getElementById('execScreenshot');sc.className='';sc.innerHTML=`<img src="data:image/png;base64,${d.screenshot}" onclick="abrirLightbox(this.src)" style="width:100%;border-radius:8px;border:1px solid var(--g200);cursor:pointer;">`;}
+        }
+    }
+    if(d.tipo==='error') log('ERROR: '+d.mensaje,'err');
+    if(d.tipo==='resultado'){
+        ses.contadores.total++;
+        if(d.estado==='ok') ses.contadores.ok++;
+        else if(d.estado!=='advertencia') ses.contadores.fail++;
+        agregarResultado(d);
+    }
+    if(d.tipo==='fin'){
+        src.close();
+        ses.estado=d.exito?'ok':(ses.contadores.fail===0&&ses.contadores.total>0?'advertencia':'fail');
+        ses.t_fin=Date.now();
+        setFlowEstado(pid,ses.estado);
+        log('Flujo '+pid+': '+(d.exito?'OK':'FALLIDO'),d.exito?'ok':'err');
+        _finExec(sesId);
+    }
+}
+
+function _finExec(sesId){renderExecTabs();renderExecPanel();_badgeEjecucion();}
+
+function actualizarPasos(){} // legacy — reemplazado por _onEvento
 
 function agregarResultado(d){
     resultadoRow++;
@@ -1198,7 +1912,7 @@ function agregarResultado(d){
     document.getElementById('resultsBody').appendChild(tr);
 }
 
-function actualizarResumen(){if(contadores.total===0)return;const pct=Math.round((contadores.ok/contadores.total)*100);document.getElementById('execSummary').style.display='grid';document.getElementById('sc_total').textContent=contadores.total;document.getElementById('sc_ok').textContent=contadores.ok;document.getElementById('sc_fail').textContent=contadores.fail;document.getElementById('sc_pct').textContent=pct+'%';if(contadores.ok>0){const o=document.getElementById('sumOk2');o.textContent=contadores.ok+' OK';o.style.display='inline';}if(contadores.fail>0){const f=document.getElementById('sumFail2');f.textContent=contadores.fail+' fallidas';f.style.display='inline';}}
+function actualizarResumen(){} // legacy — el resumen ahora es por sesión en renderExecPanel
 
 function setFlowEstado(id,estado){estadoFlujos[id]=estado;renderTests();}
 function hora(){return new Date().toLocaleTimeString('es-CO',{hour12:false});}

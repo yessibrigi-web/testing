@@ -95,6 +95,62 @@ init_db()
 # VALIDACIÓN DE ADDON EN PRUEBAS
 # ─────────────────────────────────────────────
 
+# Cache de Bearer tokens por URL base del entorno.
+# Se puebla automáticamente al ejecutar cualquier prueba que haga login en el ERP.
+# Clave: base_url (ej: "https://x.sincoerp.com/Cliente"), Valor: token JWT string.
+OC_TOKEN_CACHE: dict = {}
+OC_TOKEN_LOCK  = threading.Lock()
+
+
+def _capturar_token_erp(popup_page, entorno_url: str):
+    """Intenta extraer el Bearer token JWT del ERP desde la página de Playwright.
+    Busca en localStorage, sessionStorage y cookies del contexto.
+    Si lo encuentra lo guarda en OC_TOKEN_CACHE."""
+    base_url = re.sub(r'/V3/.*', '', entorno_url.rstrip('/'))
+    if not base_url:
+        return
+
+    token = None
+
+    # Candidatos comunes en localStorage / sessionStorage de SINCO
+    claves_storage = [
+        "token", "access_token", "tokenAuth", "authToken",
+        "jwt", "bearer", "sinco_token", "userToken",
+    ]
+    try:
+        for clave in claves_storage:
+            val = popup_page.evaluate(
+                f"() => localStorage.getItem('{clave}') || sessionStorage.getItem('{clave}') || null"
+            )
+            if val and len(val) > 20:
+                token = val.strip()
+                print(f"  [OC-TOKEN] Capturado desde storage['{clave}'] ({len(token)} chars)")
+                break
+    except Exception:
+        pass
+
+    # Si no está en storage, buscar en las cookies del contexto del navegador
+    if not token:
+        try:
+            cookies = popup_page.context.cookies()
+            candidatos_cookie = ["token", "access_token", "tokenAuth", ".SINCOAUTH", "AUTH"]
+            for c in cookies:
+                if any(k.lower() in c["name"].lower() for k in candidatos_cookie):
+                    if len(c.get("value", "")) > 20:
+                        token = c["value"].strip()
+                        print(f"  [OC-TOKEN] Capturado desde cookie '{c['name']}' ({len(token)} chars)")
+                        break
+        except Exception:
+            pass
+
+    if token:
+        with OC_TOKEN_LOCK:
+            OC_TOKEN_CACHE[base_url] = token
+        print(f"  [OC-TOKEN] Guardado para base: {base_url[:50]}...")
+    else:
+        print(f"  [OC-TOKEN] No se encontró token JWT en storage/cookies del ERP")
+
+
 PRUEBAS_INSTALACION_ADDON = {"InstalarAddon", "FlujoCompleto_Addon"}
 
 
@@ -225,6 +281,9 @@ def canonicalizar_iniciales(texto):
 
 
 def normalizar(texto):
+    # Normalizar & → y antes de quitar tildes, para que "CFC & ASOCIADOS"
+    # y "CFC Y ASOCIADOS" queden idénticos tras la normalización.
+    texto = re.sub(r'\s*&\s*', ' y ', texto)
     sin_tildes = unicodedata.normalize('NFD', texto)
     sin_tildes = ''.join(c for c in sin_tildes if unicodedata.category(c) != 'Mn')
     # Reemplazar cualquier carácter que no sea letra, dígito o espacio por un
@@ -519,7 +578,34 @@ class SincoAPI:
             with open(_alias_path, encoding="utf-8") as _f:
                 _alias = json.load(_f)
             if cliente_nombre in _alias:
-                cliente_nombre = _alias[cliente_nombre]
+                valor_alias = _alias[cliente_nombre]
+                # Alias por empresa_id: devuelve TODOS los entornos de ese EmpresaId
+                if isinstance(valor_alias, dict) and "empresa_id" in valor_alias:
+                    emp_id = valor_alias["empresa_id"]
+                    print(f"  [API] alias empresa_id={emp_id} para '{cliente_nombre}'")
+                    entornos = []
+                    for e in self._entornos:
+                        if e.get("EmpresaId") != emp_id:
+                            continue
+                        nombre = e.get("Nombre", "")
+                        tipo = e.get("Tipo", "Otro")
+                        if "PRBINT" in nombre or "PRB" in nombre:
+                            tipo = "Pruebas"
+                        elif "REPLICA_" in nombre or "Replica_" in nombre:
+                            tipo = "Réplica"
+                        nombre_display = re.sub(r'^REPLICA_', '', nombre, flags=re.IGNORECASE)
+                        nombre_display = re.sub(r'_PRBINT$', '', nombre_display, flags=re.IGNORECASE)
+                        entornos.append({
+                            "id":         nombre,
+                            "nombre":     f"{tipo} — {nombre_display}",
+                            "tipo":       tipo,
+                            "url":        e.get("URL", ""),
+                            "id_entorno": e.get("Id"),
+                        })
+                    print(f"  [API] obtener_entornos (empresa_id): '{cliente_nombre}' → {len(entornos)} entornos")
+                    return entornos
+                # Alias por nombre: reemplaza el nombre del cliente para el matching
+                cliente_nombre = valor_alias
                 print(f"  [API] alias aplicado → '{cliente_nombre}'")
         except Exception:
             pass
@@ -1728,6 +1814,413 @@ def grabar():
     })
 
 
+@app.route("/oc/reversar_cierre", methods=["POST"])
+def oc_reversar_cierre():
+    """Valida y/o reversa el cierre de una OC en SINCO ERP.
+
+    Body JSON:
+        entorno_url  str  — URL del entorno seleccionado en el dashboard
+        idCompra     str  — ID de la orden de compra
+        accion       str  — "validar" | "validar_y_reversar"
+        cliente      str  — nombre del cliente (para trazabilidad)
+        entorno_tipo str  — tipo de entorno (para trazabilidad)
+    """
+    data         = request.get_json() or {}
+    entorno_url   = data.get("entorno_url", "").strip()
+    id_compra     = str(data.get("idCompra", "")).strip()
+    accion        = data.get("accion", "validar")       # "validar" | "validar_y_reversar"
+    cliente       = data.get("cliente", "").strip()
+    entorno_tipo  = data.get("entorno_tipo", "").strip()
+    token_manual  = data.get("bearer_token", "").strip()  # Token ingresado manualmente en el UI
+
+    if not entorno_url:
+        return jsonify({"error": "No hay entorno seleccionado en el dashboard"}), 400
+    if not id_compra:
+        return jsonify({"error": "Debes ingresar el ID de la Orden de Compra"}), 400
+
+    # Construir URL de la API: extraer base antes de /V3/ y agregar la ruta del endpoint
+    base_url = re.sub(r'/V3/.*', '', entorno_url.rstrip('/'))
+    api_url  = f"{base_url}/V3/ADPRO/API/Compras/ReversarCierre"
+
+    # ── Resolver token de autenticación ──────────────────────────────────────
+    # Prioridad: 1) token ingresado manualmente  2) token cacheado del último login  3) NTLM
+    bearer_token = None
+    token_origen = "ninguno"
+
+    if token_manual:
+        # Quitar el prefijo "Bearer " si el usuario lo incluyó
+        bearer_token = token_manual.removeprefix("Bearer ").removeprefix("bearer ").strip()
+        token_origen = "manual"
+        print(f"  [OC] Usando token manual ({len(bearer_token)} chars)")
+    else:
+        with OC_TOKEN_LOCK:
+            bearer_token = OC_TOKEN_CACHE.get(base_url)
+        if bearer_token:
+            token_origen = "cache (login anterior)"
+            print(f"  [OC] Usando token del cache para {base_url[:50]}... ({len(bearer_token)} chars)")
+
+    auth = None
+    headers = {
+        "Content-Type": "application/json",
+        "Accept":       "application/json",
+    }
+
+    if bearer_token:
+        headers["Authorization"] = f"Bearer {bearer_token}"
+        print(f"  [OC] Auth: Bearer token (origen: {token_origen})")
+    else:
+        # Fallback: NTLM (Windows domain auth)
+        try:
+            from requests_ntlm import HttpNtlmAuth
+            auth = HttpNtlmAuth(CONFIG["usuario"], CONFIG["password"])
+            token_origen = "NTLM"
+            print("  [OC] Auth: NTLM (no hay token Bearer disponible)")
+        except ImportError:
+            print("  [OC] Sin auth — requests_ntlm no instalado y no hay token Bearer")
+
+    resultado = {"pasos": [], "api_url": api_url, "auth_origen": token_origen}
+    t_inicio  = time.time()
+
+    # ── PASO 1: Validar ──────────────────────────────────────────────────────
+    try:
+        print(f"  [OC] Validando OC {id_compra} → {api_url}")
+        r1 = http_requests.post(
+            api_url,
+            json={"idCompra": id_compra, "operacion": "validar"},
+            auth=auth,
+            headers=headers,
+            verify=False,
+            timeout=30,
+        )
+        paso1 = {
+            "operacion":    "validar",
+            "status_http":  r1.status_code,
+            "puede_reversar": False,
+            "exito":        False,
+            "respuesta":    None,
+        }
+        try:
+            paso1["respuesta"] = r1.json()
+        except Exception:
+            paso1["respuesta"] = r1.text[:3000]
+
+        if r1.status_code == 200:
+            paso1["exito"] = True
+            resp = paso1["respuesta"]
+            if isinstance(resp, dict):
+                # Intentar detectar el flag de "puede reversar" en la respuesta
+                puede = (
+                    resp.get("puede")           or
+                    resp.get("puedeReversar")   or
+                    resp.get("puedRevertir")    or
+                    resp.get("puedeRevertir")   or
+                    resp.get("exitoso")         or
+                    resp.get("resultado")       or
+                    resp.get("ok")              or
+                    resp.get("Puede")           or
+                    resp.get("PuedeReversar")   or
+                    (not resp.get("error") and not resp.get("Error") and not resp.get("mensaje_error"))
+                )
+                paso1["puede_reversar"] = bool(puede)
+            else:
+                paso1["puede_reversar"] = True  # Si HTTP 200 y no es dict → asumir OK
+        else:
+            paso1["exito"] = False
+            paso1["puede_reversar"] = False
+
+        resultado["pasos"].append(paso1)
+        resultado["puede_reversar"] = paso1["puede_reversar"]
+
+    except Exception as e:
+        resultado["pasos"].append({
+            "operacion":    "validar",
+            "status_http":  0,
+            "exito":        False,
+            "puede_reversar": False,
+            "respuesta":    None,
+            "error":        str(e),
+        })
+        resultado["puede_reversar"] = False
+        resultado["error_general"] = str(e)
+        guardar_resultado_db({
+            "fecha":        datetime.now().isoformat(),
+            "prueba":       "Reversar Cierre OC",
+            "modulo":       "Compras",
+            "estado":       "error",
+            "dato_entrada": id_compra,
+            "esperado":     "Validación de OC exitosa",
+            "obtenido":     f"Error de conexión: {str(e)[:200]}",
+            "cliente":      cliente,
+            "entorno":      entorno_tipo,
+            "bd":           "",
+            "usuario":      CONFIG["usuario"],
+            "duracion_s":   round(time.time() - t_inicio, 1),
+            "addon":        "",
+        })
+        return jsonify(resultado)
+
+    # ── PASO 2: Reversar (solo si fue solicitado y la validación lo permite) ──
+    if accion == "validar_y_reversar":
+        if resultado.get("puede_reversar"):
+            try:
+                print(f"  [OC] Reversando OC {id_compra} → {api_url}")
+                r2 = http_requests.post(
+                    api_url,
+                    json={"idCompra": id_compra, "operacion": "reversar"},
+                    auth=auth,
+                    headers=headers,
+                    verify=False,
+                    timeout=60,
+                )
+                paso2 = {
+                    "operacion":   "reversar",
+                    "status_http": r2.status_code,
+                    "exito":       r2.status_code == 200,
+                    "respuesta":   None,
+                }
+                try:
+                    paso2["respuesta"] = r2.json()
+                except Exception:
+                    paso2["respuesta"] = r2.text[:3000]
+                resultado["pasos"].append(paso2)
+                resultado["reverso_exitoso"] = r2.status_code == 200
+            except Exception as e:
+                resultado["pasos"].append({
+                    "operacion":   "reversar",
+                    "status_http": 0,
+                    "exito":       False,
+                    "respuesta":   None,
+                    "error":       str(e),
+                })
+                resultado["reverso_exitoso"] = False
+        else:
+            resultado["reverso_bloqueado"] = True
+            resultado["reverso_exitoso"]   = False
+
+    # ── Guardar trazabilidad en metricas.db ──────────────────────────────────
+    if accion == "validar":
+        _estado_db  = "verificado" if resultado.get("puede_reversar") else "fail"
+        _obtenido   = (
+            "Validación OK: OC puede reversarse"
+            if resultado.get("puede_reversar") else
+            "Validación: OC NO puede reversarse"
+        )
+        _esperado   = "Validar si la OC puede reversarse"
+    else:
+        _estado_db  = "ok"    if resultado.get("reverso_exitoso") else "fail"
+        _obtenido   = (
+            "OC reversada correctamente"
+            if resultado.get("reverso_exitoso") else
+            "No se pudo reversar la OC"
+            if resultado.get("reverso_bloqueado") else
+            "Error al reversar la OC"
+        )
+        _esperado   = "OC reversada correctamente"
+
+    guardar_resultado_db({
+        "fecha":        datetime.now().isoformat(),
+        "prueba":       "Reversar Cierre OC",
+        "modulo":       "Compras",
+        "estado":       _estado_db,
+        "dato_entrada": id_compra,
+        "esperado":     _esperado,
+        "obtenido":     _obtenido,
+        "cliente":      cliente,
+        "entorno":      entorno_tipo,
+        "bd":           "",
+        "usuario":      CONFIG["usuario"],
+        "duracion_s":   round(time.time() - t_inicio, 1),
+        "addon":        "",
+    })
+
+    return jsonify(resultado)
+
+
+@app.route("/oc/capturar_token", methods=["POST"])
+def oc_capturar_token():
+    """Hace login completo al ERP via Playwright para capturar el Bearer token JWT.
+    No ejecuta ninguna prueba — solo entra, captura el token y sale.
+    Usa el mismo mecanismo SSE que /ejecutar para mostrar progreso en tiempo real.
+    """
+    data = request.get_json() or {}
+    entorno_url  = data.get("entorno_url", "").strip()
+    bd_id        = data.get("bd_id", "").strip()
+    bd_catalogo  = data.get("bd_catalogo", "").strip()
+    bd_nombre    = data.get("bd_nombre", "").strip()
+
+    if not entorno_url:
+        return jsonify({"error": "No hay entorno seleccionado"}), 400
+
+    session_id = str(uuid.uuid4())
+    with SESIONES_LOCK:
+        SESIONES[session_id] = {"eventos": [], "done": False}
+
+    cfg = {
+        "entorno_url": entorno_url,
+        "bd_id":       bd_id,
+        "bd_catalogo": bd_catalogo,
+        "bd_nombre":   bd_nombre,
+        "usu":         session.get("usuario")  or sinco_api.usuario,
+        "pwd":         session.get("password") or sinco_api.password,
+    }
+    threading.Thread(target=_capturar_token_bg, args=(session_id, cfg), daemon=True).start()
+    return jsonify({"session_id": session_id})
+
+
+def _capturar_token_bg(session_id, cfg):
+    """Hilo: hace el login completo al ERP, captura el token JWT y lo guarda en OC_TOKEN_CACHE."""
+
+    def emit(ev):
+        with SESIONES_LOCK:
+            if session_id in SESIONES:
+                SESIONES[session_id]["eventos"].append(ev)
+
+    def paso(msg, pct):
+        emit({"tipo": "progreso", "paso": 1, "total": 4,
+              "nombre": msg, "descripcion": msg, "porcentaje": pct, "screenshot": None})
+
+    try:
+        entorno_url = cfg["entorno_url"]
+        login_url   = entorno_url
+        if not login_url.endswith("Login.aspx"):
+            login_url = re.sub(r'/V3/Marco/.*$', '/V3/Marco/Login.aspx', login_url)
+        base_url = re.sub(r'/V3/.*', '', entorno_url.rstrip('/'))
+
+        paso("Iniciando sesión en Torre...", 10)
+
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(headless=False, channel="chrome")
+            context = browser.new_context(ignore_https_errors=True)
+            pagina  = context.new_page()
+
+            # ── Login Torre ──
+            pagina.goto(sinco_api.url_torre)
+            pagina.wait_for_load_state("networkidle")
+            pagina.get_by_role("textbox", name="UsuarioWindows").fill(cfg["usu"])
+            pagina.get_by_role("textbox", name="Contraseña").fill(cfg["pwd"])
+            pagina.get_by_role("button", name="Ingresar con Windows").click()
+            pagina.wait_for_load_state("networkidle")
+            pagina.wait_for_timeout(2000)
+
+            paso("Obteniendo credenciales del ERP...", 30)
+
+            key_c = None
+            for _ in range(20):
+                key_c = pagina.evaluate("() => window.user_central_key || null")
+                if key_c:
+                    break
+                pagina.wait_for_timeout(300)
+
+            if not key_c:
+                raise Exception("No se pudo obtener user_central_key tras login en Torre")
+
+            usu_dominio = (
+                pagina.evaluate("() => window.trabajador ? window.trabajador.UsuarioDominio : null")
+                or sinco_api._usuario_dominio
+                or f"sinco\\{sinco_api.usuario}"
+            )
+            usu_login = (
+                pagina.evaluate("() => window.trabajador ? window.trabajador.UsuarioLogin : null")
+                or getattr(sinco_api, '_usuario_login', 'admin')
+                or "admin"
+            )
+
+            paso("Ingresando al entorno ERP...", 50)
+
+            usu_dominio_js = usu_dominio.replace("\\", "\\\\")
+            with pagina.expect_popup(timeout=30000) as popup_info:
+                pagina.evaluate(f"""() => {{
+                    const form = document.createElement('form');
+                    form.method = 'post';
+                    form.action = '{login_url}';
+                    form.target = '_blank';
+                    const fields = {{
+                        'keyC': '{key_c}', 'ingreso': '0',
+                        'usuDominio': '{usu_dominio_js}', 'usuario': '{usu_login}'
+                    }};
+                    for (const [n, v] of Object.entries(fields)) {{
+                        const i = document.createElement('input');
+                        i.type='hidden'; i.name=n; i.value=v; form.appendChild(i);
+                    }}
+                    document.body.appendChild(form); form.submit();
+                }}""")
+
+            popup = popup_info.value
+            try:
+                popup.wait_for_url("**/Seleccion_iv.aspx", timeout=30000)
+            except Exception:
+                pass
+            popup.wait_for_load_state("networkidle")
+            popup.wait_for_timeout(1500)
+
+            if "Seleccion" in popup.url:
+                paso("Seleccionando empresa...", 65)
+                popup.locator("#ddlEmpresa").wait_for(state="visible", timeout=15000)
+                bd_id      = cfg.get("bd_id", "")
+                bd_catalogo= cfg.get("bd_catalogo", "")
+                bd_nombre  = cfg.get("bd_nombre", "")
+                if bd_id or bd_catalogo or bd_nombre:
+                    seleccionar_empresa_dropdown(popup, bd_id, bd_catalogo, bd_nombre)
+                popup.get_by_role("button", name="Ingresar").click()
+                popup.wait_for_url("**/Default_iv.aspx", timeout=30000)
+                popup.wait_for_load_state("networkidle")
+                popup.wait_for_timeout(1500)
+            elif "Login" in popup.url:
+                raise Exception("Autenticación falló al ingresar al entorno")
+
+            paso("Capturando token JWT...", 85)
+            _capturar_token_erp(popup, entorno_url)
+
+            try:
+                pagina.close()
+            except Exception:
+                pass
+            browser.close()
+
+        with OC_TOKEN_LOCK:
+            token = OC_TOKEN_CACHE.get(base_url)
+
+        if token:
+            preview = token[:12] + "..." + token[-6:]
+            emit({"tipo": "token_ok", "preview": preview, "longitud": len(token)})
+            emit({"tipo": "fin", "exito": True})
+            print(f"  [OC-TOKEN] Captura exitosa — {len(token)} chars")
+        else:
+            emit({
+                "tipo":    "fin",
+                "exito":   False,
+                "mensaje": (
+                    "El ERP no almacenó el token en localStorage/sessionStorage ni en cookies. "
+                    "Puede que esta versión del ERP use un mecanismo distinto. "
+                    "Usa el campo manual con el token de DevTools."
+                ),
+            })
+
+    except Exception as e:
+        emit({"tipo": "error",  "mensaje": str(e)})
+        emit({"tipo": "fin",    "exito": False})
+    finally:
+        with SESIONES_LOCK:
+            if session_id in SESIONES:
+                SESIONES[session_id]["done"] = True
+
+
+@app.route("/oc/token_estado", methods=["POST"])
+def oc_token_estado():
+    """Informa si hay un Bearer token cacheado para el entorno dado.
+    Body JSON: { entorno_url: str }
+    """
+    data        = request.get_json() or {}
+    entorno_url = data.get("entorno_url", "").strip()
+    base_url    = re.sub(r'/V3/.*', '', entorno_url.rstrip('/'))
+    with OC_TOKEN_LOCK:
+        token = OC_TOKEN_CACHE.get(base_url)
+    if token:
+        preview = token[:12] + "..." + token[-6:]
+        return jsonify({"disponible": True, "preview": preview, "longitud": len(token)})
+    return jsonify({"disponible": False})
+
+
 @app.route("/verificar_addon", methods=["POST"])
 def verificar_addon():
     """Consulta si un addon ya está instalado en el entorno de pruebas de un cliente.
@@ -2050,6 +2543,12 @@ def _ejecutar_prueba(session_id, prueba_id, cfg):
             url_erp = popup.url
             elapsed = time.time() - t0
             print(f"  [PRUEBA] Login OK: {url_erp} ({elapsed:.1f}s)")
+
+            # Capturar token JWT del ERP para el panel OC (no bloquea si falla)
+            try:
+                _capturar_token_erp(popup, cfg["entorno_url"])
+            except Exception as _e_tok:
+                print(f"  [OC-TOKEN] Error al capturar: {_e_tok}")
 
             progreso(4, 5, "Login exitoso", f"Dentro de {cfg['entorno_tipo']}", 80, popup)
 

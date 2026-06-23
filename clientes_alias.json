@@ -3,6 +3,7 @@
   "_uso": "Cuando Torre tiene nombres distintos entre clientes y entornos, agregue una entrada aquí.",
   "_formato": { "NOMBRE EXACTO DEL CLIENTE EN TORRE": "NOMBRE EXACTO EN NombreCliente DEL ENTORNO" },
 
+  "INGEURBE GESTORA DE PROYECTOS S.A.S.": {"empresa_id": 6},
   "PULSO PROYECTOS TEMATICOS S.A.S.": "PULSO PROMOTORA TEMATICA S.A.S.",
   "SELCO SEL CONSULTING S.A.S.": "SEL CONSULTING SAS",
   "HAUS GROUP S.A.": "HAUS PANAMA"
