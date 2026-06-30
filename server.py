@@ -732,7 +732,12 @@ class SincoAPI:
                 entornos_match_ids.add(entorno_id)
                 entornos_seleccionados.append(e)
 
-            if match_canal == 2:
+            # Registrar para transitividad multi-tenant en cualquier canal de match
+            # (no solo Canal 2): un entorno de Pruebas puede no tener BD ni
+            # NombreCliente propios del cliente (caso INVERSIONES COLDUR, cuyo
+            # entorno PRBINT trae NombreCliente "PRUEBAS COLVIVIENDAS SAS"), pero
+            # comparte EmpresaId y raíz de Nombre con el entorno que sí matcheó.
+            if match_canal in (1, 2):
                 emp_id = e.get("EmpresaId")
                 if emp_id is not None:
                     empresas_canal2.add(emp_id)
